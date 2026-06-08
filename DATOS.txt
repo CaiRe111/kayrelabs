@@ -1,0 +1,36 @@
+https://C41R3111.github.io/Portafolio_EC_Diseno/
+
+Inicializar Node
+
+npm init -y
+
+Para cada cambio importante repites:
+
+git add .
+git commit -m "Mensaje claro del cambio"
+git push
+
+Para guardar cambios en GitHub usas este ciclo:
+
+cd "C:\Users\PC\Documents\Portafolio Pagina Wb\Portafolio_EC_Diseno"
+git status
+git add .
+git commit -m "Actualizacion de diseño del portafolio"
+git push
+
+Cómo funciona
+
+git status
+Muestra qué archivos cambiaste.
+
+git add .
+Prepara todos los archivos modificados para guardarlos.
+
+git commit -m "mensaje"
+Crea una “foto” del estado actual del proyecto con una descripción.
+
+git push
+Sube esa foto a GitHub.
+
+Después del push, GitHub Pages actualiza tu página online automáticamente en unos minutos.
+

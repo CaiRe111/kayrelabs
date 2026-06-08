@@ -5,11 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    
 </head>
 <body>
+  <header>
     
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand" class="logo">
+                <img src="/Portafolio_EC_Diseno/assets/img/Logos/logo.png" alt="Bootstrap" width="60" height="60">
+                EC Diseño</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown" >
+                    <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Proyectos
+                    </a>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Diseño</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Programación</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Arte</a></li>                   
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Contacto</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            </div>
+        </div>
+    </nav>
+
+    <!--<nav class="nav">
+     
+
+    <ul class="menu">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    </nav>-->
+
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <p class="etiqueta">Portafolio creativo y técnico</p>
+            <h1>Diseño, audiovisual y desarrollo web</h1>
+            <p>
+            Muestras de proyectos visuales, programación, edición y experiencias digitales.
+            </p>
+            <a href="#proyectos" class="btn-principal">Ver proyectos</a>
+        </div>
+    </section>
+    <section id="categorias"></section>
+    <section id="proyectos" class="proyectos">
+        <h2>Proyectos destacados</h2>
+        <div class="grid-proyectos">
+            <article class="card-proyecto">
+            <img src="assets/img/proyecto1.jpg" alt="Proyecto audiovisual">
+            <h3>Proyecto audiovisual</h3>
+            <p>Edición, composición y narrativa visual.</p>
+            <a href="#">Ver más</a>
+            </article>
+        </div>
+     </section>
+    <section id="sobre-mi"></section>
+    <section id="contacto"></section>
+  </main>
+
+  <footer></footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/main.js"></script>
 </body>
