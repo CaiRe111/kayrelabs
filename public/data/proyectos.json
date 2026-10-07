@@ -1,0 +1,8 @@
+[
+  { "rama": "diseno", "titulo": "Proyecto 1", "descripcion": "Identidad visual.", "imagen": "assets/img/Img-proyectos/P1.webp" },
+  { "rama": "diseno", "titulo": "Proyecto 2", "descripcion": "Ilustración y composición.", "imagen": "assets/img/Img-proyectos/p2.webp" },
+  { "rama": "diseno", "titulo": "Proyecto 3", "descripcion": "Edición audiovisual.", "imagen": "assets/img/Img-proyectos/p3.webp" },
+  { "rama": "desarrollo", "titulo": "Electrónica 1", "descripcion": "Circuito y prototipo.", "imagen": "assets/img/Proyectos/electronica-1.jpg" },
+  { "rama": "desarrollo", "titulo": "Electrónica 2", "descripcion": "Sistema embebido.", "imagen": "assets/img/Proyectos/electronica-2.jpg" },
+  { "rama": "desarrollo", "titulo": "Programación 1", "descripcion": "Aplicación web.", "imagen": "assets/img/Proyectos/programacion-2.jpg" }
+]

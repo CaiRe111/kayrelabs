@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kayrelabs — Diseño y Tecnología</title>
+  <meta name="description" content="Portafolio de diseño gráfico y audiovisual, electrónica y programación.">
+  <link rel="icon" href="assets/img/Logos/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+        <img src="assets/img/Logos/logo.png" alt="Kayrelabs"> Kayrelabs
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="diseno.html">Diseño &amp; Audiovisual</a></li>
+          <li class="nav-item"><a class="nav-link" href="desarrollo.html">Electrónica &amp; Programación</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <p class="etiqueta">Kayrelabs</p>
+      <h1 class="display-3">Donde el diseño<br>se encuentra con la tecnología</h1>
+      <p class="lead col-lg-6">Proyectos visuales y audiovisuales, y sistemas de electrónica y software, en un solo laboratorio creativo.</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <a class="rama diseno" href="diseno.html">
+              <div class="icono acento-diseno">🎨</div>
+              <h2 class="h3 mt-3">Diseño gráfico &amp; Audiovisual</h2>
+              <p class="mb-0">Identidad visual, ilustración, edición de video y motion graphics.</p>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a class="rama dev" href="desarrollo.html">
+              <div class="icono acento-dev">⚡</div>
+              <h2 class="h3 mt-3">Electrónica &amp; Programación</h2>
+              <p class="mb-0">Circuitos, firmware, aplicaciones web y automatización.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container d-flex flex-wrap justify-content-between gap-2">
+      <span>© <span id="anio"></span> Kayrelabs</span>
+      <a class="link-secondary" href="contacto.html">Contacto</a>
+    </div>
+  </footer>
+
+  <script src="vendor/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

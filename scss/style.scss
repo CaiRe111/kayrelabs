@@ -1,0 +1,68 @@
+// Kayrelabs — variables de marca (sobrescriben Bootstrap)
+$kl-bg: #0b0d12;
+$kl-surface: #141822;
+$kl-design: #ff4d8d;   // rama diseño gráfico / audiovisual
+$kl-dev: #2fd6c4;      // rama electrónica / programación
+
+$primary: $kl-design;
+$info: $kl-dev;
+$body-bg: $kl-bg;
+$body-color: #e8eaf0;
+$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+$border-radius: 0.75rem;
+$navbar-dark-color: rgba(#fff, 0.75);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+:root {
+  --kl-design: #{$kl-design};
+  --kl-dev: #{$kl-dev};
+  --kl-surface: #{$kl-surface};
+}
+
+.navbar { background: rgba($kl-bg, 0.85); backdrop-filter: blur(8px); }
+.navbar-brand img { height: 36px; width: auto; }
+
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding-top: 5rem;
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba($kl-design, 0.25), transparent 55%),
+    radial-gradient(ellipse at 85% 80%, rgba($kl-dev, 0.22), transparent 55%),
+    $kl-bg;
+
+  h1 { font-weight: 800; letter-spacing: -0.02em; }
+  .etiqueta { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; color: $kl-dev; }
+}
+
+.rama {
+  display: block;
+  height: 100%;
+  padding: 2rem;
+  border-radius: $border-radius;
+  background: $kl-surface;
+  border: 1px solid rgba(#fff, 0.08);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s, border-color 0.2s;
+
+  &:hover { transform: translateY(-4px); color: inherit; }
+  &.diseno:hover { border-color: $kl-design; }
+  &.dev:hover { border-color: $kl-dev; }
+  .icono { font-size: 2.5rem; }
+}
+
+.acento-diseno { color: $kl-design; }
+.acento-dev { color: $kl-dev; }
+
+.card-proyecto {
+  background: $kl-surface;
+  border: 1px solid rgba(#fff, 0.08);
+  overflow: hidden;
+  img { aspect-ratio: 16 / 10; object-fit: cover; }
+}
+
+section { padding: 4rem 0; }
+footer { padding: 2rem 0; border-top: 1px solid rgba(#fff, 0.08); color: rgba(#fff, 0.55); }

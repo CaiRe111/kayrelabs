@@ -1,12 +1,14 @@
 {
-  "name": "portafolio_ec_diseno",
+  "name": "kayrelabs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass scss/style.scss css/style.css",
-    "sass:watch": "sass --watch scss/style.scss css/style.css"
+    "start": "node server.js",
+    "sass": "sass --quiet-deps --silence-deprecation=import,global-builtin,color-functions,mixed-decls scss/style.scss public/css/style.css",
+    "sass:watch": "sass --watch --quiet-deps --silence-deprecation=import,global-builtin,color-functions,mixed-decls scss/style.scss public/css/style.css",
+    "vendor": "node -e \"require('fs').copyFileSync('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js','public/vendor/bootstrap.bundle.min.js')\"",
+    "build": "npm run sass && npm run vendor"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +20,4 @@
   "devDependencies": {
     "sass": "^1.100.0"
   }
-  
 }
-
