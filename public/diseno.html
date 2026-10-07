@@ -4,14 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Diseño &amp; Audiovisual — Kayrelabs</title>
+  <meta name="description" content="Galería de diseño gráfico y audiovisual.">
+  <meta name="theme-color" content="#0b0d12">
   <link rel="icon" href="assets/img/Logos/logo.png">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="pagina-diseno">
   <nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="/">
-        <img src="assets/img/Logos/logo.png" alt="Kayrelabs"> Kayrelabs
+        <img src="assets/img/Logos/logo.png" alt=""> Kayrelabs
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
         <span class="navbar-toggler-icon"></span>
@@ -26,18 +28,40 @@
     </div>
   </nav>
 
-  <main class="pt-5">
+  <header class="encabezado">
+    <div class="container">
+      <p class="etiqueta">Galería</p>
+      <h1>Diseño gráfico<br>&amp; Audiovisual</h1>
+      <p class="lead col-lg-6 mb-0">Fotografía, ilustración y logotipos: piezas pensadas para mirarse despacio.</p>
+    </div>
+  </header>
+
+  <main>
     <section>
       <div class="container">
-        <h1 class="acento-diseno mt-4">Diseño gráfico &amp; Audiovisual</h1>
-        <p class="lead">Proyectos de identidad visual, ilustración, video y motion.</p>
-        <div id="lista-proyectos" class="row g-4" data-rama="diseno"></div>
+        <div id="filtros" class="filtros d-flex flex-wrap gap-2 mb-4">
+          <button class="btn btn-outline-light btn-sm rounded-pill active" data-filtro="todos">Todo</button>
+          <button class="btn btn-outline-light btn-sm rounded-pill" data-filtro="fotografia">Fotografía</button>
+          <button class="btn btn-outline-light btn-sm rounded-pill" data-filtro="ilustracion">Ilustración</button>
+          <button class="btn btn-outline-light btn-sm rounded-pill" data-filtro="logotipos">Logotipos</button>
+        </div>
+        <div id="lista-proyectos" class="galeria" data-rama="diseno"></div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">© <span id="anio"></span> Kayrelabs</div>
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <span>© <span id="anio"></span> Kayrelabs</span>
+      <div class="d-flex gap-2">
+        <!-- Sustituye cada href="#" por la URL real de tu perfil -->
+        <a class="red correo" href="mailto:ecjimenez96@gmail.com" aria-label="Correo"></a>
+        <a class="red instagram" href="#" aria-label="Instagram"></a>
+        <a class="red facebook" href="#" aria-label="Facebook"></a>
+        <a class="red twitter" href="#" aria-label="X / Twitter"></a>
+        <a class="red youtube" href="#" aria-label="YouTube"></a>
+      </div>
+    </div>
   </footer>
 
   <script src="vendor/bootstrap.bundle.min.js"></script>

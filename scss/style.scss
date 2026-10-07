@@ -2,6 +2,7 @@
 $kl-bg: #0b0d12;
 $kl-surface: #141822;
 $kl-design: #ff4d8d;   // rama diseño gráfico / audiovisual
+$kl-warm: #ffb86b;
 $kl-dev: #2fd6c4;      // rama electrónica / programación
 
 $primary: $kl-design;
@@ -10,59 +11,234 @@ $body-bg: $kl-bg;
 $body-color: #e8eaf0;
 $font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 $border-radius: 0.75rem;
-$navbar-dark-color: rgba(#fff, 0.75);
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-:root {
-  --kl-design: #{$kl-design};
-  --kl-dev: #{$kl-dev};
-  --kl-surface: #{$kl-surface};
+$img: "../assets/img";
+
+// ---------- Fondo fijo por página ----------
+:root { --fondo: url("#{$img}/Fondos/fondo5.jpg"); --acento: #{$kl-design}; }
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background: $kl-bg;
+
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: var(--fondo) center / cover no-repeat;
+  }
+  &::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba($kl-bg, 0.55), rgba($kl-bg, 0.9));
+  }
 }
 
-.navbar { background: rgba($kl-bg, 0.85); backdrop-filter: blur(8px); }
-.navbar-brand img { height: 36px; width: auto; }
+body.pagina-dev {
+  --fondo: url("#{$img}/Fondos/Fondo2.jpg");
+  --acento: #{$kl-dev};
+  &::before { background-position: center 30%; }
+  &::after { background: linear-gradient(180deg, rgba(#04141a, 0.78), rgba($kl-bg, 0.94)); }
+}
 
-.hero {
-  min-height: 85vh;
+// ---------- Navbar ----------
+.navbar {
+  background: rgba($kl-bg, 0.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(#fff, 0.08);
+  .navbar-brand img { height: 34px; width: auto; filter: invert(1) brightness(1.4); }
+  .nav-link.active { color: var(--acento); }
+}
+
+// ---------- Encabezado (img-portada-4) ----------
+.encabezado {
+  position: relative;
+  isolation: isolate;
   display: flex;
-  align-items: center;
-  padding-top: 5rem;
-  background:
-    radial-gradient(ellipse at 15% 20%, rgba($kl-design, 0.25), transparent 55%),
-    radial-gradient(ellipse at 85% 80%, rgba($kl-dev, 0.22), transparent 55%),
-    $kl-bg;
+  align-items: flex-end;
+  min-height: 60vh;
+  padding: 8rem 0 3rem;
+  background: url("#{$img}/Img-portada/img-portada-4.webp") center / cover no-repeat;
 
-  h1 { font-weight: 800; letter-spacing: -0.02em; }
-  .etiqueta { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; color: $kl-dev; }
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba($kl-bg, 0.7), rgba($kl-bg, 0.96));
+  }
+  &.grande { min-height: 88vh; align-items: center; }
+
+  .etiqueta { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; color: var(--acento); }
 }
 
+// ---------- Inicio ----------
 .rama {
-  display: block;
-  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 340px;
   padding: 2rem;
+  overflow: hidden;
   border-radius: $border-radius;
-  background: $kl-surface;
-  border: 1px solid rgba(#fff, 0.08);
-  color: inherit;
+  border: 1px solid rgba(#fff, 0.1);
+  color: #fff;
   text-decoration: none;
-  transition: transform 0.2s, border-color 0.2s;
+  isolation: isolate;
+  background: var(--img) center / cover no-repeat;
+  transition: transform 0.25s, border-color 0.25s;
 
-  &:hover { transform: translateY(-4px); color: inherit; }
-  &.diseno:hover { border-color: $kl-design; }
-  &.dev:hover { border-color: $kl-dev; }
-  .icono { font-size: 2.5rem; }
+  &::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(#000, 0.1), rgba(#000, 0.85)); }
+  &:hover { transform: translateY(-5px); color: #fff; }
+  &.diseno { --img: url("#{$img}/Fondos/color-salpicadura.webp"); &:hover { border-color: $kl-design; } h2 { font-family: Georgia, "Times New Roman", serif; font-style: italic; } }
+  &.dev { --img: url("#{$img}/Proyectos/electronica-2.jpg"); &:hover { border-color: $kl-dev; } h2 { font-family: ui-monospace, Consolas, monospace; } }
 }
 
+.sobre-mi img { border-radius: 50%; width: 220px; height: 220px; object-fit: cover; border: 3px solid rgba(#fff, 0.15); }
+
+// ---------- Utilidades ----------
 .acento-diseno { color: $kl-design; }
 .acento-dev { color: $kl-dev; }
+section { padding: 4rem 0; }
 
-.card-proyecto {
-  background: $kl-surface;
-  border: 1px solid rgba(#fff, 0.08);
-  overflow: hidden;
-  img { aspect-ratio: 16 / 10; object-fit: cover; }
+.filtros .btn {
+  --bs-btn-color: #{$body-color};
+  --bs-btn-border-color: rgba(#fff, 0.25);
+  --bs-btn-hover-bg: var(--acento);
+  --bs-btn-hover-border-color: var(--acento);
+  --bs-btn-hover-color: #000;
+  --bs-btn-active-bg: var(--acento);
+  --bs-btn-active-border-color: var(--acento);
+  --bs-btn-active-color: #000;
 }
 
-section { padding: 4rem 0; }
-footer { padding: 2rem 0; border-top: 1px solid rgba(#fff, 0.08); color: rgba(#fff, 0.55); }
+// ---------- Redes (iconos SVG del repositorio, coloreables) ----------
+.red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid rgba(#fff, 0.25);
+  color: #fff;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+
+  &::before {
+    content: "";
+    width: 1.3rem;
+    height: 1.3rem;
+    background: currentColor;
+    -webkit-mask: var(--icono) center / contain no-repeat;
+    mask: var(--icono) center / contain no-repeat;
+  }
+  &:hover { background: var(--acento); color: #000; transform: translateY(-3px); }
+  &.correo { --icono: url("#{$img}/Icon/envelope-solid.svg"); }
+  &.instagram { --icono: url("#{$img}/Icon/instagram.svg"); }
+  &.facebook { --icono: url("#{$img}/Icon/facebook.svg"); }
+  &.twitter { --icono: url("#{$img}/Icon/twitter.svg"); }
+  &.youtube { --icono: url("#{$img}/Icon/youtube.svg"); }
+}
+
+footer {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(#fff, 0.1);
+  background: rgba($kl-bg, 0.7);
+  color: rgba(#fff, 0.6);
+  .red { width: 2.3rem; height: 2.3rem; &::before { width: 1rem; height: 1rem; } }
+}
+
+// =====================================================
+// DISEÑO — artístico: serif cursiva, marcos tipo foto, color
+// =====================================================
+.pagina-diseno {
+  h1, h2, h3, .navbar-brand { font-family: Georgia, "Times New Roman", serif; font-style: italic; }
+  --acento: #{$kl-design};
+
+  .encabezado::before {
+    background:
+      radial-gradient(circle at 15% 85%, rgba($kl-design, 0.55), transparent 55%),
+      radial-gradient(circle at 90% 15%, rgba($kl-warm, 0.35), transparent 50%),
+      linear-gradient(180deg, rgba($kl-bg, 0.55), rgba($kl-bg, 0.95));
+  }
+  .encabezado h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 1; }
+
+  .galeria { columns: 3 260px; column-gap: 1.5rem; }
+
+  .pieza {
+    display: block;
+    break-inside: avoid;
+    margin: 0 0 1.75rem;
+    padding: 0.7rem 0.7rem 0.4rem;
+    background: #f3eee6;
+    color: #2a2622;
+    box-shadow: 0 12px 30px rgba(#000, 0.5);
+    transform: rotate(var(--giro, 0deg));
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: zoom-in;
+
+    &:nth-child(3n + 1) { --giro: -1.4deg; }
+    &:nth-child(3n + 2) { --giro: 1deg; }
+    &:nth-child(3n) { --giro: -0.5deg; }
+    &:hover { transform: rotate(0) scale(1.03); box-shadow: 0 20px 40px rgba($kl-design, 0.45); z-index: 2; position: relative; }
+
+    img { width: 100%; display: block; }
+    figcaption { padding: 0.6rem 0.2rem 0.3rem; font-family: Georgia, serif; font-style: italic; font-size: 0.95rem; }
+    // fondo claro para logotipos oscuros
+    &.logotipos img { padding: 1rem; background: #fff; }
+  }
+}
+
+// =====================================================
+// DESARROLLO — tecnológico: monoespaciada, rejilla, esquinas cortadas, cian
+// =====================================================
+.pagina-dev {
+  h1, h2, h3, .navbar-brand, .btn, .etiqueta { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; }
+  --acento: #{$kl-dev};
+
+  .encabezado::before {
+    background:
+      repeating-linear-gradient(0deg, rgba($kl-dev, 0.08) 0 1px, transparent 1px 40px),
+      repeating-linear-gradient(90deg, rgba($kl-dev, 0.08) 0 1px, transparent 1px 40px),
+      linear-gradient(180deg, rgba(#02242b, 0.7), rgba($kl-bg, 0.96));
+  }
+  .encabezado h1::before { content: "$ "; color: $kl-dev; }
+  .encabezado h1::after { content: "_"; color: $kl-dev; animation: parpadeo 1s steps(2) infinite; }
+
+  .tecnologias { max-height: 64px; width: auto; background: #fff; border-radius: 8px; padding: 4px 10px; }
+
+  .tarjeta {
+    position: relative;
+    display: block;
+    background: rgba(#06141a, 0.78);
+    border: 1px solid rgba($kl-dev, 0.4);
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    cursor: zoom-in;
+
+    &:hover { transform: translateY(-4px); border-color: $kl-dev; box-shadow: 0 0 24px rgba($kl-dev, 0.35); }
+
+    .barra { display: flex; align-items: center; gap: 0.35rem; padding: 0.45rem 0.8rem; font-size: 0.75rem; color: rgba(#fff, 0.6); border-bottom: 1px solid rgba($kl-dev, 0.25);
+      i { width: 8px; height: 8px; border-radius: 50%; background: rgba($kl-dev, 0.7); display: inline-block; }
+      span { margin-left: auto; color: $kl-dev; }
+    }
+    .vista { position: relative; overflow: hidden; background: #000;
+      img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; transition: transform 0.4s; }
+      &::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(#000, 0.18) 0 1px, transparent 1px 3px); pointer-events: none; }
+    }
+    &:hover img { transform: scale(1.06); }
+    .cuerpo { padding: 0.9rem 1rem 1.1rem; h3 { font-size: 1rem; color: $kl-dev; margin: 0 0 0.3rem; } p { font-size: 0.85rem; margin: 0; color: rgba(#fff, 0.7); } }
+  }
+}
+
+@keyframes parpadeo { 50% { opacity: 0; } }
+
+// ---------- Visor de imagen ----------
+.visor .modal-content { background: rgba($kl-bg, 0.96); border: 1px solid rgba(#fff, 0.12); }
+.visor img { max-height: 80vh; width: 100%; object-fit: contain; }
