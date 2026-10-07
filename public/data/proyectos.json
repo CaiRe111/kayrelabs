@@ -1,28 +1,135 @@
 [
-  { "rama": "diseno", "categoria": "fotografia", "titulo": "Geometría vertical", "descripcion": "Composición urbana en blanco y negro.", "imagen": "assets/img/Img-portada/img-portada-1.jpg" },
-  { "rama": "diseno", "categoria": "fotografia", "titulo": "Punto de fuga", "descripcion": "Perspectiva entre edificios.", "imagen": "assets/img/Img-portada/img-portada-2.jpg" },
-  { "rama": "diseno", "categoria": "fotografia", "titulo": "Cruz de luz", "descripcion": "Simetría y contraste.", "imagen": "assets/img/Img-portada/img-portada-3.jpg" },
-  { "rama": "diseno", "categoria": "fotografia", "titulo": "Reflejo", "descripcion": "Arquitectura sobre cristal.", "imagen": "assets/img/Img-portada/img-portada-4.webp" },
-  { "rama": "diseno", "categoria": "fotografia", "titulo": "Volcán y laguna", "descripcion": "Paisaje natural.", "imagen": "assets/img/Img-portada/img-portada-5.jpg" },
-  { "rama": "diseno", "categoria": "fotografia", "titulo": "Calle al fondo", "descripcion": "Perspectiva urbana.", "imagen": "assets/img/Img-portada/img-portada-6.jpg" },
-  { "rama": "diseno", "categoria": "ilustracion", "titulo": "Color en movimiento", "descripcion": "Salpicaduras de color sobre negro.", "imagen": "assets/img/Fondos/color-salpicadura.webp" },
-  { "rama": "diseno", "categoria": "ilustracion", "titulo": "Cielo estrellado", "descripcion": "Fondo digital de estrellas.", "imagen": "assets/img/Fondos/fondo1.jpg" },
-  { "rama": "diseno", "categoria": "ilustracion", "titulo": "Textura de muro", "descripcion": "Fondo de ladrillo en escala de grises.", "imagen": "assets/img/Fondos/Fondo3.jpg" },
-  { "rama": "diseno", "categoria": "ilustracion", "titulo": "Tormenta", "descripcion": "Rayo en alto contraste.", "imagen": "assets/img/Fondos/Fondo2.jpg" },
-  { "rama": "diseno", "categoria": "logotipos", "titulo": "Painting Studio", "descripcion": "Logotipo tipo escudo.", "imagen": "assets/img/Logos/logo.png" },
-  { "rama": "diseno", "categoria": "logotipos", "titulo": "Pincel y mano", "descripcion": "Ilustración lineal.", "imagen": "assets/img/Logos/logo1.png" },
-  { "rama": "diseno", "categoria": "logotipos", "titulo": "Paint Everyday", "descripcion": "Insignia hexagonal.", "imagen": "assets/img/Logos/logo2.png" },
-
-  { "rama": "desarrollo", "categoria": "web", "titulo": "App del clima", "descripcion": "Interfaz web con tema claro y oscuro.", "imagen": "assets/img/Img-proyectos/P1.webp" },
-  { "rama": "desarrollo", "categoria": "web", "titulo": "Lista de tareas", "descripcion": "Aplicación de tareas con tema oscuro.", "imagen": "assets/img/Img-proyectos/p2.webp" },
-  { "rama": "desarrollo", "categoria": "web", "titulo": "Tres en raya", "descripcion": "Juego interactivo en el navegador.", "imagen": "assets/img/Img-proyectos/p3.webp" },
-  { "rama": "desarrollo", "categoria": "web", "titulo": "Página de error 404", "descripcion": "Diseño responsive de página no encontrada.", "imagen": "assets/img/Img-proyectos/p4.webp" },
-  { "rama": "desarrollo", "categoria": "web", "titulo": "Landing de recompensas", "descripcion": "Página de aterrizaje de una marca.", "imagen": "assets/img/Img-proyectos/p5.webp" },
-  { "rama": "desarrollo", "categoria": "programacion", "titulo": "Código SVG", "descripcion": "Gráficos vectoriales con degradados.", "imagen": "assets/img/Proyectos/programacion-1.jfif" },
-  { "rama": "desarrollo", "categoria": "programacion", "titulo": "Entorno de desarrollo", "descripcion": "Código en el editor.", "imagen": "assets/img/Proyectos/programacion-2.jfif" },
-  { "rama": "desarrollo", "categoria": "programacion", "titulo": "Función en JavaScript", "descripcion": "Lógica de control de flujo.", "imagen": "assets/img/Proyectos/programacion-2.jpg" },
-  { "rama": "desarrollo", "categoria": "programacion", "titulo": "Código Python", "descripcion": "Procesamiento de datos con asincronía.", "imagen": "assets/img/Img-portada/header2.png" },
-  { "rama": "desarrollo", "categoria": "electronica", "titulo": "Placa con microcontrolador", "descripcion": "Circuito impreso y componentes SMD.", "imagen": "assets/img/Proyectos/electronica-1.jpg" },
-  { "rama": "desarrollo", "categoria": "electronica", "titulo": "Montaje de componentes", "descripcion": "Placa con condensadores y cristal.", "imagen": "assets/img/Proyectos/electronica-1.jfif" },
-  { "rama": "desarrollo", "categoria": "electronica", "titulo": "Pistas del circuito", "descripcion": "Diseño de PCB en azul.", "imagen": "assets/img/Proyectos/electronica-2.jpg" }
+  {
+    "rama": "diseno",
+    "categoria": "fotografia",
+    "titulo": "Geometría vertical",
+    "descripcion": "Composición urbana en blanco y negro.",
+    "imagen": "assets/img/Img-portada/img-portada-1.jpg"
+  },
+  {
+    "rama": "diseno",
+    "categoria": "fotografia",
+    "titulo": "Punto de fuga",
+    "descripcion": "Perspectiva entre edificios.",
+    "imagen": "assets/img/Img-portada/img-portada-2.jpg"
+  },
+  {
+    "rama": "diseno",
+    "categoria": "fotografia",
+    "titulo": "Cruz de luz",
+    "descripcion": "Simetría y contraste.",
+    "imagen": "assets/img/Img-portada/img-portada-3.jpg"
+  },
+  {
+    "rama": "diseno",
+    "categoria": "fotografia",
+    "titulo": "Reflejo",
+    "descripcion": "Arquitectura sobre cristal.",
+    "imagen": "assets/img/Img-portada/img-portada-4.webp"
+  },
+  {
+    "rama": "diseno",
+    "categoria": "fotografia",
+    "titulo": "Volcán y laguna",
+    "descripcion": "Paisaje natural.",
+    "imagen": "assets/img/Img-portada/img-portada-5.jpg"
+  },
+  {
+    "rama": "diseno",
+    "categoria": "fotografia",
+    "titulo": "Calle al fondo",
+    "descripcion": "Perspectiva urbana.",
+    "imagen": "assets/img/Img-portada/img-portada-6.jpg"
+  },
+  {
+    "rama": "diseno",
+    "categoria": "ilustracion",
+    "titulo": "Color en movimiento",
+    "descripcion": "Salpicaduras de color sobre negro.",
+    "imagen": "assets/img/Fondos/color-salpicadura.webp"
+  },
+  {
+    "rama": "diseno",
+    "categoria": "ilustracion",
+    "titulo": "Cielo estrellado",
+    "descripcion": "Fondo digital de estrellas.",
+    "imagen": "assets/img/Fondos/fondo1.jpg"
+  },
+  {
+    "rama": "diseno",
+    "categoria": "ilustracion",
+    "titulo": "Textura de muro",
+    "descripcion": "Fondo de ladrillo en escala de grises.",
+    "imagen": "assets/img/Fondos/Fondo3.jpg"
+  },
+  {
+    "rama": "diseno",
+    "categoria": "ilustracion",
+    "titulo": "Tormenta",
+    "descripcion": "Rayo en alto contraste.",
+    "imagen": "assets/img/Fondos/Fondo2.jpg"
+  },
+  {
+    "rama": "diseno",
+    "categoria": "logotipos",
+    "titulo": "Painting Studio",
+    "descripcion": "Logotipo tipo escudo.",
+    "imagen": "assets/img/Logos/logo.png"
+  },
+  {
+    "rama": "diseno",
+    "categoria": "logotipos",
+    "titulo": "Pincel y mano",
+    "descripcion": "Ilustración lineal.",
+    "imagen": "assets/img/Logos/logo1.png"
+  },
+  {
+    "rama": "diseno",
+    "categoria": "logotipos",
+    "titulo": "Paint Everyday",
+    "descripcion": "Insignia hexagonal.",
+    "imagen": "assets/img/Logos/logo2.png"
+  },
+  {
+    "rama": "desarrollo",
+    "categoria": "programacion",
+    "titulo": "Código SVG",
+    "descripcion": "Gráficos vectoriales con degradados.",
+    "imagen": "assets/img/Proyectos/programacion-1.jfif"
+  },
+  {
+    "rama": "desarrollo",
+    "categoria": "programacion",
+    "titulo": "Entorno de desarrollo",
+    "descripcion": "Código en el editor.",
+    "imagen": "assets/img/Proyectos/programacion-2.jfif"
+  },
+  {
+    "rama": "desarrollo",
+    "categoria": "programacion",
+    "titulo": "Función en JavaScript",
+    "descripcion": "Lógica de control de flujo.",
+    "imagen": "assets/img/Proyectos/programacion-2.jpg"
+  },
+  {
+    "rama": "desarrollo",
+    "categoria": "electronica",
+    "titulo": "Placa con microcontrolador",
+    "descripcion": "Circuito impreso y componentes SMD.",
+    "imagen": "assets/img/Proyectos/electronica-1.jpg"
+  },
+  {
+    "rama": "desarrollo",
+    "categoria": "electronica",
+    "titulo": "Montaje de componentes",
+    "descripcion": "Placa con condensadores y cristal.",
+    "imagen": "assets/img/Proyectos/electronica-1.jfif"
+  },
+  {
+    "rama": "desarrollo",
+    "categoria": "electronica",
+    "titulo": "Pistas del circuito",
+    "descripcion": "Diseño de PCB en azul.",
+    "imagen": "assets/img/Proyectos/electronica-2.jpg"
+  }
 ]
