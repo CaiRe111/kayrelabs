@@ -39,17 +39,34 @@ http
       return;
     }
 
-    fs.readFile(archivo, (err, datos) => {
-      if (err) {
+    fs.stat(archivo, (errStat, st) => {
+      if (errStat || !st.isFile()) {
         res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" }).end("No encontrado");
         return;
       }
-      res.writeHead(200, {
-        "Content-Type": TIPOS[path.extname(archivo).toLowerCase()] || "application/octet-stream",
+      const ext = path.extname(archivo).toLowerCase();
+      // HTML, CSS, JS y JSON se revalidan siempre; las imágenes se guardan en caché
+      const revalidar = [".html", ".css", ".js", ".json"].includes(ext);
+      const etag = `"${st.size}-${Math.floor(st.mtimeMs)}"`;
+      const cabeceras = {
+        "Content-Type": TIPOS[ext] || "application/octet-stream",
         "X-Content-Type-Options": "nosniff",
-        "Cache-Control": "public, max-age=300",
+        "Cache-Control": revalidar ? "no-cache" : "public, max-age=86400",
+        ETag: etag,
+        "Last-Modified": st.mtime.toUTCString(),
+      };
+      if (req.headers["if-none-match"] === etag) {
+        res.writeHead(304, cabeceras).end();
+        return;
+      }
+      fs.readFile(archivo, (err, datos) => {
+        if (err) {
+          res.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" }).end("Error del servidor");
+          return;
+        }
+        res.writeHead(200, cabeceras);
+        res.end(datos);
       });
-      res.end(datos);
     });
   })
   .listen(PORT, HOST, () => console.log(`Portafolio en http://${HOST}:${PORT}`));
