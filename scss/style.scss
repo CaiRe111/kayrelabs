@@ -1,16 +1,12 @@
-// Kayrelabs — variables de marca (sobrescriben Bootstrap)
-$kl-bg: #0b0d12;
-$kl-surface: #141822;
-$kl-design: #ff4d8d;   // rama diseño gráfico / audiovisual
-$kl-warm: #ffb86b;
-$kl-dev: #2fd6c4;      // rama electrónica / programación
+// Kayrelabs — los colores y tipografías viven en _marca.scss
+@import "marca";
 
 $primary: $kl-design;
 $info: $kl-dev;
 $body-bg: $kl-bg;
-$body-color: #e8eaf0;
-$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-$border-radius: 0.75rem;
+$body-color: $kl-text;
+$font-family-sans-serif: $fuente-base;
+$border-radius: $kl-radio;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
@@ -52,7 +48,7 @@ body.pagina-dev {
   background: rgba($kl-bg, 0.8);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(#fff, 0.08);
-  .navbar-brand img { height: 34px; width: auto; filter: invert(1) brightness(1.4); }
+  .navbar-brand img { height: 36px; width: auto; }
   .nav-link.active { color: var(--acento); }
 }
 
@@ -96,8 +92,8 @@ body.pagina-dev {
 
   &::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(#000, 0.1), rgba(#000, 0.85)); }
   &:hover { transform: translateY(-5px); color: #fff; }
-  &.diseno { --img: url("#{$img}/Fondos/color-salpicadura.webp"); &:hover { border-color: $kl-design; } h2 { font-family: Georgia, "Times New Roman", serif; font-style: italic; } }
-  &.dev { --img: url("#{$img}/Proyectos/electronica-2.jpg"); &:hover { border-color: $kl-dev; } h2 { font-family: ui-monospace, Consolas, monospace; } }
+  &.diseno { --img: url("#{$img}/Fondos/color-salpicadura.webp"); &:hover { border-color: $kl-design; } h2 { font-family: #{$fuente-arte}; font-style: italic; } }
+  &.dev { --img: url("#{$img}/Proyectos/electronica-2.jpg"); &:hover { border-color: $kl-dev; } h2 { font-family: #{$fuente-tech}; } }
 }
 
 .sobre-mi img { border-radius: 50%; width: 220px; height: 220px; object-fit: cover; border: 3px solid rgba(#fff, 0.15); }
@@ -158,7 +154,7 @@ footer {
 // DISEÑO — artístico: serif cursiva, marcos tipo foto, color
 // =====================================================
 .pagina-diseno {
-  h1, h2, h3, .navbar-brand { font-family: Georgia, "Times New Roman", serif; font-style: italic; }
+  h1, h2, h3, .navbar-brand { font-family: #{$fuente-arte}; font-style: italic; }
   --acento: #{$kl-design};
 
   .encabezado::before {
@@ -189,7 +185,7 @@ footer {
     &:hover { transform: rotate(0) scale(1.03); box-shadow: 0 20px 40px rgba($kl-design, 0.45); z-index: 2; position: relative; }
 
     img { width: 100%; display: block; }
-    figcaption { padding: 0.6rem 0.2rem 0.3rem; font-family: Georgia, serif; font-style: italic; font-size: 0.95rem; }
+    figcaption { padding: 0.6rem 0.2rem 0.3rem; font-family: #{$fuente-arte}; font-style: italic; font-size: 0.95rem; }
     // fondo claro para logotipos oscuros
     &.logotipos img { padding: 1rem; background: #fff; }
   }
@@ -199,7 +195,7 @@ footer {
 // DESARROLLO — tecnológico: monoespaciada, rejilla, esquinas cortadas, cian
 // =====================================================
 .pagina-dev {
-  h1, h2, h3, .navbar-brand, .btn, .etiqueta { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; }
+  h1, h2, h3, .navbar-brand, .btn, .etiqueta { font-family: #{$fuente-tech}; }
   --acento: #{$kl-dev};
 
   .encabezado::before {
@@ -208,6 +204,7 @@ footer {
       repeating-linear-gradient(90deg, rgba($kl-dev, 0.08) 0 1px, transparent 1px 40px),
       linear-gradient(180deg, rgba(#02242b, 0.7), rgba($kl-bg, 0.96));
   }
+  .encabezado h1 { font-size: clamp(1.25rem, 5.2vw, 2.5rem); overflow-wrap: anywhere; }
   .encabezado h1::before { content: "$ "; color: $kl-dev; }
   .encabezado h1::after { content: "_"; color: $kl-dev; animation: parpadeo 1s steps(2) infinite; }
 
@@ -242,3 +239,31 @@ footer {
 // ---------- Visor de imagen ----------
 .visor .modal-content { background: rgba($kl-bg, 0.96); border: 1px solid rgba(#fff, 0.12); }
 .visor img { max-height: 80vh; width: 100%; object-fit: contain; }
+
+// =====================================================
+// GUÍA DE MARCA (marca.html)
+// =====================================================
+:root { --kl-cian: #{$kl-dev}; --kl-rosa: #{$kl-design}; }
+
+.pagina-marca {
+  .marca-caja {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    padding: 1.5rem;
+    border-radius: $kl-radio;
+    border: 1px solid rgba(#fff, 0.12);
+    background: $kl-surface;
+    img { max-width: 100%; height: auto; }
+    &.oscuro { background: $kl-bg; }
+    &.claro { background: #fff; border-color: rgba(#000, 0.1); }
+  }
+  .punto { display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 50%; background: var(--c); margin-right: 0.4rem; }
+  .muestra { height: 90px; border-radius: $kl-radio; background: var(--c); border: 1px solid rgba(#fff, 0.2); }
+  .tipo { height: 100%; padding: 1.25rem; border-radius: $kl-radio; background: $kl-surface; border: 1px solid rgba(#fff, 0.1); }
+  .tipo .muestra-tipo { font-size: 2rem; margin-bottom: 0.75rem; }
+  .tipo.arte .muestra-tipo { font-family: $fuente-arte; font-style: italic; color: $kl-design; }
+  .tipo.tech .muestra-tipo { font-family: $fuente-tech; color: $kl-dev; }
+  code { color: $kl-warm; }
+}

@@ -1,0 +1,21 @@
+// =====================================================
+// KAYRELABS — IDENTIDAD DE MARCA
+// Edita aquí colores y tipografías; todo el sitio los usa.
+// Luego ejecuta: npm run build
+// =====================================================
+
+// ---- Colores
+$kl-bg: #0b0d12;        // Negro laboratorio (fondo)
+$kl-surface: #141822;   // Superficie (tarjetas)
+$kl-text: #e8eaf0;      // Blanco humo (texto)
+$kl-design: #ff4d8d;    // Rosa arte      → Diseño gráfico & audiovisual
+$kl-warm: #ffb86b;      // Ámbar          → apoyo de la rama artística
+$kl-dev: #2fd6c4;       // Cian circuito  → Electrónica & programación
+
+// ---- Tipografías (pilas de sistema, sin descargas)
+$fuente-base: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+$fuente-arte: Georgia, "Times New Roman", serif;                           // rama Diseño (cursiva)
+$fuente-tech: ui-monospace, "Cascadia Code", Consolas, monospace;          // rama Desarrollo
+
+// ---- Forma
+$kl-radio: 0.75rem;

@@ -11901,9 +11901,8 @@ body.pagina-dev::after {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .navbar .navbar-brand img {
-  height: 34px;
+  height: 36px;
   width: auto;
-  filter: invert(1) brightness(1.4);
 }
 .navbar .nav-link.active {
   color: var(--acento);
@@ -11969,7 +11968,7 @@ body.pagina-dev::after {
   border-color: #ff4d8d;
 }
 .rama.diseno h2, .rama.diseno .h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, Times New Roman, serif;
   font-style: italic;
 }
 .rama.dev {
@@ -11979,7 +11978,7 @@ body.pagina-dev::after {
   border-color: #2fd6c4;
 }
 .rama.dev h2, .rama.dev .h2 {
-  font-family: ui-monospace, Consolas, monospace;
+  font-family: ui-monospace, Cascadia Code, Consolas, monospace;
 }
 
 .sobre-mi img {
@@ -12069,7 +12068,7 @@ footer .red::before {
 }
 
 .pagina-diseno h1, .pagina-diseno .h1, .pagina-diseno h2, .pagina-diseno .h2, .pagina-diseno h3, .pagina-diseno .h3, .pagina-diseno .navbar-brand {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, Times New Roman, serif;
   font-style: italic;
 }
 .pagina-diseno {
@@ -12119,7 +12118,7 @@ footer .red::before {
 }
 .pagina-diseno .pieza figcaption {
   padding: 0.6rem 0.2rem 0.3rem;
-  font-family: Georgia, serif;
+  font-family: Georgia, Times New Roman, serif;
   font-style: italic;
   font-size: 0.95rem;
 }
@@ -12129,13 +12128,17 @@ footer .red::before {
 }
 
 .pagina-dev h1, .pagina-dev .h1, .pagina-dev h2, .pagina-dev .h2, .pagina-dev h3, .pagina-dev .h3, .pagina-dev .navbar-brand, .pagina-dev .btn, .pagina-dev .etiqueta {
-  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-family: ui-monospace, Cascadia Code, Consolas, monospace;
 }
 .pagina-dev {
   --acento: #2fd6c4;
 }
 .pagina-dev .encabezado::before {
   background: repeating-linear-gradient(0deg, rgba(47, 214, 196, 0.08) 0 1px, transparent 1px 40px), repeating-linear-gradient(90deg, rgba(47, 214, 196, 0.08) 0 1px, transparent 1px 40px), linear-gradient(180deg, rgba(2, 36, 43, 0.7), rgba(11, 13, 18, 0.96));
+}
+.pagina-dev .encabezado h1, .pagina-dev .encabezado .h1 {
+  font-size: clamp(1.25rem, 5.2vw, 2.5rem);
+  overflow-wrap: anywhere;
 }
 .pagina-dev .encabezado h1::before, .pagina-dev .encabezado .h1::before {
   content: "$ ";
@@ -12237,6 +12240,70 @@ footer .red::before {
   max-height: 80vh;
   width: 100%;
   object-fit: contain;
+}
+
+:root {
+  --kl-cian: #2fd6c4;
+  --kl-rosa: #ff4d8d;
+}
+
+.pagina-marca .marca-caja {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #141822;
+}
+.pagina-marca .marca-caja img {
+  max-width: 100%;
+  height: auto;
+}
+.pagina-marca .marca-caja.oscuro {
+  background: #0b0d12;
+}
+.pagina-marca .marca-caja.claro {
+  background: #fff;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+.pagina-marca .punto {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--c);
+  margin-right: 0.4rem;
+}
+.pagina-marca .muestra {
+  height: 90px;
+  border-radius: 0.75rem;
+  background: var(--c);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.pagina-marca .tipo {
+  height: 100%;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  background: #141822;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.pagina-marca .tipo .muestra-tipo {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+.pagina-marca .tipo.arte .muestra-tipo {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  color: #ff4d8d;
+}
+.pagina-marca .tipo.tech .muestra-tipo {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  color: #2fd6c4;
+}
+.pagina-marca code {
+  color: #ffb86b;
 }
 
 /*# sourceMappingURL=style.css.map */

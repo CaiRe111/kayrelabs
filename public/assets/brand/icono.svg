@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="t">
+  <title id="t">Kayrelabs</title>
+  <style>
+    /* Edita estos colores para cambiar el logotipo */
+    :root { --trazo: #E8EAF0; --cian: #2FD6C4; --rosa: #FF4D8D; --fondo: #0B0D12; }
+  </style>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 7 L105.9 33.5 V86.5 L60 113 L14.1 86.5 V33.5 Z" stroke="var(--trazo)" stroke-width="5"/>
+    <path d="M45 33 V87" stroke="var(--trazo)" stroke-width="8"/>
+    <path d="M45 62 L67 40 H79" stroke="var(--cian)" stroke-width="6"/>
+    <path d="M47 62 C60 64 70 74 82 90" stroke="var(--rosa)" stroke-width="8"/>
+  </g>
+  <circle cx="86" cy="40" r="5.5" fill="var(--cian)"/>
+</svg>
