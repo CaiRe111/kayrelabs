@@ -1,17 +1,15 @@
 {
   "name": "kayrelabs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sitio web de KayreLabs: impresión 3D, electrónica, domótica, desarrollo y diseño.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "sass": "sass --quiet-deps --silence-deprecation=import,global-builtin,color-functions,mixed-decls scss/style.scss public/css/style.css",
-    "sass:watch": "sass --watch --quiet-deps --silence-deprecation=import,global-builtin,color-functions,mixed-decls scss/style.scss public/css/style.css",
+    "sass": "sass --style=compressed --no-charset --quiet-deps --silence-deprecation=import,global-builtin,color-functions,mixed-decls scss/style.scss public/css/style.css",
+    "sass:watch": "sass --watch --style=compressed --no-charset --quiet-deps --silence-deprecation=import,global-builtin,color-functions,mixed-decls scss/style.scss public/css/style.css",
     "vendor": "node scripts/vendor.js",
     "build": "npm run sass && npm run vendor"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {

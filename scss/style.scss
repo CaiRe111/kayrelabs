@@ -27,11 +27,53 @@ $btn-padding-x: 1.25rem;
 $focus-ring-color: rgba($kl-verde, 0.45);
 $input-btn-focus-color: rgba($kl-verde, 0.45);
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+// ---------- Bootstrap: solo los módulos que usa el sitio ----------
+// Si necesitas otro componente (card, dropdown, forms…), agrega aquí su @import.
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+
+// Colores de tema: la marca solo usa primary, secondary, light y dark
+$theme-colors: map-remove($theme-colors, "success", "info", "warning", "danger");
+
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/buttons";
+@import "../node_modules/bootstrap/scss/transitions";
+@import "../node_modules/bootstrap/scss/nav";
+@import "../node_modules/bootstrap/scss/navbar";
+@import "../node_modules/bootstrap/scss/close";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/helpers/position";
+@import "../node_modules/bootstrap/scss/helpers/visually-hidden";
+
+// Utilidades: solo las familias que usa el sitio (layout, espaciado, texto y bordes)
+$utilities: map-get-multiple(
+  $utilities,
+  (
+    "display", "flex-direction", "flex-grow", "flex-wrap", "justify-content", "align-items", "align-self", "gap",
+    "margin", "margin-x", "margin-y", "margin-top", "margin-end", "margin-bottom", "margin-start",
+    "padding", "padding-x", "padding-y", "padding-top", "padding-end", "padding-bottom", "padding-start",
+    "text-align", "font-weight", "color", "border", "rounded", "width"
+  )
+);
+// Solo display, align-items y text-align tienen variantes por breakpoint (d-md-none, text-lg-end…)
+@each $familia in "margin", "margin-x", "margin-y", "margin-top", "margin-end", "margin-bottom", "margin-start",
+  "padding", "padding-x", "padding-y", "padding-top", "padding-end", "padding-bottom", "padding-start",
+  "gap", "flex-direction", "flex-grow", "flex-wrap", "justify-content", "align-self", "font-weight"
+{
+  $utilities: map-merge($utilities, ($familia: map-merge(map-get($utilities, $familia), (responsive: false))));
+}
+@import "../node_modules/bootstrap/scss/utilities/api";
 
 $img: "../assets/img";
 $arte: "../assets/fondos";
-$ilus: "../assets/ilustraciones";
 $iconos: "../assets/iconos";
 
 // ---------- Fuentes autoalojadas ----------
@@ -445,7 +487,7 @@ main > section { padding: 5rem 0; }
 }
 
 // =====================================================
-// ELECTRÓNICA y DESARROLLO — técnico: monoespaciada, tarjetas de terminal
+// ELECTRÓNICA y DESARROLLO — técnico: títulos monoespaciados
 // =====================================================
 .estilo-tech {
   .hero h1, .hero .etiqueta { font-family: $fuente-tech; }
@@ -458,46 +500,49 @@ main > section { padding: 5rem 0; }
     &::after { content: "_"; color: $kl-verde; animation: parpadeo 1s steps(2) infinite; }
   }
   .tecnologias { display: block; max-height: 64px; width: auto; margin-top: 1.5rem; padding: 4px 10px; border-radius: 10px; background: #fff; }
-
-  .tarjeta-sombra { height: 100%; filter: drop-shadow(0 12px 18px rgba($kl-negro, 0.22)); transition: filter 0.2s, transform 0.2s; &:hover { transform: translateY(-4px); filter: drop-shadow(0 0 14px rgba($kl-verde, 0.55)); } }
-  .tarjeta {
-    position: relative;
-    display: block;
-    height: 100%;
-    background: $kl-negro;
-    color: #fff;
-    border: 1px solid rgba($kl-verde, 0.55);
-    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
-    cursor: zoom-in;
-
-    .barra {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.45rem 0.8rem;
-      font-family: $fuente-tech;
-      font-size: 0.75rem;
-      color: rgba(#fff, 0.6);
-      border-bottom: 1px solid rgba($kl-verde, 0.3);
-      i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: rgba($kl-verde, 0.75); }
-      span { margin-left: auto; color: $kl-verde; }
-    }
-    .vista {
-      position: relative;
-      overflow: hidden;
-      background: #000;
-      img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; transition: transform 0.4s; }
-      &::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(#000, 0.18) 0 1px, transparent 1px 3px); pointer-events: none; }
-    }
-    &:hover img { transform: scale(1.06); }
-    .cuerpo {
-      padding: 0.9rem 1rem 1.1rem;
-      h3 { margin: 0 0 0.3rem; font-family: $fuente-tech; font-size: 1rem; letter-spacing: -0.02em; color: $kl-verde; }
-      p { margin: 0; font-size: 0.85rem; color: rgba(#fff, 0.72); }
-    }
-  }
 }
 @keyframes parpadeo { 50% { opacity: 0; } }
+
+// =====================================================
+// TARJETAS DE TERMINAL — galerías con data-estilo="terminal" (Electrónica, Desarrollo…)
+// =====================================================
+.tarjeta-sombra { height: 100%; filter: drop-shadow(0 12px 18px rgba($kl-negro, 0.22)); transition: filter 0.2s, transform 0.2s; &:hover { transform: translateY(-4px); filter: drop-shadow(0 0 14px rgba($kl-verde, 0.55)); } }
+.tarjeta {
+  position: relative;
+  display: block;
+  height: 100%;
+  background: $kl-negro;
+  color: #fff;
+  border: 1px solid rgba($kl-verde, 0.55);
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  cursor: zoom-in;
+
+  .barra {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.45rem 0.8rem;
+    font-family: $fuente-tech;
+    font-size: 0.75rem;
+    color: rgba(#fff, 0.6);
+    border-bottom: 1px solid rgba($kl-verde, 0.3);
+    i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: rgba($kl-verde, 0.75); }
+    span { margin-left: auto; color: $kl-verde; }
+  }
+  .vista {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; transition: transform 0.4s; }
+    &::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(#000, 0.18) 0 1px, transparent 1px 3px); pointer-events: none; }
+  }
+  &:hover img { transform: scale(1.06); }
+  .cuerpo {
+    padding: 0.9rem 1rem 1.1rem;
+    h3 { margin: 0 0 0.3rem; font-family: $fuente-tech; font-size: 1rem; letter-spacing: -0.02em; color: $kl-verde; }
+    p { margin: 0; font-size: 0.85rem; color: rgba(#fff, 0.72); }
+  }
+}
 
 // ---------- Visor de imagen ----------
 .visor .modal-content { background: $kl-negro; border: 1px solid rgba(#fff, 0.14); }
@@ -604,14 +649,13 @@ main > section { padding: 5rem 0; }
     background: $kl-blanco;
     img { max-width: 100%; height: auto; }
     &.oscura { background: $kl-negro; border-color: $kl-negro; }
-    &.verde { background: $kl-verde; border-color: $kl-verde; }
     &.gris { background: $kl-gris-50; }
   }
   .pie-archivo { margin: 0.6rem 0 0; font-size: 0.9rem; color: $kl-gris-600; a { color: $kl-negro; font-weight: 600; } }
   .nombre-app { margin: 0.9rem 0 0; font-weight: 700; small { display: block; font-weight: 400; color: $kl-gris-600; } }
 
   .muestra { height: 120px; border-radius: $kl-radio-grande; background: var(--c); border: 1px solid $kl-gris-200; }
-  .muestra-info { margin: 0.75rem 0 0; strong { display: block; } span { color: $kl-gris-600; font-size: 0.92rem; } }
+  .muestra-info { margin: 0.75rem 0 0; strong { display: block; } }
 
   .tipo { height: 100%; padding: 1.5rem; border: 1px solid $kl-gris-200; border-radius: $kl-radio-grande; background: $kl-blanco; }
   .tipo .muestra-tipo { margin: 0.25rem 0 0.75rem; font-size: 2.2rem; line-height: 1.1; }
