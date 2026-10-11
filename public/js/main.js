@@ -4,13 +4,15 @@ if (anio) anio.textContent = new Date().getFullYear();
 const contenedor = document.getElementById("lista-proyectos");
 
 if (contenedor) {
-  const rama = contenedor.dataset.rama;
-  const tema = document.body.classList.contains("pagina-dev") ? "dev" : "diseno";
+  const area = contenedor.dataset.area;
+  // "marco": fotos enmarcadas (Diseño) · "terminal": tarjetas tipo ventana (Electrónica, Desarrollo)
+  const estilo = contenedor.dataset.estilo;
 
   // Visor de imagen (modal de Bootstrap)
   const visorEl = document.createElement("div");
   visorEl.className = "modal fade visor";
   visorEl.tabIndex = -1;
+  visorEl.setAttribute("data-bs-theme", "dark");
   visorEl.innerHTML =
     '<div class="modal-dialog modal-dialog-centered modal-xl"><div class="modal-content">' +
     '<div class="modal-header border-0"><h2 class="modal-title h5"></h2>' +
@@ -49,9 +51,9 @@ if (contenedor) {
     return f;
   };
 
-  // Desarrollo: tarjetas tipo ventana de terminal
-  const tarjetaDev = (p, i) => {
-    const a = el("article", "tarjeta h-100");
+  // Electrónica y Desarrollo: tarjetas tipo ventana de terminal
+  const tarjetaTerminal = (p) => {
+    const a = el("article", "tarjeta");
     const barra = el("div", "barra");
     barra.append(el("i"), el("i"), el("i"), el("span", "", "[" + p.categoria + "]"));
     const vista = el("div", "vista");
@@ -59,19 +61,34 @@ if (contenedor) {
     const cuerpo = el("div", "cuerpo");
     cuerpo.append(el("h3", "", p.titulo), el("p", "", p.descripcion));
     a.append(barra, vista, cuerpo);
+    const sombra = el("div", "tarjeta-sombra");
+    sombra.append(a);
     const col = el("div", "col-md-6 col-lg-4");
-    col.append(a);
+    col.append(sombra);
     return col;
   };
 
   fetch("data/proyectos.json")
     .then((r) => r.json())
     .then((todos) => {
-      const proyectos = todos.filter((p) => p.rama === rama);
-      const nodos = proyectos.map((p, i) => {
-        const nodo = tema === "dev" ? tarjetaDev(p, i) : piezaDiseno(p);
+      const proyectos = todos.filter((p) => p.area === area);
+      const nodos = proyectos.map((p) => {
+        const nodo = estilo === "terminal" ? tarjetaTerminal(p) : piezaDiseno(p);
         nodo.dataset.categoria = p.categoria;
-        nodo.addEventListener("click", () => abrir(p));
+
+        // Accesible con teclado: Enter o espacio abren el visor
+        const activador = estilo === "terminal" ? nodo.querySelector(".tarjeta-sombra") : nodo;
+        activador.tabIndex = 0;
+        activador.setAttribute("role", "button");
+        activador.setAttribute("aria-label", "Ampliar: " + p.titulo);
+        activador.addEventListener("click", () => abrir(p));
+        activador.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            abrir(p);
+          }
+        });
+
         contenedor.append(nodo);
         return nodo;
       });

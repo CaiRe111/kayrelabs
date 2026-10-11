@@ -1,21 +1,29 @@
 // =====================================================
 // KAYRELABS — IDENTIDAD DE MARCA
+// Minimalista · Adaptable · Futura
 // Edita aquí colores y tipografías; todo el sitio los usa.
 // Luego ejecuta: npm run build
 // =====================================================
 
-// ---- Colores
-$kl-bg: #0b0d12;        // Negro laboratorio (fondo)
-$kl-surface: #141822;   // Superficie (tarjetas)
-$kl-text: #e8eaf0;      // Blanco humo (texto)
-$kl-design: #ff4d8d;    // Rosa arte      → Diseño gráfico & audiovisual
-$kl-warm: #ffb86b;      // Ámbar          → apoyo de la rama artística
-$kl-dev: #2fd6c4;       // Cian circuito  → Electrónica & programación
+// ---- Paleta oficial (ficha de marca)
+$kl-verde: #00c853;     // Verde principal
+$kl-negro: #111111;     // Negro principal
+$kl-blanco: #ffffff;    // Blanco / fondo
 
-// ---- Tipografías (pilas de sistema, sin descargas)
-$fuente-base: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-$fuente-arte: Georgia, "Times New Roman", serif;                           // rama Diseño (cursiva)
-$fuente-tech: ui-monospace, "Cascadia Code", Consolas, monospace;          // rama Desarrollo
+// ---- Derivados de la paleta (solo para interfaz)
+$kl-verde-hover: #00b04a;   // botón verde al pasar el cursor
+$kl-verde-texto: #007a33;   // verde para TEXTO pequeño sobre blanco (contraste 5,5:1; el verde principal solo da 2,2:1)
+$kl-verde-tinte: #e8faf0;   // fondo suave de iconos y etiquetas
+$kl-gris-50: #f6f8f7;       // superficies claras (secciones alternas)
+$kl-gris-200: #e3e8e5;      // bordes y separadores
+$kl-gris-600: #5d6762;      // texto secundario sobre claro (contraste 5,9:1)
+$kl-gris-300-oscuro: #b8c0bb; // texto secundario sobre negro (contraste 10:1)
 
-// ---- Forma
+// ---- Tipografías (autoalojadas en assets/fonts, ver scripts/vendor.js)
+$fuente-base: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;  // marca
+$fuente-tech: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;           // Electrónica y Desarrollo
+$fuente-arte: Georgia, "Times New Roman", serif;                                               // Diseño (cursiva)
+
+// ---- Forma: "formas suaves y directas"
 $kl-radio: 0.75rem;
+$kl-radio-grande: 1.1rem;

@@ -1,169 +1,422 @@
-// Kayrelabs — los colores y tipografías viven en _marca.scss
+// KayreLabs — los colores y tipografías viven en _marca.scss
 @import "marca";
 
-$primary: $kl-design;
-$info: $kl-dev;
-$body-bg: $kl-bg;
-$body-color: $kl-text;
+// ---------- Bootstrap: variables de marca (van antes de importar Bootstrap) ----------
+$primary: $kl-verde;
+$secondary: $kl-gris-600;
+$dark: $kl-negro;
+$light: $kl-gris-50;
+$body-bg: $kl-blanco;
+$body-color: $kl-negro;
+$body-bg-dark: $kl-negro;
+$body-color-dark: #eef2f0;
+$link-color: $kl-negro;
+$link-hover-color: $kl-verde-texto;
+$link-color-dark: $kl-verde;
+$link-hover-color-dark: #5df0a2;
 $font-family-sans-serif: $fuente-base;
+$font-family-monospace: $fuente-tech;
+$headings-font-weight: 800;
+$headings-line-height: 1.1;
 $border-radius: $kl-radio;
+$border-radius-lg: $kl-radio-grande;
+$color-contrast-dark: $kl-negro;   // texto negro sobre el verde (el blanco solo da 2,2:1)
+$btn-font-weight: 700;
+$btn-padding-y: 0.6rem;
+$btn-padding-x: 1.25rem;
+$focus-ring-color: rgba($kl-verde, 0.45);
+$input-btn-focus-color: rgba($kl-verde, 0.45);
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 $img: "../assets/img";
+$arte: "../assets/fondos";
+$ilus: "../assets/ilustraciones";
+$iconos: "../assets/iconos";
 
-// ---------- Fondo fijo por página ----------
-:root { --fondo: url("#{$img}/Fondos/fondo5.jpg"); --acento: #{$kl-design}; }
-
-body {
-  position: relative;
-  min-height: 100vh;
-  background: $kl-bg;
-
-  &::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    background: var(--fondo) center / cover no-repeat;
-  }
-  &::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: linear-gradient(180deg, rgba($kl-bg, 0.55), rgba($kl-bg, 0.9));
-  }
+// ---------- Fuentes autoalojadas ----------
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("../assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url("../assets/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");
 }
 
-body.pagina-dev {
-  --fondo: url("#{$img}/Fondos/Fondo2.jpg");
-  --acento: #{$kl-dev};
-  &::before { background-position: center 30%; }
-  &::after { background: linear-gradient(180deg, rgba(#04141a, 0.78), rgba($kl-bg, 0.94)); }
+// ---------- Base ----------
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5, h6 { letter-spacing: -0.03em; text-wrap: balance; }
+::selection { background: $kl-verde; color: $kl-negro; }
+:focus-visible { outline: 3px solid rgba($kl-verde, 0.7); outline-offset: 3px; }
+img { max-width: 100%; }
+
+main > section { padding: 5rem 0; }
+.alt { background: $kl-gris-50; }
+.verde { color: $kl-verde; }
+.titulo-seccion { font-size: clamp(1.7rem, 3.4vw, 2.5rem); margin-bottom: 0.75rem; }
+.subtitulo-seccion { max-width: 38rem; color: $kl-gris-600; font-size: 1.1rem; }
+
+// Etiqueta superior: mayúsculas con espaciado, como los títulos de la ficha de marca
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $kl-verde-texto;
+  .icono { width: 1.1rem; height: 1.1rem; }
 }
 
-// ---------- Navbar ----------
+// ---------- Iconos de línea (máscaras: toman el color del texto) ----------
+.icono {
+  display: inline-block;
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+  background: currentColor;
+  -webkit-mask: var(--i) center / contain no-repeat;
+  mask: var(--i) center / contain no-repeat;
+  vertical-align: -0.25em;
+}
+@each $n in impresion-3d, electronica, domotica, desarrollo, diseno, regla, capas, engranaje, bombillo, sensor, celular, correo, flecha, check, descargar {
+  .i-#{$n} { --i: url("#{$iconos}/#{$n}.svg"); }
+}
+.icono-caja {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.95rem;
+  background: $kl-verde-tinte;
+  color: $kl-verde;
+  .icono { width: 1.75rem; height: 1.75rem; }
+}
+
+.btn .icono { width: 1.1em; height: 1.1em; margin-left: 0.4rem; vertical-align: -0.17em; transition: transform 0.2s; }
+.btn:hover .icono { transform: translateX(3px); }
+
+// ---------- Navegación ----------
 .navbar {
-  background: rgba($kl-bg, 0.8);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(#fff, 0.08);
-  .navbar-brand img { height: 36px; width: auto; }
-  .nav-link.active { color: var(--acento); }
+  --bs-navbar-color: #{rgba($kl-negro, 0.72)};
+  --bs-navbar-hover-color: #{$kl-negro};
+  --bs-navbar-active-color: #{$kl-negro};
+  background: rgba($kl-blanco, 0.97);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba($kl-negro, 0.07);
+
+  .navbar-brand { padding: 0; img { display: block; height: 38px; width: auto; } }
+  .navbar-toggler { border-color: rgba($kl-negro, 0.2); &:focus { box-shadow: none; } }
+  .nav-link {
+    position: relative;
+    font-size: 0.95rem;
+    font-weight: 600;
+    &::after {
+      content: "";
+      position: absolute;
+      left: var(--bs-nav-link-padding-x);
+      right: var(--bs-nav-link-padding-x);
+      bottom: 0.1rem;
+      height: 2px;
+      border-radius: 2px;
+      background: $kl-verde;
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    &:hover::after, &.active::after { transform: scaleX(1); }
+  }
+  @include media-breakpoint-down(lg) {
+    .navbar-collapse { padding: 0.5rem 0 1rem; }
+    .nav-link::after { display: none; }
+    .nav-link.active { color: $kl-verde-texto; }
+    .btn { margin-top: 0.5rem; width: 100%; }
+  }
+  @include media-breakpoint-up(lg) { .btn { margin-left: 0.6rem; } }
 }
 
-// ---------- Encabezado (img-portada-4) ----------
-.encabezado {
+// ---------- Hero (negro, con brillo verde y retícula de puntos) ----------
+.hero {
   position: relative;
   isolation: isolate;
-  display: flex;
-  align-items: flex-end;
-  min-height: 60vh;
-  padding: 8rem 0 3rem;
-  background: url("#{$img}/Img-portada/img-portada-4.webp") center / cover no-repeat;
+  overflow: hidden;
+  padding: 8rem 0 4rem;
+  background: $kl-negro;
+  color: #fff;
 
   &::before {
     content: "";
     position: absolute;
     inset: 0;
-    z-index: -1;
-    background: linear-gradient(180deg, rgba($kl-bg, 0.7), rgba($kl-bg, 0.96));
+    z-index: -2;
+    background:
+      radial-gradient(60% 90% at 88% 0%, rgba($kl-verde, 0.3), transparent 62%),
+      radial-gradient(45% 60% at 0% 100%, rgba($kl-verde, 0.12), transparent 70%);
   }
-  &.grande { min-height: 88vh; align-items: center; }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(rgba(#fff, 0.14) 1.2px, transparent 1.6px) 0 0 / 28px 28px;
+    -webkit-mask-image: linear-gradient(115deg, transparent 20%, #000 95%);
+    mask-image: linear-gradient(115deg, transparent 20%, #000 95%);
+  }
+  .etiqueta { color: $kl-verde; }
+  h1 { color: #fff; font-size: clamp(2.3rem, 5.4vw, 4.2rem); line-height: 1.04; margin-bottom: 1.25rem; }
+  .lead { max-width: 34rem; color: rgba(#fff, 0.74); }
 
-  .etiqueta { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; color: var(--acento); }
+  @include media-breakpoint-up(lg) { padding: 9rem 0 5rem; }
 }
 
-// ---------- Inicio ----------
-.rama {
+// Inicio: el isotipo rodeado por las 5 áreas
+.hero-inicio {
+  @include media-breakpoint-up(lg) { min-height: 44rem; display: flex; align-items: center; > .container { width: 100%; } }
+}
+.orbita {
+  --size: 290px;
+  --r: calc(var(--size) * 0.43);
   position: relative;
-  display: flex;
-  align-items: flex-end;
-  min-height: 340px;
-  padding: 2rem;
-  overflow: hidden;
-  border-radius: $border-radius;
-  border: 1px solid rgba(#fff, 0.1);
-  color: #fff;
-  text-decoration: none;
-  isolation: isolate;
-  background: var(--img) center / cover no-repeat;
-  transition: transform 0.25s, border-color 0.25s;
-
-  &::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(#000, 0.1), rgba(#000, 0.85)); }
-  &:hover { transform: translateY(-5px); color: #fff; }
-  &.diseno { --img: url("#{$img}/Fondos/color-salpicadura.webp"); &:hover { border-color: $kl-design; } h2 { font-family: #{$fuente-arte}; font-style: italic; } }
-  &.dev { --img: url("#{$img}/Proyectos/electronica-2.jpg"); &:hover { border-color: $kl-dev; } h2 { font-family: #{$fuente-tech}; } }
-}
-
-.sobre-mi img { border-radius: 50%; width: 220px; height: 220px; object-fit: cover; border: 3px solid rgba(#fff, 0.15); }
-
-// ---------- Utilidades ----------
-.acento-diseno { color: $kl-design; }
-.acento-dev { color: $kl-dev; }
-section { padding: 4rem 0; }
-
-.filtros .btn {
-  --bs-btn-color: #{$body-color};
-  --bs-btn-border-color: rgba(#fff, 0.25);
-  --bs-btn-hover-bg: var(--acento);
-  --bs-btn-hover-border-color: var(--acento);
-  --bs-btn-hover-color: #000;
-  --bs-btn-active-bg: var(--acento);
-  --bs-btn-active-border-color: var(--acento);
-  --bs-btn-active-color: #000;
-}
-
-// ---------- Redes (iconos SVG del repositorio, coloreables) ----------
-.red {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  border: 1px solid rgba(#fff, 0.25);
-  color: #fff;
-  transition: background 0.2s, color 0.2s, transform 0.2s;
+  width: var(--size);
+  height: var(--size);
+  margin: 2.5rem auto 0;
+  @include media-breakpoint-up(md) { --size: 360px; }
+  @include media-breakpoint-up(lg) { --size: 420px; margin-top: 0; }
 
   &::before {
     content: "";
-    width: 1.3rem;
-    height: 1.3rem;
-    background: currentColor;
-    -webkit-mask: var(--icono) center / contain no-repeat;
-    mask: var(--icono) center / contain no-repeat;
+    position: absolute;
+    inset: calc(50% - var(--r));
+    border: 1px dashed rgba(#fff, 0.22);
+    border-radius: 50%;
   }
-  &:hover { background: var(--acento); color: #000; transform: translateY(-3px); }
-  &.correo { --icono: url("#{$img}/Icon/envelope-solid.svg"); }
-  &.instagram { --icono: url("#{$img}/Icon/instagram.svg"); }
-  &.facebook { --icono: url("#{$img}/Icon/facebook.svg"); }
-  &.twitter { --icono: url("#{$img}/Icon/twitter.svg"); }
-  &.youtube { --icono: url("#{$img}/Icon/youtube.svg"); }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 16%;
+    z-index: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($kl-verde, 0.3), transparent 68%);
+  }
+  .orbita-k {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 38%;
+    height: auto;
+    transform: translate(-50%, -50%);
+  }
+  .orbita-i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 3.4rem;
+    height: 3.4rem;
+    margin: -1.7rem 0 0 -1.7rem;
+    border-radius: 50%;
+    border: 1px solid rgba($kl-verde, 0.6);
+    background: $kl-negro;
+    color: $kl-verde;
+    transform: rotate(var(--a)) translateX(var(--r)) rotate(calc(-1 * var(--a)));
+    transition: background 0.2s, color 0.2s;
+    .icono { width: 1.55rem; height: 1.55rem; }
+    &:hover { background: $kl-verde; color: $kl-negro; }
+  }
 }
 
-footer {
-  padding: 2rem 0;
-  border-top: 1px solid rgba(#fff, 0.1);
-  background: rgba($kl-bg, 0.7);
-  color: rgba(#fff, 0.6);
-  .red { width: 2.3rem; height: 2.3rem; &::before { width: 1rem; height: 1rem; } }
+// Páginas de área: texto + ilustración
+.hero-area {
+  padding: 7rem 0 3rem;
+  .hero-arte { display: block; width: 100%; max-width: 520px; height: auto; margin: 2rem auto 0; }
+  @include media-breakpoint-up(lg) {
+    padding: 8rem 0 4rem;
+    min-height: 36rem;
+    display: flex;
+    align-items: center;
+    > .container { width: 100%; }
+    .hero-arte { margin: 0 0 0 auto; }
+  }
+}
+.hero-3d::after { background: url("#{$arte}/patron-isometrico.svg") 0 0 / auto; }
+.hero-electronica::after { background: url("#{$arte}/patron-circuito.svg") 0 0 / auto; }
+.hero-domotica::after {
+  background: url("#{$arte}/red-nodos.svg") right center / cover no-repeat;
+  opacity: 0.55;
+  -webkit-mask-image: linear-gradient(90deg, transparent 20%, #000 55%, rgba(#000, 0.4) 100%);
+  mask-image: linear-gradient(90deg, transparent 20%, #000 55%, rgba(#000, 0.4) 100%);
+}
+.hero-desarrollo::after {
+  background:
+    repeating-linear-gradient(0deg, rgba($kl-verde, 0.1) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(90deg, rgba($kl-verde, 0.1) 0 1px, transparent 1px 40px);
+  -webkit-mask-image: linear-gradient(115deg, transparent 15%, #000 90%);
+  mask-image: linear-gradient(115deg, transparent 15%, #000 90%);
+}
+.hero-diseno::after {
+  background: url("#{$arte}/curvas-vectoriales.svg") right center / cover no-repeat;
+  opacity: 0.4;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+// Hero compacto (contacto, marca): lleva la K como marca de agua
+.hero-compacto {
+  padding: 7.5rem 0 3.5rem;
+  &::before {
+    background:
+      url("#{$arte}/marca-agua-k.svg") right 7% center / auto 88% no-repeat,
+      radial-gradient(60% 90% at 88% 0%, rgba($kl-verde, 0.3), transparent 62%),
+      radial-gradient(45% 60% at 0% 100%, rgba($kl-verde, 0.12), transparent 70%);
+  }
+  @include media-breakpoint-up(lg) { padding: 8.5rem 0 4.5rem; }
+  @include media-breakpoint-down(md) { &::before { background-position: right -30% center, 0 0, 0 0; } }
+}
+
+// ---------- Inicio: tarjetas de áreas ----------
+.area-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  padding: 1.75rem;
+  border: 1px solid $kl-gris-200;
+  border-radius: $kl-radio-grande;
+  background: $kl-blanco;
+  color: $kl-negro;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+
+  h3 { margin: 0.5rem 0 0; font-size: 1.3rem; }
+  p { margin: 0; color: $kl-gris-600; transition: color 0.2s; }
+  .mas { display: inline-flex; align-items: center; margin-top: auto; padding-top: 0.5rem; font-weight: 700; }
+  .icono-caja { transition: background 0.2s; }
+
+  &:hover {
+    transform: translateY(-4px);
+    background: $kl-negro;
+    border-color: $kl-negro;
+    color: #fff;
+    box-shadow: 0 18px 36px rgba($kl-negro, 0.2);
+    p { color: rgba(#fff, 0.72); }
+    .icono-caja { background: rgba($kl-verde, 0.16); }
+    .mas { color: $kl-verde; }
+    .icono { transform: translateX(3px); }
+  }
+  .mas .icono { margin-left: 0.4rem; width: 1.1em; height: 1.1em; transition: transform 0.2s; }
+
+  &.area-card-cta {
+    justify-content: center;
+    background: $kl-verde;
+    border-color: $kl-verde;
+    color: $kl-negro;
+    h3 { font-size: 1.6rem; margin: 0; }
+    p { color: rgba($kl-negro, 0.78); }
+    .mas { color: $kl-negro; }
+    &:hover { background: $kl-negro; border-color: $kl-negro; color: #fff; .mas { color: $kl-verde; } p { color: rgba(#fff, 0.72); } }
+  }
+}
+
+// ---------- Inicio: sobre KayreLabs ----------
+.sobre {
+  .retrato {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 0 0 3px $kl-verde, 0 18px 36px rgba($kl-negro, 0.18);
+  }
+  .atributo {
+    height: 100%;
+    padding: 1.1rem 1.25rem;
+    border-left: 3px solid $kl-verde;
+    background: $kl-blanco;
+    border-radius: 0 $kl-radio $kl-radio 0;
+    strong { display: block; font-size: 1.05rem; }
+    span { color: $kl-gris-600; font-size: 0.95rem; }
+  }
+}
+
+// ---------- Banda de llamada a la acción (verde) ----------
+.banda-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 4.5rem 0;
+  background: $kl-verde;
+  color: $kl-negro;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -4%;
+    bottom: -42%;
+    width: min(52%, 560px);
+    aspect-ratio: 130 / 121;
+    background: url("#{$arte}/marca-agua-k-negra.svg") center / contain no-repeat;
+  }
+  h2 { margin: 0 0 0.5rem; font-size: clamp(1.7rem, 3.6vw, 2.6rem); }
+  p { margin: 0; max-width: 34rem; font-size: 1.1rem; color: rgba($kl-negro, 0.8); }
+  .btn-dark:hover { background: #fff; border-color: #fff; color: $kl-negro; }
+}
+
+// ---------- Páginas de servicio (Impresión 3D, Domótica) ----------
+.servicio {
+  height: 100%;
+  padding: 1.75rem;
+  border: 1px solid $kl-gris-200;
+  border-radius: $kl-radio-grande;
+  background: $kl-blanco;
+  h3 { margin: 1.1rem 0 0.5rem; font-size: 1.2rem; }
+  p { margin: 0; color: $kl-gris-600; }
+}
+.vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  border: 2px dashed rgba($kl-negro, 0.16);
+  border-radius: $kl-radio-grande;
+  background: $kl-blanco;
+  h3 { margin: 0.5rem 0 0; font-size: 1.35rem; }
+  p { max-width: 30rem; margin: 0 0 0.75rem; color: $kl-gris-600; }
+}
+
+// ---------- Filtros ----------
+.filtros .btn {
+  --bs-btn-color: #{$kl-negro};
+  --bs-btn-border-color: #{$kl-gris-200};
+  --bs-btn-hover-bg: #{$kl-negro};
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-border-color: #{$kl-negro};
+  --bs-btn-active-bg: #{$kl-verde};
+  --bs-btn-active-color: #{$kl-negro};
+  --bs-btn-active-border-color: #{$kl-verde};
+  font-weight: 600;
 }
 
 // =====================================================
-// DISEÑO — artístico: serif cursiva, marcos tipo foto, color
+// DISEÑO — artístico: serif cursiva, marcos tipo foto
 // =====================================================
 .pagina-diseno {
-  h1, h2, h3, .navbar-brand { font-family: #{$fuente-arte}; font-style: italic; }
-  --acento: #{$kl-design};
-
-  .encabezado::before {
-    background:
-      radial-gradient(circle at 15% 85%, rgba($kl-design, 0.55), transparent 55%),
-      radial-gradient(circle at 90% 15%, rgba($kl-warm, 0.35), transparent 50%),
-      linear-gradient(180deg, rgba($kl-bg, 0.55), rgba($kl-bg, 0.95));
-  }
-  .encabezado h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 1; }
+  .hero h1 { font-family: $fuente-arte; font-style: italic; font-weight: 400; letter-spacing: -0.02em; }
 
   .galeria { columns: 3 260px; column-gap: 1.5rem; }
 
@@ -172,9 +425,9 @@ footer {
     break-inside: avoid;
     margin: 0 0 1.75rem;
     padding: 0.7rem 0.7rem 0.4rem;
-    background: #f3eee6;
-    color: #2a2622;
-    box-shadow: 0 12px 30px rgba(#000, 0.5);
+    background: #fff;
+    border: 1px solid $kl-gris-200;
+    box-shadow: 0 10px 26px rgba($kl-negro, 0.12);
     transform: rotate(var(--giro, 0deg));
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: zoom-in;
@@ -182,88 +435,217 @@ footer {
     &:nth-child(3n + 1) { --giro: -1.4deg; }
     &:nth-child(3n + 2) { --giro: 1deg; }
     &:nth-child(3n) { --giro: -0.5deg; }
-    &:hover { transform: rotate(0) scale(1.03); box-shadow: 0 20px 40px rgba($kl-design, 0.45); z-index: 2; position: relative; }
+    &:hover { transform: rotate(0) scale(1.03); box-shadow: 0 22px 44px rgba($kl-verde, 0.4); z-index: 2; position: relative; }
 
-    img { width: 100%; display: block; }
-    figcaption { padding: 0.6rem 0.2rem 0.3rem; font-family: #{$fuente-arte}; font-style: italic; font-size: 0.95rem; }
+    img { display: block; width: 100%; }
+    figcaption { padding: 0.6rem 0.2rem 0.3rem; font-family: $fuente-arte; font-style: italic; font-size: 0.95rem; color: $kl-negro; }
     // fondo claro para logotipos oscuros
     &.logotipos img { padding: 1rem; background: #fff; }
   }
 }
 
 // =====================================================
-// DESARROLLO — tecnológico: monoespaciada, rejilla, esquinas cortadas, cian
+// ELECTRÓNICA y DESARROLLO — técnico: monoespaciada, tarjetas de terminal
 // =====================================================
-.pagina-dev {
-  h1, h2, h3, .navbar-brand, .btn, .etiqueta { font-family: #{$fuente-tech}; }
-  --acento: #{$kl-dev};
-
-  .encabezado::before {
-    background:
-      repeating-linear-gradient(0deg, rgba($kl-dev, 0.08) 0 1px, transparent 1px 40px),
-      repeating-linear-gradient(90deg, rgba($kl-dev, 0.08) 0 1px, transparent 1px 40px),
-      linear-gradient(180deg, rgba(#02242b, 0.7), rgba($kl-bg, 0.96));
+.estilo-tech {
+  .hero h1, .hero .etiqueta { font-family: $fuente-tech; }
+  .hero h1 {
+    font-size: clamp(1.6rem, 6vw, 3.1rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    overflow-wrap: anywhere;
+    &::before { content: "$ "; color: $kl-verde; }
+    &::after { content: "_"; color: $kl-verde; animation: parpadeo 1s steps(2) infinite; }
   }
-  .encabezado h1 { font-size: clamp(1.25rem, 5.2vw, 2.5rem); overflow-wrap: anywhere; }
-  .encabezado h1::before { content: "$ "; color: $kl-dev; }
-  .encabezado h1::after { content: "_"; color: $kl-dev; animation: parpadeo 1s steps(2) infinite; }
+  .tecnologias { display: block; max-height: 64px; width: auto; margin-top: 1.5rem; padding: 4px 10px; border-radius: 10px; background: #fff; }
 
-  .tecnologias { max-height: 64px; width: auto; background: #fff; border-radius: 8px; padding: 4px 10px; }
-
+  .tarjeta-sombra { height: 100%; filter: drop-shadow(0 12px 18px rgba($kl-negro, 0.22)); transition: filter 0.2s, transform 0.2s; &:hover { transform: translateY(-4px); filter: drop-shadow(0 0 14px rgba($kl-verde, 0.55)); } }
   .tarjeta {
     position: relative;
     display: block;
-    background: rgba(#06141a, 0.78);
-    border: 1px solid rgba($kl-dev, 0.4);
+    height: 100%;
+    background: $kl-negro;
+    color: #fff;
+    border: 1px solid rgba($kl-verde, 0.55);
     clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
-    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
     cursor: zoom-in;
 
-    &:hover { transform: translateY(-4px); border-color: $kl-dev; box-shadow: 0 0 24px rgba($kl-dev, 0.35); }
-
-    .barra { display: flex; align-items: center; gap: 0.35rem; padding: 0.45rem 0.8rem; font-size: 0.75rem; color: rgba(#fff, 0.6); border-bottom: 1px solid rgba($kl-dev, 0.25);
-      i { width: 8px; height: 8px; border-radius: 50%; background: rgba($kl-dev, 0.7); display: inline-block; }
-      span { margin-left: auto; color: $kl-dev; }
+    .barra {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.45rem 0.8rem;
+      font-family: $fuente-tech;
+      font-size: 0.75rem;
+      color: rgba(#fff, 0.6);
+      border-bottom: 1px solid rgba($kl-verde, 0.3);
+      i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: rgba($kl-verde, 0.75); }
+      span { margin-left: auto; color: $kl-verde; }
     }
-    .vista { position: relative; overflow: hidden; background: #000;
-      img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; transition: transform 0.4s; }
+    .vista {
+      position: relative;
+      overflow: hidden;
+      background: #000;
+      img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; transition: transform 0.4s; }
       &::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(#000, 0.18) 0 1px, transparent 1px 3px); pointer-events: none; }
     }
     &:hover img { transform: scale(1.06); }
-    .cuerpo { padding: 0.9rem 1rem 1.1rem; h3 { font-size: 1rem; color: $kl-dev; margin: 0 0 0.3rem; } p { font-size: 0.85rem; margin: 0; color: rgba(#fff, 0.7); } }
+    .cuerpo {
+      padding: 0.9rem 1rem 1.1rem;
+      h3 { margin: 0 0 0.3rem; font-family: $fuente-tech; font-size: 1rem; letter-spacing: -0.02em; color: $kl-verde; }
+      p { margin: 0; font-size: 0.85rem; color: rgba(#fff, 0.72); }
+    }
   }
 }
-
 @keyframes parpadeo { 50% { opacity: 0; } }
 
 // ---------- Visor de imagen ----------
-.visor .modal-content { background: rgba($kl-bg, 0.96); border: 1px solid rgba(#fff, 0.12); }
-.visor img { max-height: 80vh; width: 100%; object-fit: contain; }
+.visor .modal-content { background: $kl-negro; border: 1px solid rgba(#fff, 0.14); }
+.visor img { display: block; width: 100%; max-height: 80vh; object-fit: contain; }
+
+// ---------- Redes (iconos SVG del repositorio, coloreables) ----------
+.red {
+  --borde: #{rgba($kl-negro, 0.22)};
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  border-radius: 50%;
+  border: 1px solid var(--borde);
+  color: $kl-negro;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+
+  &::before {
+    content: "";
+    width: 1.2rem;
+    height: 1.2rem;
+    background: currentColor;
+    -webkit-mask: var(--icono) center / contain no-repeat;
+    mask: var(--icono) center / contain no-repeat;
+  }
+  &:hover { background: $kl-verde; border-color: $kl-verde; color: $kl-negro; transform: translateY(-3px); }
+  &.correo { --icono: url("#{$img}/Icon/envelope-solid.svg"); }
+  &.instagram { --icono: url("#{$img}/Icon/instagram.svg"); }
+  &.facebook { --icono: url("#{$img}/Icon/facebook.svg"); }
+  &.twitter { --icono: url("#{$img}/Icon/twitter.svg"); }
+  &.youtube { --icono: url("#{$img}/Icon/youtube.svg"); }
+}
+
+// ---------- Contacto ----------
+.contacto-card {
+  height: 100%;
+  padding: 2.25rem;
+  border: 1px solid $kl-gris-200;
+  border-radius: $kl-radio-grande;
+  background: $kl-blanco;
+  h2 { margin-bottom: 0.5rem; font-size: 1.5rem; }
+  p { color: $kl-gris-600; }
+  .btn { overflow-wrap: anywhere; }
+}
+.chips-areas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem 0.55rem 0.8rem;
+    border: 1px solid $kl-gris-200;
+    border-radius: 999px;
+    background: $kl-blanco;
+    font-weight: 600;
+    color: $kl-negro;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+    .icono { color: $kl-verde; }
+    &:hover { background: $kl-negro; border-color: $kl-negro; color: #fff; }
+  }
+}
+
+// ---------- Pie (negro) ----------
+.pie {
+  padding: 4rem 0 2rem;
+  background: $kl-negro;
+  color: $kl-gris-300-oscuro;
+
+  .pie-logo { display: block; height: 40px; width: auto; margin-bottom: 1rem; }
+  p { max-width: 22rem; }
+  h2 { margin-bottom: 1rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #fff; }
+  ul { margin: 0; padding: 0; list-style: none; li { margin-bottom: 0.5rem; } }
+  a { color: $kl-gris-300-oscuro; text-decoration: none; &:hover { color: $kl-verde; } }
+  .red { --borde: #{rgba(#fff, 0.25)}; color: #fff; &:hover { color: $kl-negro; } }
+  .pie-base {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(#fff, 0.12);
+    font-size: 0.9rem;
+  }
+}
 
 // =====================================================
 // GUÍA DE MARCA (marca.html)
 // =====================================================
-:root { --kl-cian: #{$kl-dev}; --kl-rosa: #{$kl-design}; }
-
 .pagina-marca {
-  .marca-caja {
+  .caja-marca {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 180px;
-    padding: 1.5rem;
-    border-radius: $kl-radio;
-    border: 1px solid rgba(#fff, 0.12);
-    background: $kl-surface;
+    min-height: 200px;
+    padding: 2rem;
+    border: 1px solid $kl-gris-200;
+    border-radius: $kl-radio-grande;
+    background: $kl-blanco;
     img { max-width: 100%; height: auto; }
-    &.oscuro { background: $kl-bg; }
-    &.claro { background: #fff; border-color: rgba(#000, 0.1); }
+    &.oscura { background: $kl-negro; border-color: $kl-negro; }
+    &.verde { background: $kl-verde; border-color: $kl-verde; }
+    &.gris { background: $kl-gris-50; }
   }
-  .punto { display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 50%; background: var(--c); margin-right: 0.4rem; }
-  .muestra { height: 90px; border-radius: $kl-radio; background: var(--c); border: 1px solid rgba(#fff, 0.2); }
-  .tipo { height: 100%; padding: 1.25rem; border-radius: $kl-radio; background: $kl-surface; border: 1px solid rgba(#fff, 0.1); }
-  .tipo .muestra-tipo { font-size: 2rem; margin-bottom: 0.75rem; }
-  .tipo.arte .muestra-tipo { font-family: $fuente-arte; font-style: italic; color: $kl-design; }
-  .tipo.tech .muestra-tipo { font-family: $fuente-tech; color: $kl-dev; }
-  code { color: $kl-warm; }
+  .pie-archivo { margin: 0.6rem 0 0; font-size: 0.9rem; color: $kl-gris-600; a { color: $kl-negro; font-weight: 600; } }
+  .nombre-app { margin: 0.9rem 0 0; font-weight: 700; small { display: block; font-weight: 400; color: $kl-gris-600; } }
+
+  .muestra { height: 120px; border-radius: $kl-radio-grande; background: var(--c); border: 1px solid $kl-gris-200; }
+  .muestra-info { margin: 0.75rem 0 0; strong { display: block; } span { color: $kl-gris-600; font-size: 0.92rem; } }
+
+  .tipo { height: 100%; padding: 1.5rem; border: 1px solid $kl-gris-200; border-radius: $kl-radio-grande; background: $kl-blanco; }
+  .tipo .muestra-tipo { margin: 0.25rem 0 0.75rem; font-size: 2.2rem; line-height: 1.1; }
+  .tipo.base .muestra-tipo { font-family: $fuente-base; font-weight: 800; letter-spacing: -0.03em; }
+  .tipo.tech .muestra-tipo { font-family: $fuente-tech; font-weight: 700; letter-spacing: -0.04em; }
+  .tipo.arte .muestra-tipo { font-family: $fuente-arte; font-style: italic; }
+
+  .area-ficha { text-align: center; .icono-caja { margin: 0 auto 0.6rem; } span { font-weight: 600; } }
+  .iconos-apoyo { display: flex; flex-wrap: wrap; gap: 0.6rem; .icono-caja { width: 3rem; height: 3rem; .icono { width: 1.5rem; height: 1.5rem; } } }
+
+  .miniatura {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+    overflow: hidden;
+    border-radius: $kl-radio-grande;
+    background: $kl-negro;
+    img { max-width: 100%; max-height: 100%; width: auto; height: auto; }
+    // la imagen (background-image) va en línea en el HTML
+    &.mosaico { background-size: auto; background-repeat: repeat; }
+    &.cubrir { background-size: cover; background-position: right center; background-repeat: no-repeat; }
+    &.contener { background-size: auto 90%; background-position: center; background-repeat: no-repeat; }
+  }
+
+  .reglas { padding-left: 1.1rem; li { margin-bottom: 0.5rem; } }
+  .si-no { display: flex; align-items: center; gap: 0.5rem; min-height: 1.5rem; margin-bottom: 0.75rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+  .si { color: $kl-verde-texto; }
+  .no { color: #b3261e; }
+  code { padding: 0.1rem 0.4rem; border-radius: 0.35rem; background: $kl-verde-tinte; color: $kl-verde-texto; font-size: 0.85em; }
+}
+
+// ---------- Accesibilidad: sin animaciones si el usuario lo pide ----------
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }

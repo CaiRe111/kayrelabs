@@ -12,6 +12,8 @@ const TIPOS = {
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
+  ".webmanifest": "application/manifest+json; charset=utf-8",
+  ".txt": "text/plain; charset=utf-8",
   ".png": "image/png",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
@@ -45,8 +47,8 @@ http
         return;
       }
       const ext = path.extname(archivo).toLowerCase();
-      // HTML, CSS, JS y JSON se revalidan siempre; las imágenes se guardan en caché
-      const revalidar = [".html", ".css", ".js", ".json"].includes(ext);
+      // HTML, CSS, JS, JSON y el manifest se revalidan siempre; imágenes y fuentes se guardan en caché
+      const revalidar = [".html", ".css", ".js", ".json", ".webmanifest"].includes(ext);
       const etag = `"${st.size}-${Math.floor(st.mtimeMs)}"`;
       const cabeceras = {
         "Content-Type": TIPOS[ext] || "application/octet-stream",

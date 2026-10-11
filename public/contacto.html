@@ -1,67 +1,135 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="dark">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contacto — Kayrelabs</title>
-  <meta name="description" content="Contacto y redes sociales de Kayrelabs.">
-  <meta name="theme-color" content="#0b0d12">
+  <title>Contacto — KayreLabs</title>
+  <meta name="description" content="Contacto y redes sociales de KayreLabs.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KayreLabs">
+  <meta property="og:title" content="Contacto — KayreLabs">
+  <meta property="og:description" content="Contacto y redes sociales de KayreLabs.">
+  <meta property="og:image" content="https://www.kayrelabs.com/assets/brand/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="pagina-contacto">
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+  <a class="visually-hidden-focusable" href="#contenido">Saltar al contenido</a>
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="/">
-        <img src="assets/brand/logo-horizontal.svg" alt="Kayrelabs">
+      <a class="navbar-brand" href="./" aria-label="KayreLabs, inicio">
+        <img src="assets/brand/logo-horizontal.svg" alt="KayreLabs" width="120" height="34">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="menu">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="diseno.html">Diseño &amp; Audiovisual</a></li>
-          <li class="nav-item"><a class="nav-link" href="desarrollo.html">Electrónica &amp; Programación</a></li>
-          <li class="nav-item"><a class="nav-link active" href="contacto.html">Contacto</a></li>
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="impresion-3d.html">Impresión 3D</a></li>
+          <li class="nav-item"><a class="nav-link" href="electronica.html">Electrónica</a></li>
+          <li class="nav-item"><a class="nav-link" href="domotica.html">Domótica</a></li>
+          <li class="nav-item"><a class="nav-link" href="desarrollo.html">Desarrollo</a></li>
+          <li class="nav-item"><a class="nav-link" href="diseno.html">Diseño</a></li>
+          <li class="nav-item"><a class="btn btn-primary btn-sm" href="contacto.html" aria-current="page">Contacto</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <header class="encabezado">
+  <header class="hero hero-compacto" data-bs-theme="dark">
     <div class="container">
       <p class="etiqueta">Contacto</p>
-      <h1 class="display-4 fw-bold">Hablemos</h1>
-      <p class="lead col-lg-6 mb-0">¿Tienes un proyecto en mente? Escríbeme o sígueme en mis redes.</p>
+      <h1>Hablemos</h1>
+      <p class="lead mb-0">¿Tienes un proyecto en mente? Escríbeme o sígueme en mis redes.</p>
     </div>
   </header>
 
-  <main>
+  <main id="contenido">
     <section>
-      <div class="container text-center">
-        <p><a class="btn btn-primary btn-lg" href="mailto:ecjimenez96@gmail.com">ecjimenez96@gmail.com</a></p>
-        <div class="d-flex justify-content-center flex-wrap gap-3 mt-4" aria-label="Redes sociales">
-          <!-- Sustituye cada href="#" por la URL real de tu perfil -->
-        <a class="red correo" href="mailto:ecjimenez96@gmail.com" aria-label="Correo"></a>
-        <a class="red instagram" href="#" aria-label="Instagram"></a>
-        <a class="red facebook" href="#" aria-label="Facebook"></a>
-        <a class="red twitter" href="#" aria-label="X / Twitter"></a>
-        <a class="red youtube" href="#" aria-label="YouTube"></a>
+      <div class="container">
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-6">
+            <div class="contacto-card">
+              <span class="icono-caja mb-3"><span class="icono i-correo" aria-hidden="true"></span></span>
+              <h2>Escríbeme</h2>
+              <p>Cuéntame qué necesitas: te respondo con una propuesta y los siguientes pasos.</p>
+              <a class="btn btn-primary btn-lg" href="mailto:ecjimenez96@gmail.com">ecjimenez96@gmail.com</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="contacto-card">
+              <span class="icono-caja mb-3"><span class="icono i-celular" aria-hidden="true"></span></span>
+              <h2>Sígueme</h2>
+              <p>Mira avances, procesos y proyectos terminados en mis redes.</p>
+              <div class="d-flex flex-wrap gap-2" aria-label="Redes sociales">
+                <!-- Sustituye cada href="#" por la URL real de tu perfil -->
+                <a class="red correo" href="mailto:ecjimenez96@gmail.com" aria-label="Correo"></a>
+                <a class="red instagram" href="#" aria-label="Instagram"></a>
+                <a class="red facebook" href="#" aria-label="Facebook"></a>
+                <a class="red twitter" href="#" aria-label="X / Twitter"></a>
+                <a class="red youtube" href="#" aria-label="YouTube"></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <section class="alt">
+      <div class="container text-center">
+        <p class="etiqueta">Áreas</p>
+        <h2 class="titulo-seccion mb-4">¿En qué te puedo ayudar?</h2>
+        <div class="chips-areas">
+          <a href="impresion-3d.html"><span class="icono i-impresion-3d" aria-hidden="true"></span> Impresión 3D</a>
+          <a href="electronica.html"><span class="icono i-electronica" aria-hidden="true"></span> Electrónica</a>
+          <a href="domotica.html"><span class="icono i-domotica" aria-hidden="true"></span> Domótica</a>
+          <a href="desarrollo.html"><span class="icono i-desarrollo" aria-hidden="true"></span> Desarrollo</a>
+          <a href="diseno.html"><span class="icono i-diseno" aria-hidden="true"></span> Diseño</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
-      <span>© <span id="anio"></span> Kayrelabs · <a class="link-secondary" href="marca.html">Identidad de marca</a></span>
-      <div class="d-flex gap-2">
-        <!-- Sustituye cada href="#" por la URL real de tu perfil -->
-        <a class="red correo" href="mailto:ecjimenez96@gmail.com" aria-label="Correo"></a>
-        <a class="red instagram" href="#" aria-label="Instagram"></a>
-        <a class="red facebook" href="#" aria-label="Facebook"></a>
-        <a class="red twitter" href="#" aria-label="X / Twitter"></a>
-        <a class="red youtube" href="#" aria-label="YouTube"></a>
+  <footer class="pie" data-bs-theme="dark">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <img class="pie-logo" src="assets/brand/logo-horizontal-negativo.svg" alt="KayreLabs" width="141" height="40">
+          <p>Laboratorio creativo de impresión 3D, electrónica, domótica, desarrollo y diseño.</p>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <h2>Áreas</h2>
+          <ul>
+            <li><a href="impresion-3d.html">Impresión 3D</a></li>
+            <li><a href="electronica.html">Electrónica</a></li>
+            <li><a href="domotica.html">Domótica</a></li>
+            <li><a href="desarrollo.html">Desarrollo</a></li>
+            <li><a href="diseno.html">Diseño</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <h2>Contacto</h2>
+          <p class="mb-3"><a href="mailto:ecjimenez96@gmail.com">ecjimenez96@gmail.com</a></p>
+          <div class="d-flex flex-wrap gap-2">
+            <!-- Sustituye cada href="#" por la URL real de tu perfil -->
+            <a class="red correo" href="mailto:ecjimenez96@gmail.com" aria-label="Correo"></a>
+            <a class="red instagram" href="#" aria-label="Instagram"></a>
+            <a class="red facebook" href="#" aria-label="Facebook"></a>
+            <a class="red twitter" href="#" aria-label="X / Twitter"></a>
+            <a class="red youtube" href="#" aria-label="YouTube"></a>
+          </div>
+        </div>
+      </div>
+      <div class="pie-base">
+        <span>© <span id="anio"></span> KayreLabs · <a href="marca.html">Identidad de marca</a></span>
+        <span>Minimalista · Adaptable · Futura</span>
       </div>
     </div>
   </footer>
