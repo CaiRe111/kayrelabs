@@ -1,4 +1,4 @@
-// Servidor estático mínimo del portafolio (www.kayrelabs.com -> http://localhost:8181)
+// Servidor estático para desarrollo local (producción: Cloudflare Pages, carpeta public/)
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
