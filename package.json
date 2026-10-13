@@ -8,8 +8,7 @@
     "sass": "sass --style=compressed --no-charset --quiet-deps --silence-deprecation=import,global-builtin,color-functions,mixed-decls scss/style.scss public/css/style.css",
     "sass:watch": "sass --watch --style=compressed --no-charset --quiet-deps --silence-deprecation=import,global-builtin,color-functions,mixed-decls scss/style.scss public/css/style.css",
     "vendor": "node scripts/vendor.js",
-    "build": "npm run sass && npm run vendor",
-    "dev": "node server.js"
+    "build": "npm run sass && npm run vendor"
   },
   "license": "ISC",
   "type": "commonjs",
