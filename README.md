@@ -43,3 +43,4 @@ Después, recarga el navegador con Ctrl+F5 (las imágenes se guardan en caché u
 - **Redes sociales:** reemplaza los `href="#"` por las URL reales en `contacto.html` y en el pie de cada página.
 - **Menú y pie:** están repetidos en cada `.html`; si cambias uno, cámbialo en todas las páginas.
 - **Identidad de marca:** `public/marca.html` documenta logotipos, paleta, tipografía y recursos descargables (`public/assets/brand/`).
+- 
