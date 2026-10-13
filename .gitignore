@@ -2,3 +2,7 @@ node_modules/
 .sass-cache/
 *.map
 npm-debug.log*
+
+# Cloudflare Pages / Wrangler
+.wrangler/
+.dev.vars

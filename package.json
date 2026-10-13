@@ -8,7 +8,8 @@
     "sass": "sass --quiet-deps --silence-deprecation=import,global-builtin,color-functions,mixed-decls scss/style.scss public/css/style.css",
     "sass:watch": "sass --watch --quiet-deps --silence-deprecation=import,global-builtin,color-functions,mixed-decls scss/style.scss public/css/style.css",
     "vendor": "node -e \"require('fs').copyFileSync('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js','public/vendor/bootstrap.bundle.min.js')\"",
-    "build": "npm run sass && npm run vendor"
+    "build": "npm run sass && npm run vendor",
+    "dev": "node server.js"
   },
   "keywords": [],
   "author": "",
