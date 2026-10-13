@@ -1,10 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-  <rect width="120" height="120" rx="26" fill="#0B0D12"/>
-  <g transform="translate(60 60) scale(.86) translate(-60 -60)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M60 7 L105.9 33.5 V86.5 L60 113 L14.1 86.5 V33.5 Z" stroke="#E8EAF0" stroke-width="6"/>
-    <path d="M45 33 V87" stroke="#E8EAF0" stroke-width="9"/>
-    <path d="M45 62 L67 40 H79" stroke="#2FD6C4" stroke-width="7"/>
-    <path d="M47 62 C60 64 70 74 82 90" stroke="#FF4D8D" stroke-width="9"/>
-    <circle cx="86" cy="40" r="6" fill="#2FD6C4" stroke="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="t">
+  <title id="t">KayreLabs</title>
+  <rect width="120" height="120" rx="26.4" fill="#00C853"/>
+  <g transform="translate(22.8 25.48) scale(0.5716)">
+    <path id="hoja" fill="#FFFFFF" d="M0.00 22.00A22 22 0 0 1 22.00 0.00L35.00 0.00A2 2 0 0 1 37.00 2.00L37.00 27.89A22 22 0 0 1 30.56 43.44L2.56 71.44A1.5 1.5 0 0 1 0.00 70.38Z"/>
+    <path id="k-banda" fill="#FFFFFF" d="M0.00 100.43A30 30 0 0 1 8.79 79.21L79.21 8.79A30 30 0 0 1 100.43 0.00L128.17 0.00A2 2 0 0 1 129.59 3.41L16.30 116.70A14 14 0 0 1 6.40 120.80L3.50 120.80A3.5 3.5 0 0 1 0.00 117.30Z"/>
+    <path id="k-pata" fill="#FFFFFF" d="M75.53 71.47A3.5 3.5 0 0 1 80.47 71.47L123.83 114.83A3.5 3.5 0 0 1 121.35 120.80L93.08 120.80A20 20 0 0 1 78.94 114.94L57.27 93.27A2.5 2.5 0 0 1 57.27 89.73Z"/>
   </g>
 </svg>
