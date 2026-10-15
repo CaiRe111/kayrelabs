@@ -19,11 +19,22 @@ if (contenedor) {
   document.body.append(visorEl);
   const visor = new bootstrap.Modal(visorEl);
 
+  const cuerpoVisor = visorEl.querySelector(".modal-body");
   const abrir = (p) => {
     visorEl.querySelector(".modal-title").textContent = p.titulo;
-    const img = visorEl.querySelector("img");
-    img.src = p.imagen;
-    img.alt = p.titulo;
+    cuerpoVisor.replaceChildren();
+    (p.galeria || [p]).forEach((g) => {
+      const img = document.createElement("img");
+      img.src = g.imagen;
+      img.alt = g.titulo;
+      cuerpoVisor.append(img);
+      if (p.galeria) {
+        const pie = document.createElement("p");
+        pie.className = "pie-visor";
+        pie.textContent = g.titulo;
+        cuerpoVisor.append(pie);
+      }
+    });
     visor.show();
   };
 
@@ -70,6 +81,12 @@ if (contenedor) {
       demo.rel = "noopener";
       cuerpo.append(demo);
     }
+    if (p.galeria) {
+      const gal = el("button", "ver-demo", "Ver capturas");
+      gal.type = "button";
+      gal.addEventListener("click", () => abrir(p));
+      cuerpo.append(gal);
+    }
     a.append(barra, vista, cuerpo);
     const col = el("div", "col-md-6 col-lg-4");
     col.append(a);
@@ -84,7 +101,7 @@ if (contenedor) {
         const nodo = tema === "dev" ? tarjetaDev(p, i) : piezaDiseno(p);
         nodo.dataset.categoria = p.categoria;
         nodo.addEventListener("click", (e) => {
-          if (e.target.closest("a")) return;
+          if (e.target.closest("a, button")) return;
           if (p.enlace) window.open(p.enlace, "_blank", "noopener");
           else abrir(p);
         });

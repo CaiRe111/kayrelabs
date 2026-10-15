@@ -95,9 +95,37 @@
     "categoria": "programacion",
     "titulo": "Plataforma de Garantías y Devoluciones",
     "descripcion": "Aplicación web multiusuario con 9 roles que lleva cada garantía, devolución y flete desde el ingreso hasta el cierre, validando las políticas en vivo. JavaScript puro, Node.js y SQLite, sin dependencias externas. Demo con datos ficticios.",
-    "imagen": "assets/img/Proyectos/garantias-portada.svg",
+    "imagen": "assets/img/Proyectos/garantias/02-panel-auxiliar.webp",
     "enlace": "https://garantias-demo.kayrelabs.com/",
-    "etiquetas": ["JavaScript", "Node.js", "SQLite", "SPA", "Multirrol"]
+    "etiquetas": [
+      "JavaScript",
+      "Node.js",
+      "SQLite",
+      "SPA",
+      "Multirrol"
+    ],
+    "galeria": [
+      {
+        "imagen": "assets/img/Proyectos/garantias/01-perfiles.webp",
+        "titulo": "Selección de perfil (9 roles)"
+      },
+      {
+        "imagen": "assets/img/Proyectos/garantias/02-panel-auxiliar.webp",
+        "titulo": "Panel del auxiliar de garantías"
+      },
+      {
+        "imagen": "assets/img/Proyectos/garantias/03-nuevo-tramite.webp",
+        "titulo": "Nuevo trámite: búsqueda de la compra"
+      },
+      {
+        "imagen": "assets/img/Proyectos/garantias/04-panel-tecnico.webp",
+        "titulo": "Panel del técnico de garantías"
+      },
+      {
+        "imagen": "assets/img/Proyectos/garantias/05-fletes.webp",
+        "titulo": "Fletes: recepción y envío de paquetes"
+      }
+    ]
   },
   {
     "rama": "desarrollo",

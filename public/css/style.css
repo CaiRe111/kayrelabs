@@ -12246,6 +12246,13 @@ footer .red::before {
   text-decoration: none;
   border-bottom: 1px solid currentColor;
 }
+.pagina-dev .tarjeta button.ver-demo {
+  background: none;
+  border-width: 0 0 1px;
+  padding: 0;
+  margin-left: 1rem;
+  font-family: inherit;
+}
 .pagina-dev .tarjeta .ver-demo:hover {
   color: #fff;
 }
@@ -12264,6 +12271,12 @@ footer .red::before {
   max-height: 80vh;
   width: 100%;
   object-fit: contain;
+}
+
+.visor .pie-visor {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0.4rem 0 1.5rem;
 }
 
 :root {
