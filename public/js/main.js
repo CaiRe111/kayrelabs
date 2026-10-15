@@ -19,13 +19,38 @@ if (contenedor) {
   document.body.append(visorEl);
   const visor = new bootstrap.Modal(visorEl);
 
+  const cuerpoVisor = visorEl.querySelector(".modal-body");
   const abrir = (p) => {
     visorEl.querySelector(".modal-title").textContent = p.titulo;
-    const img = visorEl.querySelector("img");
-    img.src = p.imagen;
-    img.alt = p.titulo;
+    cuerpoVisor.replaceChildren();
+    (p.galeria || [p]).forEach((g) => {
+      let medio;
+      if (g.video) {
+        medio = document.createElement("video");
+        medio.src = g.video;
+        medio.poster = g.poster;
+        medio.preload = "none";
+        medio.muted = true;
+        medio.playsInline = true;
+        if (g.controles) medio.controls = true;
+        else { medio.loop = true; medio.autoplay = true; }
+        medio.setAttribute("aria-label", g.titulo);
+      } else {
+        medio = document.createElement("img");
+        medio.src = g.imagen;
+        medio.alt = g.titulo;
+      }
+      cuerpoVisor.append(medio);
+      if (p.galeria) {
+        const pie = document.createElement("p");
+        pie.className = "pie-visor";
+        pie.textContent = g.titulo;
+        cuerpoVisor.append(pie);
+      }
+    });
     visor.show();
   };
+  visorEl.addEventListener("hidden.bs.modal", () => cuerpoVisor.replaceChildren());
 
   const el = (tag, clase, texto) => {
     const nodo = document.createElement(tag);
@@ -58,6 +83,24 @@ if (contenedor) {
     vista.append(imagen(p));
     const cuerpo = el("div", "cuerpo");
     cuerpo.append(el("h3", "", p.titulo), el("p", "", p.descripcion));
+    if (p.etiquetas) {
+      const lista = el("div", "etiquetas");
+      p.etiquetas.forEach((t) => lista.append(el("span", "", t)));
+      cuerpo.append(lista);
+    }
+    if (p.enlace) {
+      const demo = el("a", "ver-demo", "Ver demo ↗");
+      demo.href = p.enlace;
+      demo.target = "_blank";
+      demo.rel = "noopener";
+      cuerpo.append(demo);
+    }
+    if (p.galeria) {
+      const gal = el("button", "ver-demo", "Ver demo en video");
+      gal.type = "button";
+      gal.addEventListener("click", () => abrir(p));
+      cuerpo.append(gal);
+    }
     a.append(barra, vista, cuerpo);
     const col = el("div", "col-md-6 col-lg-4");
     col.append(a);
@@ -71,7 +114,11 @@ if (contenedor) {
       const nodos = proyectos.map((p, i) => {
         const nodo = tema === "dev" ? tarjetaDev(p, i) : piezaDiseno(p);
         nodo.dataset.categoria = p.categoria;
-        nodo.addEventListener("click", () => abrir(p));
+        nodo.addEventListener("click", (e) => {
+          if (e.target.closest("a, button")) return;
+          if (p.enlace) window.open(p.enlace, "_blank", "noopener");
+          else abrir(p);
+        });
         contenedor.append(nodo);
         return nodo;
       });

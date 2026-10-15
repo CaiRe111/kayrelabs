@@ -12225,6 +12225,37 @@ footer .red::before {
   margin: 0;
   color: rgba(255, 255, 255, 0.7);
 }
+.pagina-dev .tarjeta .etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.7rem;
+}
+.pagina-dev .tarjeta .etiquetas span {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.5rem;
+  color: #2fd6c4;
+  border: 1px solid rgba(47, 214, 196, 0.4);
+  border-radius: 999px;
+}
+.pagina-dev .tarjeta .ver-demo {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: #2fd6c4;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.pagina-dev .tarjeta .ver-demo:hover {
+  color: #fff;
+}
+.pagina-dev .tarjeta button.ver-demo {
+  background: none;
+  border-width: 0 0 1px;
+  padding: 0;
+  margin-left: 1rem;
+  font-family: inherit;
+}
 
 @keyframes parpadeo {
   50% {
@@ -12236,10 +12267,16 @@ footer .red::before {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.visor img {
+.visor img, .visor video {
   max-height: 80vh;
   width: 100%;
   object-fit: contain;
+}
+
+.visor .pie-visor {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0.4rem 0 1.5rem;
 }
 
 :root {

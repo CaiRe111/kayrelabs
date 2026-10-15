@@ -1,0 +1,8 @@
+{
+  "name": "kayrelabs",
+  "compatibility_date": "2026-10-14",
+  "assets": {
+    "directory": "./public"
+  },
+  "previews": {}
+}
