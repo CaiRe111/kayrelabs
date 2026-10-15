@@ -12267,7 +12267,7 @@ footer .red::before {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.visor img {
+.visor img, .visor video {
   max-height: 80vh;
   width: 100%;
   object-fit: contain;

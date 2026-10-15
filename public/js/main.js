@@ -24,10 +24,23 @@ if (contenedor) {
     visorEl.querySelector(".modal-title").textContent = p.titulo;
     cuerpoVisor.replaceChildren();
     (p.galeria || [p]).forEach((g) => {
-      const img = document.createElement("img");
-      img.src = g.imagen;
-      img.alt = g.titulo;
-      cuerpoVisor.append(img);
+      let medio;
+      if (g.video) {
+        medio = document.createElement("video");
+        medio.src = g.video;
+        medio.poster = g.poster;
+        medio.preload = "none";
+        medio.muted = true;
+        medio.playsInline = true;
+        if (g.controles) medio.controls = true;
+        else { medio.loop = true; medio.autoplay = true; }
+        medio.setAttribute("aria-label", g.titulo);
+      } else {
+        medio = document.createElement("img");
+        medio.src = g.imagen;
+        medio.alt = g.titulo;
+      }
+      cuerpoVisor.append(medio);
       if (p.galeria) {
         const pie = document.createElement("p");
         pie.className = "pie-visor";
@@ -37,6 +50,7 @@ if (contenedor) {
     });
     visor.show();
   };
+  visorEl.addEventListener("hidden.bs.modal", () => cuerpoVisor.replaceChildren());
 
   const el = (tag, clase, texto) => {
     const nodo = document.createElement(tag);
@@ -82,7 +96,7 @@ if (contenedor) {
       cuerpo.append(demo);
     }
     if (p.galeria) {
-      const gal = el("button", "ver-demo", "Ver capturas");
+      const gal = el("button", "ver-demo", "Ver demo en video");
       gal.type = "button";
       gal.addEventListener("click", () => abrir(p));
       cuerpo.append(gal);

@@ -95,7 +95,7 @@
     "categoria": "programacion",
     "titulo": "Plataforma de Garantías y Devoluciones",
     "descripcion": "Aplicación web multiusuario con 9 roles que lleva cada garantía, devolución y flete desde el ingreso hasta el cierre, validando las políticas en vivo. JavaScript puro, Node.js y SQLite, sin dependencias externas. Demo con datos ficticios.",
-    "imagen": "assets/img/Proyectos/garantias/02-panel-auxiliar.webp",
+    "imagen": "assets/media/garantias/portada.webp",
     "enlace": "https://garantias-demo.kayrelabs.com/",
     "etiquetas": [
       "JavaScript",
@@ -106,24 +106,49 @@
     ],
     "galeria": [
       {
-        "imagen": "assets/img/Proyectos/garantias/01-perfiles.webp",
+        "video": "assets/media/garantias/recorrido-completo.mp4",
+        "titulo": "Recorrido completo de un caso: cambio mano a mano (1 min 32 s)",
+        "controles": true
+      },
+      {
+        "video": "assets/media/garantias/01-seleccion-de-perfil.mp4",
+        "poster": "assets/media/garantias/01-seleccion-de-perfil.jpg",
         "titulo": "Selección de perfil (9 roles)"
       },
       {
-        "imagen": "assets/img/Proyectos/garantias/02-panel-auxiliar.webp",
-        "titulo": "Panel del auxiliar de garantías"
+        "video": "assets/media/garantias/02-bandeja-por-rol.mp4",
+        "poster": "assets/media/garantias/02-bandeja-por-rol.jpg",
+        "titulo": "Bandeja de trabajo por rol"
       },
       {
-        "imagen": "assets/img/Proyectos/garantias/03-nuevo-tramite.webp",
-        "titulo": "Nuevo trámite: búsqueda de la compra"
+        "video": "assets/media/garantias/03-nuevo-tramite-con-validaciones.mp4",
+        "poster": "assets/media/garantias/03-nuevo-tramite-con-validaciones.jpg",
+        "titulo": "Nuevo trámite con validaciones de política en vivo"
       },
       {
-        "imagen": "assets/img/Proyectos/garantias/04-panel-tecnico.webp",
-        "titulo": "Panel del técnico de garantías"
+        "video": "assets/media/garantias/05-cambio-mano-a-mano-y-relacion-de-envio.mp4",
+        "poster": "assets/media/garantias/05-cambio-mano-a-mano-y-relacion-de-envio.jpg",
+        "titulo": "Cambio mano a mano y relación de envío"
       },
       {
-        "imagen": "assets/img/Proyectos/garantias/05-fletes.webp",
-        "titulo": "Fletes: recepción y envío de paquetes"
+        "video": "assets/media/garantias/06-conciliacion-en-el-centro.mp4",
+        "poster": "assets/media/garantias/06-conciliacion-en-el-centro.jpg",
+        "titulo": "Conciliación en el centro de garantías"
+      },
+      {
+        "video": "assets/media/garantias/07-revision-tecnica-y-relacion-de-entrega.mp4",
+        "poster": "assets/media/garantias/07-revision-tecnica-y-relacion-de-entrega.jpg",
+        "titulo": "Revisión técnica y relación de entrega"
+      },
+      {
+        "video": "assets/media/garantias/09-recepcion-en-bodega-y-cierre.mp4",
+        "poster": "assets/media/garantias/09-recepcion-en-bodega-y-cierre.jpg",
+        "titulo": "Recepción en bodega y cierre automático"
+      },
+      {
+        "video": "assets/media/garantias/12-fletes-recepcion-y-apertura.mp4",
+        "poster": "assets/media/garantias/12-fletes-recepcion-y-apertura.jpg",
+        "titulo": "Fletes: recepción y apertura de paquetes"
       }
     ]
   },

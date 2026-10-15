@@ -245,7 +245,7 @@ footer {
 
 // ---------- Visor de imagen ----------
 .visor .modal-content { background: rgba($kl-bg, 0.96); border: 1px solid rgba(#fff, 0.12); }
-.visor img { max-height: 80vh; width: 100%; object-fit: contain; }
+.visor img, .visor video { max-height: 80vh; width: 100%; object-fit: contain; }
 .visor .pie-visor { font-size: 0.85rem; color: rgba(#fff, 0.7); margin: 0.4rem 0 1.5rem; }
 
 // =====================================================
