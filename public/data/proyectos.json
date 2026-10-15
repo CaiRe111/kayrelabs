@@ -193,5 +193,13 @@
     "titulo": "Pistas del circuito",
     "descripcion": "Diseño de PCB en azul.",
     "imagen": "assets/img/Proyectos/electronica-2.jpg"
+  },
+  {
+    "area": "impresion-3d",
+    "categoria": "figuras",
+    "titulo": "Gatos Makis de la sabiduría",
+    "descripcion": "Guía del modelo 3D: capa de 0,2 mm, relleno 20 % grid, PLA negro a 210 °C y 50 mm/s, con consejos de nivelación, adherencia y post-procesado.",
+    "imagen": "assets/img/Proyectos/impresion-3d-gatos-makis.webp",
+    "ajuste": "completo"
   }
 ]

@@ -537,6 +537,7 @@ main > section { padding: 5rem 0; }
     &::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(#000, 0.18) 0 1px, transparent 1px 3px); pointer-events: none; }
   }
   &:hover img { transform: scale(1.06); }
+  &.completa .vista img { aspect-ratio: auto; object-fit: contain; }
   .cuerpo {
     padding: 0.9rem 1rem 1.1rem;
     h3 { margin: 0 0 0.3rem; font-family: $fuente-tech; font-size: 1rem; letter-spacing: -0.02em; color: $kl-verde; }

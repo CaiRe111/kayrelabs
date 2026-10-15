@@ -97,12 +97,11 @@
       <div class="container">
         <p class="etiqueta">Proyectos</p>
         <h2 class="titulo-seccion mb-4">Galería</h2>
-        <div class="vacio">
-          <span class="icono-caja"><span class="icono i-impresion-3d" aria-hidden="true"></span></span>
-          <h3>Estoy preparando esta galería</h3>
-          <p>Pronto verás aquí fotos y detalles de piezas impresas. Mientras tanto, cuéntame qué necesitas y lo vemos.</p>
-          <a class="btn btn-dark" href="contacto.html">Cuéntame tu idea <span class="icono i-flecha" aria-hidden="true"></span></a>
+        <div id="filtros" class="filtros d-flex flex-wrap gap-2 mb-4">
+          <button class="btn btn-outline-dark btn-sm rounded-pill active" data-filtro="todos">Todo</button>
+          <button class="btn btn-outline-dark btn-sm rounded-pill" data-filtro="figuras">Figuras</button>
         </div>
+        <div id="lista-proyectos" class="row g-4" data-area="impresion-3d" data-estilo="terminal"></div>
       </div>
     </section>
 
