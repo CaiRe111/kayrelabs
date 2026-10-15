@@ -12225,6 +12225,30 @@ footer .red::before {
   margin: 0;
   color: rgba(255, 255, 255, 0.7);
 }
+.pagina-dev .tarjeta .etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.7rem;
+}
+.pagina-dev .tarjeta .etiquetas span {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.5rem;
+  color: #2fd6c4;
+  border: 1px solid rgba(47, 214, 196, 0.4);
+  border-radius: 999px;
+}
+.pagina-dev .tarjeta .ver-demo {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: #2fd6c4;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.pagina-dev .tarjeta .ver-demo:hover {
+  color: #fff;
+}
 
 @keyframes parpadeo {
   50% {

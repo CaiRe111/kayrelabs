@@ -93,6 +93,15 @@
   {
     "rama": "desarrollo",
     "categoria": "programacion",
+    "titulo": "Plataforma de Garantías y Devoluciones",
+    "descripcion": "Aplicación web multiusuario con 9 roles que lleva cada garantía, devolución y flete desde el ingreso hasta el cierre, validando las políticas en vivo. JavaScript puro, Node.js y SQLite, sin dependencias externas. Demo con datos ficticios.",
+    "imagen": "assets/img/Proyectos/garantias-portada.svg",
+    "enlace": "https://garantias-demo.ecjimenez96.workers.dev/",
+    "etiquetas": ["JavaScript", "Node.js", "SQLite", "SPA", "Multirrol"]
+  },
+  {
+    "rama": "desarrollo",
+    "categoria": "programacion",
     "titulo": "Código SVG",
     "descripcion": "Gráficos vectoriales con degradados.",
     "imagen": "assets/img/Proyectos/programacion-1.jfif"

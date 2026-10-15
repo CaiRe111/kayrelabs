@@ -231,6 +231,12 @@ footer {
     }
     &:hover img { transform: scale(1.06); }
     .cuerpo { padding: 0.9rem 1rem 1.1rem; h3 { font-size: 1rem; color: $kl-dev; margin: 0 0 0.3rem; } p { font-size: 0.85rem; margin: 0; color: rgba(#fff, 0.7); } }
+    .etiquetas { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.7rem;
+      span { font-size: 0.7rem; padding: 0.1rem 0.5rem; color: $kl-dev; border: 1px solid rgba($kl-dev, 0.4); border-radius: 999px; }
+    }
+    .ver-demo { display: inline-block; margin-top: 0.8rem; font-size: 0.85rem; color: $kl-dev; text-decoration: none; border-bottom: 1px solid currentColor;
+      &:hover { color: #fff; }
+    }
   }
 }
 
