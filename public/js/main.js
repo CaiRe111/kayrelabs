@@ -82,7 +82,8 @@ if (contenedor) {
 
   // Electrónica y Desarrollo: tarjetas tipo ventana de terminal
   const tarjetaTerminal = (p) => {
-    const a = el("article", "tarjeta");
+    // "ajuste": "completo" muestra la imagen entera (infografías) en vez de recortarla
+    const a = el("article", p.ajuste === "completo" ? "tarjeta completa" : "tarjeta");
     const barra = el("div", "barra");
     barra.append(el("i"), el("i"), el("i"), el("span", "", "[" + p.categoria + "]"));
     const vista = el("div", "vista");
