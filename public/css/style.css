@@ -12246,15 +12246,15 @@ footer .red::before {
   text-decoration: none;
   border-bottom: 1px solid currentColor;
 }
+.pagina-dev .tarjeta .ver-demo:hover {
+  color: #fff;
+}
 .pagina-dev .tarjeta button.ver-demo {
   background: none;
   border-width: 0 0 1px;
   padding: 0;
   margin-left: 1rem;
   font-family: inherit;
-}
-.pagina-dev .tarjeta .ver-demo:hover {
-  color: #fff;
 }
 
 @keyframes parpadeo {
