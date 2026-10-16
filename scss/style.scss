@@ -383,6 +383,28 @@ main > section { padding: 5rem 0; }
     border: 5px solid #fff;
     box-shadow: 0 0 0 3px $kl-verde, 0 18px 36px rgba($kl-negro, 0.18);
   }
+  // Tarjeta giratoria: muestra el logo y, al hacer clic, gira para mostrar la foto
+  .retrato-giro {
+    width: 220px;
+    height: 220px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    perspective: 900px;
+    cursor: pointer;
+    &:focus-visible { outline: 3px solid $kl-verde; outline-offset: 6px; }
+    .giro { position: relative; display: block; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.7s ease; }
+    &.girado .giro { transform: rotateY(180deg); }
+    .cara { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .frente {
+      background: #fff;
+      border: 5px solid #fff;
+      box-shadow: 0 0 0 3px $kl-verde, 0 18px 36px rgba($kl-negro, 0.18);
+      img { width: 52%; height: auto; }
+    }
+    .dorso { transform: rotateY(180deg); }
+  }
   .atributo {
     height: 100%;
     padding: 1.1rem 1.25rem;

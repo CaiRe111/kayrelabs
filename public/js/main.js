@@ -1,6 +1,16 @@
 const anio = document.getElementById("anio");
 if (anio) anio.textContent = new Date().getFullYear();
 
+// Inicio: la tarjeta del creador muestra el logo y gira a la foto solo al hacer clic
+const giro = document.querySelector(".retrato-giro");
+if (giro) {
+  giro.addEventListener("click", () => {
+    const girado = giro.classList.toggle("girado");
+    giro.setAttribute("aria-pressed", String(girado));
+    giro.setAttribute("aria-label", girado ? "Ver el logo de KayreLabs" : "Ver la foto del creador de KayreLabs");
+  });
+}
+
 const contenedor = document.getElementById("lista-proyectos");
 
 if (contenedor) {
