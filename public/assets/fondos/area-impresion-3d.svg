@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M250 0V40M228 40H272L262 80H238ZM250 80V118"/>
+<path d="M250 130L300 155L250 180L200 155ZM200 155V171L250 196L300 171V155M250 180V196"/>
+<path d="M250 145L330 185L250 225L170 185ZM170 185V201L250 241L330 201V185M250 225V241" transform="translate(0,10)"/>
+<path d="M250 160L360 215L250 270L140 215ZM140 215V231L250 286L360 231V215M250 270V286" transform="translate(0,-6)"/>
+</svg>
