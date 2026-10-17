@@ -224,10 +224,13 @@ main > section { padding: 5rem 0; }
 
 // Inicio: el isotipo rodeado por las 5 áreas
 .hero-inicio {
-  // --mx / --my: posición del puntero (en reposo, la esquina superior derecha de siempre)
+  @include media-breakpoint-up(lg) { min-height: 44rem; display: flex; align-items: center; > .container { width: 100%; } }
+}
+// Encabezados vivos (inicio y áreas): el brillo verde y los puntos siguen al ratón (main.js)
+// --mx / --my: posición del puntero (en reposo, la esquina superior derecha de siempre)
+.hero-vivo {
   --mx: 88vw;
   --my: 0px;
-  @include media-breakpoint-up(lg) { min-height: 44rem; display: flex; align-items: center; > .container { width: 100%; } }
 
   // El brillo verde de arriba a la derecha pasa a ser .hero-luz, que sigue al ratón
   &::before { background: radial-gradient(45% 60% at 0% 100%, rgba($kl-verde, 0.12), transparent 70%); }
@@ -256,14 +259,14 @@ main > section { padding: 5rem 0; }
   }
 }
 .orbita {
-  --size: 290px;
-  --r: calc(var(--size) * 0.43);
+  --size: 320px;
+  --r: calc(var(--size) * 0.44);
   position: relative;
   width: var(--size);
   height: var(--size);
   margin: 2.5rem auto 0;
-  @include media-breakpoint-up(md) { --size: 360px; }
-  @include media-breakpoint-up(lg) { --size: 420px; margin-top: 0; }
+  @include media-breakpoint-up(md) { --size: 380px; }
+  @include media-breakpoint-up(lg) { --size: 440px; margin-top: 0; }
 
   &::before {
     content: "";
@@ -285,9 +288,9 @@ main > section { padding: 5rem 0; }
     display: none;
     position: absolute;
     left: calc(50% - var(--r));
-    top: calc(50% - var(--r) * 0.34);
+    top: calc(50% - var(--r) * 0.5);
     width: calc(var(--r) * 2);
-    height: calc(var(--r) * 0.68);
+    height: var(--r);
     border: 1px dashed rgba(#fff, 0.2);
     border-radius: 50%;
   }
@@ -300,7 +303,7 @@ main > section { padding: 5rem 0; }
     left: 50%;
     top: 50%;
     z-index: 1;
-    width: 38%;
+    width: 32%;
     height: auto;
     transform: translate(-50%, -50%);
   }

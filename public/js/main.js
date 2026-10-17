@@ -21,8 +21,8 @@ const sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matc
 // Inicio: las áreas orbitan el logo como electrones (modelo atómico)
 const orbita = document.querySelector(".orbita");
 if (orbita && !sinMovimiento) {
-  const RELACION = 0.34; // alto / ancho de las elipses (igual que en el CSS)
-  const PERIODOS = [16, 21, 26]; // segundos por vuelta de cada órbita
+  const RELACION = 0.5; // alto / ancho de las elipses (igual que en el CSS)
+  const PERIODOS = [6, 8, 10]; // segundos por vuelta de cada órbita
   const anillos = [...orbita.querySelectorAll(".orbita-anillo")].map((a) => {
     const grados = parseFloat(a.dataset.t);
     a.style.transform = "rotate(" + grados + "deg)";
@@ -39,17 +39,19 @@ if (orbita && !sinMovimiento) {
   let velocidad = 1;
   let objetivo = 1;
   let previo = performance.now();
-  orbita.addEventListener("pointerover", (e) => { objetivo = e.target.closest(".orbita-i") ? 0 : 1; });
-  orbita.addEventListener("pointerleave", () => { objetivo = 1; });
+  // Se detienen en cuanto el puntero se acerca al átomo (toda la columna), no solo sobre un icono
+  const zona = orbita.parentElement;
+  zona.addEventListener("pointerenter", () => { objetivo = 0; });
+  zona.addEventListener("pointerleave", () => { objetivo = 1; });
   orbita.addEventListener("focusin", () => { objetivo = 0; });
   orbita.addEventListener("focusout", () => { objetivo = 1; });
 
   const pintar = (ahora) => {
     const dt = Math.min((ahora - previo) / 1000, 0.1);
     previo = ahora;
-    velocidad += (objetivo - velocidad) * 0.12;
+    velocidad += (objetivo - velocidad) * 0.15;
     tiempo += dt * velocidad;
-    const a = orbita.clientWidth * 0.43;
+    const a = orbita.clientWidth * 0.44;
     const b = a * RELACION;
     for (const e of electrones) {
       const ang = e.fase + (tiempo * 2 * Math.PI) / PERIODOS[e.anillo];
@@ -68,9 +70,9 @@ if (orbita && !sinMovimiento) {
   requestAnimationFrame(pintar);
 }
 
-// Inicio: el brillo verde y la retícula de puntos del encabezado siguen al ratón
-const portada = document.querySelector(".hero-inicio");
-if (portada && !sinMovimiento) {
+// Inicio y áreas: el brillo verde y la retícula de puntos del encabezado siguen al ratón
+document.querySelectorAll(".hero-vivo").forEach((portada) => {
+  if (sinMovimiento) return;
   const reposo = () => ({ x: portada.clientWidth * 0.88, y: 0 });
   let meta = reposo();
   let actual = { ...meta };
@@ -91,7 +93,7 @@ if (portada && !sinMovimiento) {
   });
   portada.addEventListener("pointerleave", () => { meta = reposo(); arrancar(); });
   window.addEventListener("resize", () => { if (!activo) { meta = reposo(); actual = { ...meta }; arrancar(); } });
-}
+});
 
 const contenedor = document.getElementById("lista-proyectos");
 
