@@ -39,8 +39,8 @@ Después, recarga el navegador con Ctrl+F5 (las imágenes se guardan en caché u
 
 ## Contenido
 
-- **Proyectos:** `public/data/proyectos.json`. Cada elemento lleva `area` (`diseno`, `electronica` o `desarrollo`), `categoria`, `titulo`, `descripcion` e `imagen`. Las imágenes viven en `public/assets/img/`.
-- **Impresión 3D y Domótica** aún no tienen galería. Para activarla, reemplaza el bloque `.vacio` de la página por `<div id="lista-proyectos" class="row g-4" data-area="..." data-estilo="terminal"></div>` y agrega los proyectos al JSON con esa `area`.
+- **Proyectos:** `public/data/proyectos.json`. Cada elemento lleva `area` (`diseno`, `electronica`, `desarrollo` o `impresion-3d`), `categoria`, `titulo`, `descripcion` e `imagen`. Las imágenes viven en `public/assets/img/`.
+- **Galerías:** Diseño, Electrónica, Desarrollo e Impresión 3D ya tienen galería. **Domótica** aún no: para activarla, reemplaza el bloque `.vacio` de `domotica.html` por `<div id="lista-proyectos" class="row g-4" data-area="domotica" data-estilo="terminal"></div>` y agrega los proyectos al JSON con `"area": "domotica"`.
 - **Redes sociales:** reemplaza los `href="#"` por las URL reales en `contacto.html` y en el pie de cada página.
 - **Menú y pie:** están repetidos en cada `.html`; si cambias uno, cámbialo en todas las páginas.
 - **Identidad de marca:** `public/marca.html` documenta logotipos, paleta, tipografía y recursos descargables (`public/assets/brand/`). La guía completa (`docs/marca/MARCA-KAYRELABS.pdf` y `.md`) y una copia de todos los archivos gráficos están en `docs/marca/`.
