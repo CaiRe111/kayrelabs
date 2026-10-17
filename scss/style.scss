@@ -363,6 +363,21 @@ main > section { padding: 5rem 0; }
   mask-image: none;
 }
 
+// Cada área ilumina en verde, alrededor del puntero, su propio patrón de fondo (misma posición y tamaño)
+.hero-vivo.hero-area .hero-puntos {
+  -webkit-mask-image: radial-gradient(circle 240px at var(--mx) var(--my), #000, transparent);
+  mask-image: radial-gradient(circle 240px at var(--mx) var(--my), #000, transparent);
+}
+.hero-3d .hero-puntos { background: url("#{$arte}/patron-isometrico-vivo.svg") 0 0 / auto; }
+.hero-electronica .hero-puntos { background: url("#{$arte}/patron-circuito-vivo.svg") 0 0 / auto; }
+.hero-domotica .hero-puntos { background: url("#{$arte}/red-nodos-vivo.svg") right center / cover no-repeat; }
+.hero-desarrollo .hero-puntos {
+  background:
+    repeating-linear-gradient(0deg, rgba($kl-verde, 0.7) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(90deg, rgba($kl-verde, 0.7) 0 1px, transparent 1px 40px);
+}
+.hero-diseno .hero-puntos { background: url("#{$arte}/curvas-vectoriales-vivo.svg") right center / cover no-repeat; }
+
 // Hero compacto (contacto, marca): lleva la K como marca de agua
 .hero-compacto {
   padding: 7.5rem 0 3.5rem;

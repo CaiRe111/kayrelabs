@@ -22,7 +22,7 @@ const sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matc
 const orbita = document.querySelector(".orbita");
 if (orbita && !sinMovimiento) {
   const RELACION = 0.5; // alto / ancho de las elipses (igual que en el CSS)
-  const PERIODOS = [6, 8, 10]; // segundos por vuelta de cada órbita
+  const PERIODOS = [2.5, 3.2, 4]; // segundos por vuelta de cada órbita
   const anillos = [...orbita.querySelectorAll(".orbita-anillo")].map((a) => {
     const grados = parseFloat(a.dataset.t);
     a.style.transform = "rotate(" + grados + "deg)";
