@@ -43,6 +43,8 @@
   </nav>
 
   <header class="hero hero-inicio" data-bs-theme="dark">
+    <span class="hero-luz" aria-hidden="true"></span>
+    <span class="hero-puntos" aria-hidden="true"></span>
     <div class="container">
       <div class="row align-items-center g-4">
         <div class="col-lg-7">
@@ -56,12 +58,15 @@
         </div>
         <div class="col-lg-5">
           <div class="orbita">
+            <span class="orbita-anillo" data-t="0" aria-hidden="true"></span>
+            <span class="orbita-anillo" data-t="60" aria-hidden="true"></span>
+            <span class="orbita-anillo" data-t="120" aria-hidden="true"></span>
             <img class="orbita-k" src="assets/brand/isotipo-negativo.svg" alt="" width="160" height="149">
-            <a class="orbita-i" style="--a: -90deg" href="impresion-3d.html" title="Impresión 3D" aria-label="Impresión 3D"><span class="icono i-impresion-3d" aria-hidden="true"></span></a>
-            <a class="orbita-i" style="--a: -18deg" href="electronica.html" title="Electrónica" aria-label="Electrónica"><span class="icono i-electronica" aria-hidden="true"></span></a>
-            <a class="orbita-i" style="--a: 54deg" href="domotica.html" title="Domótica" aria-label="Domótica"><span class="icono i-domotica" aria-hidden="true"></span></a>
-            <a class="orbita-i" style="--a: 126deg" href="desarrollo.html" title="Desarrollo" aria-label="Desarrollo"><span class="icono i-desarrollo" aria-hidden="true"></span></a>
-            <a class="orbita-i" style="--a: 198deg" href="diseno.html" title="Diseño" aria-label="Diseño"><span class="icono i-diseno" aria-hidden="true"></span></a>
+            <a class="orbita-i" style="--a: -90deg" data-anillo="0" data-fase="0" href="impresion-3d.html" title="Impresión 3D" aria-label="Impresión 3D"><span class="icono i-impresion-3d" aria-hidden="true"></span></a>
+            <a class="orbita-i" style="--a: -18deg" data-anillo="1" data-fase="0" href="electronica.html" title="Electrónica" aria-label="Electrónica"><span class="icono i-electronica" aria-hidden="true"></span></a>
+            <a class="orbita-i" style="--a: 54deg" data-anillo="2" data-fase="0" href="domotica.html" title="Domótica" aria-label="Domótica"><span class="icono i-domotica" aria-hidden="true"></span></a>
+            <a class="orbita-i" style="--a: 126deg" data-anillo="1" data-fase="0.5" href="desarrollo.html" title="Desarrollo" aria-label="Desarrollo"><span class="icono i-desarrollo" aria-hidden="true"></span></a>
+            <a class="orbita-i" style="--a: 198deg" data-anillo="0" data-fase="0.5" href="diseno.html" title="Diseño" aria-label="Diseño"><span class="icono i-diseno" aria-hidden="true"></span></a>
           </div>
         </div>
       </div>

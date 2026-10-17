@@ -224,7 +224,36 @@ main > section { padding: 5rem 0; }
 
 // Inicio: el isotipo rodeado por las 5 áreas
 .hero-inicio {
+  // --mx / --my: posición del puntero (en reposo, la esquina superior derecha de siempre)
+  --mx: 88vw;
+  --my: 0px;
   @include media-breakpoint-up(lg) { min-height: 44rem; display: flex; align-items: center; > .container { width: 100%; } }
+
+  // El brillo verde de arriba a la derecha pasa a ser .hero-luz, que sigue al ratón
+  &::before { background: radial-gradient(45% 60% at 0% 100%, rgba($kl-verde, 0.12), transparent 70%); }
+
+  .hero-luz {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -2;
+    width: 120%;
+    height: 180%;
+    background: radial-gradient(closest-side, rgba($kl-verde, 0.3), transparent 62%);
+    transform: translate3d(calc(var(--mx) - 50%), calc(var(--my) - 50%), 0);
+    pointer-events: none;
+    will-change: transform;
+  }
+  // Retícula de puntos verdes que se enciende alrededor del puntero
+  .hero-puntos {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(rgba($kl-verde, 0.9) 1.3px, transparent 1.8px) 0 0 / 28px 28px;
+    -webkit-mask-image: radial-gradient(circle 190px at var(--mx) var(--my), #000, transparent);
+    mask-image: radial-gradient(circle 190px at var(--mx) var(--my), #000, transparent);
+    pointer-events: none;
+  }
 }
 .orbita {
   --size: 290px;
@@ -250,6 +279,21 @@ main > section { padding: 5rem 0; }
     z-index: 0;
     border-radius: 50%;
     background: radial-gradient(circle, rgba($kl-verde, 0.3), transparent 68%);
+  }
+  // Modelo atómico (lo activa main.js): órbitas elípticas inclinadas, las áreas son los electrones
+  .orbita-anillo {
+    display: none;
+    position: absolute;
+    left: calc(50% - var(--r));
+    top: calc(50% - var(--r) * 0.34);
+    width: calc(var(--r) * 2);
+    height: calc(var(--r) * 0.68);
+    border: 1px dashed rgba(#fff, 0.2);
+    border-radius: 50%;
+  }
+  &.orbita-atomo {
+    &::before { display: none; }
+    .orbita-anillo { display: block; }
   }
   .orbita-k {
     position: absolute;
