@@ -93,6 +93,68 @@
   {
     "area": "desarrollo",
     "categoria": "programacion",
+    "titulo": "Plataforma de Garantías y Devoluciones",
+    "descripcion": "Aplicación web multiusuario con 9 roles que lleva cada garantía, devolución y flete desde el ingreso hasta el cierre, validando las políticas en vivo. JavaScript puro, Node.js y SQLite, sin dependencias externas. Demo con datos ficticios.",
+    "imagen": "assets/media/garantias/portada.webp",
+    "enlace": "https://garantias-demo.kayrelabs.com/",
+    "etiquetas": [
+      "JavaScript",
+      "Node.js",
+      "SQLite",
+      "SPA",
+      "Multirrol"
+    ],
+    "galeria": [
+      {
+        "video": "assets/media/garantias/recorrido-completo.mp4",
+        "titulo": "Recorrido completo de un caso: cambio mano a mano (1 min 32 s)",
+        "controles": true
+      },
+      {
+        "video": "assets/media/garantias/01-seleccion-de-perfil.mp4",
+        "poster": "assets/media/garantias/01-seleccion-de-perfil.jpg",
+        "titulo": "Selección de perfil (9 roles)"
+      },
+      {
+        "video": "assets/media/garantias/02-bandeja-por-rol.mp4",
+        "poster": "assets/media/garantias/02-bandeja-por-rol.jpg",
+        "titulo": "Bandeja de trabajo por rol"
+      },
+      {
+        "video": "assets/media/garantias/03-nuevo-tramite-con-validaciones.mp4",
+        "poster": "assets/media/garantias/03-nuevo-tramite-con-validaciones.jpg",
+        "titulo": "Nuevo trámite con validaciones de política en vivo"
+      },
+      {
+        "video": "assets/media/garantias/05-cambio-mano-a-mano-y-relacion-de-envio.mp4",
+        "poster": "assets/media/garantias/05-cambio-mano-a-mano-y-relacion-de-envio.jpg",
+        "titulo": "Cambio mano a mano y relación de envío"
+      },
+      {
+        "video": "assets/media/garantias/06-conciliacion-en-el-centro.mp4",
+        "poster": "assets/media/garantias/06-conciliacion-en-el-centro.jpg",
+        "titulo": "Conciliación en el centro de garantías"
+      },
+      {
+        "video": "assets/media/garantias/07-revision-tecnica-y-relacion-de-entrega.mp4",
+        "poster": "assets/media/garantias/07-revision-tecnica-y-relacion-de-entrega.jpg",
+        "titulo": "Revisión técnica y relación de entrega"
+      },
+      {
+        "video": "assets/media/garantias/09-recepcion-en-bodega-y-cierre.mp4",
+        "poster": "assets/media/garantias/09-recepcion-en-bodega-y-cierre.jpg",
+        "titulo": "Recepción en bodega y cierre automático"
+      },
+      {
+        "video": "assets/media/garantias/12-fletes-recepcion-y-apertura.mp4",
+        "poster": "assets/media/garantias/12-fletes-recepcion-y-apertura.jpg",
+        "titulo": "Fletes: recepción y apertura de paquetes"
+      }
+    ]
+  },
+  {
+    "area": "desarrollo",
+    "categoria": "programacion",
     "titulo": "Código SVG",
     "descripcion": "Gráficos vectoriales con degradados.",
     "imagen": "assets/img/Proyectos/programacion-1.jfif"
@@ -131,5 +193,13 @@
     "titulo": "Pistas del circuito",
     "descripcion": "Diseño de PCB en azul.",
     "imagen": "assets/img/Proyectos/electronica-2.jpg"
+  },
+  {
+    "area": "impresion-3d",
+    "categoria": "figuras",
+    "titulo": "Gatos Makis de la sabiduría",
+    "descripcion": "Guía del modelo 3D: capa de 0,2 mm, relleno 20 % grid, PLA negro a 210 °C y 50 mm/s, con consejos de nivelación, adherencia y post-procesado.",
+    "imagen": "assets/img/Proyectos/impresion-3d-gatos-makis.webp",
+    "ajuste": "completo"
   }
 ]

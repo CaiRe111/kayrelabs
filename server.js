@@ -18,6 +18,7 @@ const TIPOS = {
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".webp": "image/webp",
+  ".mp4": "video/mp4",
   ".jfif": "image/jpeg",
   ".svg": "image/svg+xml",
   ".ico": "image/x-icon",
@@ -61,14 +62,35 @@ http
         res.writeHead(304, cabeceras).end();
         return;
       }
-      fs.readFile(archivo, (err, datos) => {
-        if (err) {
-          res.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" }).end("Error del servidor");
+      // Los videos necesitan peticiones Range (Safari e iOS no los reproducen sin ellas)
+      cabeceras["Accept-Ranges"] = "bytes";
+      const rango = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range || "");
+      let inicio = 0;
+      let fin = st.size - 1;
+      let estado = 200;
+      if (rango && (rango[1] || rango[2])) {
+        if (rango[1]) {
+          inicio = Number(rango[1]);
+          if (rango[2]) fin = Math.min(Number(rango[2]), st.size - 1);
+        } else {
+          inicio = Math.max(st.size - Number(rango[2]), 0); // "-N": los últimos N bytes
+        }
+        if (inicio > fin || inicio >= st.size) {
+          res.writeHead(416, { "Content-Range": `bytes */${st.size}` }).end();
           return;
         }
-        res.writeHead(200, cabeceras);
-        res.end(datos);
-      });
+        estado = 206;
+        cabeceras["Content-Range"] = `bytes ${inicio}-${fin}/${st.size}`;
+      }
+      cabeceras["Content-Length"] = fin - inicio + 1;
+      res.writeHead(estado, cabeceras);
+      if (req.method === "HEAD") {
+        res.end();
+        return;
+      }
+      fs.createReadStream(archivo, { start: inicio, end: fin })
+        .on("error", () => res.destroy())
+        .pipe(res);
     });
   })
   .listen(PORT, HOST, () => console.log(`Portafolio en http://${HOST}:${PORT}`));
