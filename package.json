@@ -1,7 +1,7 @@
 {
   "name": "kayrelabs",
   "version": "1.0.0",
-  "description": "Sitio web de KayreLabs: impresión 3D, electrónica, domótica, desarrollo y diseño.",
+  "description": "Sitio web de KayreLabs: desarrollo, electrónica, domótica, diseño e impresión 3D.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

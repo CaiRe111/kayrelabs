@@ -1,6 +1,6 @@
 # KayreLabs
 
-Sitio web de KayreLabs (impresión 3D, electrónica, domótica, desarrollo y diseño): HTML estático con Bootstrap y Sass, publicado en Cloudflare (Workers Static Assets) en `www.kayrelabs.com`. Cada push a `main` se despliega solo.
+Sitio web de KayreLabs (desarrollo, electrónica, domótica, diseño e impresión 3D): HTML estático con Bootstrap y Sass, publicado en Cloudflare (Workers Static Assets) en `www.kayrelabs.com`. Cada push a `main` se despliega solo.
 
 ## Estructura
 
