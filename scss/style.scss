@@ -226,15 +226,47 @@ main > section { padding: 5rem 0; }
 .hero-inicio {
   @include media-breakpoint-up(lg) { min-height: 44rem; display: flex; align-items: center; > .container { width: 100%; } }
 }
+// Encabezados vivos (inicio y áreas): el brillo verde y los puntos siguen al ratón (main.js)
+// --mx / --my: posición del puntero (en reposo, la esquina superior derecha de siempre)
+.hero-vivo {
+  --mx: 88vw;
+  --my: 0px;
+
+  // El brillo verde de arriba a la derecha pasa a ser .hero-luz, que sigue al ratón
+  &::before { background: radial-gradient(45% 60% at 0% 100%, rgba($kl-verde, 0.12), transparent 70%); }
+
+  .hero-luz {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -2;
+    width: 120%;
+    height: 180%;
+    background: radial-gradient(closest-side, rgba($kl-verde, 0.3), transparent 62%);
+    transform: translate3d(calc(var(--mx) - 50%), calc(var(--my) - 50%), 0);
+    pointer-events: none;
+    will-change: transform;
+  }
+  // Retícula de puntos verdes que se enciende alrededor del puntero
+  .hero-puntos {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(rgba($kl-verde, 0.9) 1.3px, transparent 1.8px) 0 0 / 28px 28px;
+    -webkit-mask-image: radial-gradient(circle 190px at var(--mx) var(--my), #000, transparent);
+    mask-image: radial-gradient(circle 190px at var(--mx) var(--my), #000, transparent);
+    pointer-events: none;
+  }
+}
 .orbita {
-  --size: 290px;
-  --r: calc(var(--size) * 0.43);
+  --size: 320px;
+  --r: calc(var(--size) * 0.44);
   position: relative;
   width: var(--size);
   height: var(--size);
   margin: 2.5rem auto 0;
-  @include media-breakpoint-up(md) { --size: 360px; }
-  @include media-breakpoint-up(lg) { --size: 420px; margin-top: 0; }
+  @include media-breakpoint-up(md) { --size: 380px; }
+  @include media-breakpoint-up(lg) { --size: 440px; margin-top: 0; }
 
   &::before {
     content: "";
@@ -250,14 +282,32 @@ main > section { padding: 5rem 0; }
     z-index: 0;
     border-radius: 50%;
     background: radial-gradient(circle, rgba($kl-verde, 0.3), transparent 68%);
+    pointer-events: none;
+  }
+  // Modelo atómico (lo activa main.js): órbitas elípticas inclinadas, las áreas son los electrones
+  .orbita-anillo {
+    display: none;
+    position: absolute;
+    left: calc(50% - var(--r));
+    top: calc(50% - var(--r) * 0.5);
+    width: calc(var(--r) * 2);
+    height: var(--r);
+    border: 1px dashed rgba(#fff, 0.2);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  &.orbita-atomo {
+    &::before { display: none; }
+    .orbita-anillo { display: block; }
   }
   .orbita-k {
     position: absolute;
     left: 50%;
     top: 50%;
     z-index: 1;
-    width: 38%;
+    width: 32%;
     height: auto;
+    pointer-events: none;
     transform: translate(-50%, -50%);
   }
   .orbita-i {
@@ -283,6 +333,8 @@ main > section { padding: 5rem 0; }
 
 // Páginas de área: texto + ilustración
 .hero-area {
+  // Mismo tamaño de título en las cinco áreas (también en las de estilo técnico)
+  h1 { font-size: clamp(2.1rem, 4.4vw, 3.5rem); }
   padding: 7rem 0 3rem;
   .hero-arte { display: block; width: 100%; max-width: 520px; height: auto; margin: 2rem auto 0; }
   @include media-breakpoint-up(lg) {
@@ -315,6 +367,21 @@ main > section { padding: 5rem 0; }
   -webkit-mask-image: none;
   mask-image: none;
 }
+
+// Cada área ilumina en verde, alrededor del puntero, su propio patrón de fondo (misma posición y tamaño)
+.hero-vivo.hero-area .hero-puntos {
+  -webkit-mask-image: radial-gradient(circle 240px at var(--mx) var(--my), #000, transparent);
+  mask-image: radial-gradient(circle 240px at var(--mx) var(--my), #000, transparent);
+}
+.hero-3d .hero-puntos { background: url("#{$arte}/patron-isometrico-vivo.svg") 0 0 / auto; }
+.hero-electronica .hero-puntos { background: url("#{$arte}/patron-circuito-vivo.svg") 0 0 / auto; }
+.hero-domotica .hero-puntos { background: url("#{$arte}/red-nodos-vivo.svg") right center / cover no-repeat; }
+.hero-desarrollo .hero-puntos {
+  background:
+    repeating-linear-gradient(0deg, rgba($kl-verde, 0.7) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(90deg, rgba($kl-verde, 0.7) 0 1px, transparent 1px 40px);
+}
+.hero-diseno .hero-puntos { background: url("#{$arte}/curvas-vectoriales-vivo.svg") right center / cover no-repeat; }
 
 // Hero compacto (contacto, marca): lleva la K como marca de agua
 .hero-compacto {
@@ -551,14 +618,12 @@ main > section { padding: 5rem 0; }
 .estilo-tech {
   .hero h1, .hero .etiqueta { font-family: $fuente-tech; }
   .hero h1 {
-    font-size: clamp(1.6rem, 6vw, 3.1rem);
     font-weight: 700;
     letter-spacing: -0.04em;
     overflow-wrap: anywhere;
     &::before { content: "$ "; color: $kl-verde; }
     &::after { content: "_"; color: $kl-verde; animation: parpadeo 1s steps(2) infinite; }
   }
-  .tecnologias { display: block; max-height: 64px; width: auto; margin-top: 1.5rem; padding: 4px 10px; border-radius: 10px; background: #fff; }
 }
 @keyframes parpadeo { 50% { opacity: 0; } }
 

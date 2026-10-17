@@ -1,10 +1,10 @@
-// Servidor estático para desarrollo local (producción: Cloudflare Pages, carpeta public/)
+// Servidor estático solo para previsualizar el sitio en local (producción: Cloudflare, ver wrangler.jsonc)
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
 
 const PORT = process.env.PORT || 8181;
-const HOST = "127.0.0.1"; // solo local; cloudflared expone el sitio
+const HOST = "127.0.0.1"; // solo local
 const ROOT = path.join(__dirname, "public");
 
 const TIPOS = {

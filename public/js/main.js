@@ -1,15 +1,102 @@
 const anio = document.getElementById("anio");
 if (anio) anio.textContent = new Date().getFullYear();
 
-// Inicio: la tarjeta del creador muestra el logo y gira a la foto solo al hacer clic
+// Inicio: la tarjeta del creador muestra el logo y gira a la foto al hacer clic;
+// a los 5 segundos vuelve sola al logo
 const giro = document.querySelector(".retrato-giro");
 if (giro) {
-  giro.addEventListener("click", () => {
-    const girado = giro.classList.toggle("girado");
+  let temporizador;
+  const girar = (girado) => {
+    clearTimeout(temporizador);
+    giro.classList.toggle("girado", girado);
     giro.setAttribute("aria-pressed", String(girado));
     giro.setAttribute("aria-label", girado ? "Ver el logo de KayreLabs" : "Ver la foto del creador de KayreLabs");
-  });
+    if (girado) temporizador = setTimeout(() => girar(false), 5000);
+  };
+  giro.addEventListener("click", () => girar(!giro.classList.contains("girado")));
 }
+
+const sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Inicio: las áreas orbitan el logo como electrones (modelo atómico)
+const orbita = document.querySelector(".orbita");
+if (orbita && !sinMovimiento) {
+  const RELACION = 0.5; // alto / ancho de las elipses (igual que en el CSS)
+  const PERIODOS = [2.5, 3.2, 4]; // segundos por vuelta de cada órbita
+  const anillos = [...orbita.querySelectorAll(".orbita-anillo")].map((a) => {
+    const grados = parseFloat(a.dataset.t);
+    a.style.transform = "rotate(" + grados + "deg)";
+    return (grados * Math.PI) / 180;
+  });
+  const electrones = [...orbita.querySelectorAll(".orbita-i")].map((el) => ({
+    el,
+    anillo: Number(el.dataset.anillo),
+    fase: Number(el.dataset.fase) * 2 * Math.PI,
+  }));
+  orbita.classList.add("orbita-atomo");
+
+  let tiempo = 0; // se detiene suavemente mientras el puntero está sobre un icono
+  let velocidad = 1;
+  let objetivo = 1;
+  let previo = performance.now();
+  // Se detienen en cuanto el puntero se acerca al átomo (toda la columna), no solo sobre un icono
+  const zona = orbita.parentElement;
+  zona.addEventListener("pointerenter", () => { objetivo = 0; });
+  zona.addEventListener("pointerleave", () => { objetivo = 1; });
+  orbita.addEventListener("focusin", () => { objetivo = 0; });
+  orbita.addEventListener("focusout", () => { objetivo = 1; });
+
+  const pintar = (ahora) => {
+    const dt = Math.min((ahora - previo) / 1000, 0.1);
+    previo = ahora;
+    velocidad += (objetivo - velocidad) * 0.3;
+    if (velocidad < 0.02) velocidad = 0; // detenidos del todo: así se puede hacer clic en cualquier icono
+    tiempo += dt * velocidad;
+    const a = orbita.clientWidth * 0.44;
+    const b = a * RELACION;
+    for (const e of electrones) {
+      const ang = e.fase + (tiempo * 2 * Math.PI) / PERIODOS[e.anillo];
+      const x0 = a * Math.cos(ang);
+      const y0 = b * Math.sin(ang);
+      const t = anillos[e.anillo];
+      const x = x0 * Math.cos(t) - y0 * Math.sin(t);
+      const y = x0 * Math.sin(t) + y0 * Math.cos(t);
+      const profundidad = (Math.sin(ang) + 1) / 2; // 1 = adelante, 0 = detrás del núcleo
+      e.el.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px) scale(" + (0.86 + 0.14 * profundidad).toFixed(3) + ")";
+      // Al detenerse, todos pasan al frente y a plena opacidad para poder elegirlos
+      const frente = Math.max(profundidad, 1 - velocidad);
+      e.el.style.opacity = (0.7 + 0.3 * frente).toFixed(2);
+      e.el.style.zIndex = velocidad < 0.5 || profundidad > 0.5 ? 2 : 0;
+    }
+    requestAnimationFrame(pintar);
+  };
+  requestAnimationFrame(pintar);
+}
+
+// Inicio y áreas: el brillo verde y la retícula de puntos del encabezado siguen al ratón
+document.querySelectorAll(".hero-vivo").forEach((portada) => {
+  if (sinMovimiento) return;
+  const reposo = () => ({ x: portada.clientWidth * 0.88, y: 0 });
+  let meta = reposo();
+  let actual = { ...meta };
+  let activo = false;
+  const mover = () => {
+    actual.x += (meta.x - actual.x) * 0.08;
+    actual.y += (meta.y - actual.y) * 0.08;
+    portada.style.setProperty("--mx", actual.x.toFixed(1) + "px");
+    portada.style.setProperty("--my", actual.y.toFixed(1) + "px");
+    if (Math.abs(meta.x - actual.x) > 0.5 || Math.abs(meta.y - actual.y) > 0.5) requestAnimationFrame(mover);
+    else activo = false;
+  };
+  const arrancar = () => { if (!activo) { activo = true; requestAnimationFrame(mover); } };
+  portada.addEventListener("pointermove", (e) => {
+    const r = portada.getBoundingClientRect();
+    meta = { x: e.clientX - r.left, y: e.clientY - r.top };
+    arrancar();
+  });
+  portada.addEventListener("pointerleave", () => { meta = reposo(); arrancar(); });
+  window.addEventListener("resize", () => { if (!activo) { meta = reposo(); actual = { ...meta }; arrancar(); } });
+});
 
 const contenedor = document.getElementById("lista-proyectos");
 
