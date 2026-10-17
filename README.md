@@ -10,6 +10,7 @@ Sitio web de KayreLabs (impresión 3D, electrónica, domótica, desarrollo y dis
 | `scss/` | Estilos. Colores y tipografías de la marca: `scss/_marca.scss` |
 | `scripts/vendor.js` | Copia el JS de Bootstrap y las fuentes desde `node_modules` a `public/` |
 | `server.js` · `ecosystem.config.js` | Servidor estático y configuración de PM2 |
+| `docs/marca/` | Kit de marca: guía en Markdown y PDF, y copia de logotipos, iconos, ilustraciones, fondos y tipografías. No se publica en el sitio |
 
 ## Desarrollo
 
@@ -42,5 +43,5 @@ Después, recarga el navegador con Ctrl+F5 (las imágenes se guardan en caché u
 - **Impresión 3D y Domótica** aún no tienen galería. Para activarla, reemplaza el bloque `.vacio` de la página por `<div id="lista-proyectos" class="row g-4" data-area="..." data-estilo="terminal"></div>` y agrega los proyectos al JSON con esa `area`.
 - **Redes sociales:** reemplaza los `href="#"` por las URL reales en `contacto.html` y en el pie de cada página.
 - **Menú y pie:** están repetidos en cada `.html`; si cambias uno, cámbialo en todas las páginas.
-- **Identidad de marca:** `public/marca.html` documenta logotipos, paleta, tipografía y recursos descargables (`public/assets/brand/`).
+- **Identidad de marca:** `public/marca.html` documenta logotipos, paleta, tipografía y recursos descargables (`public/assets/brand/`). La guía completa (`docs/marca/MARCA-KAYRELABS.pdf` y `.md`) y una copia de todos los archivos gráficos están en `docs/marca/`.
 - 
