@@ -49,7 +49,8 @@ if (orbita && !sinMovimiento) {
   const pintar = (ahora) => {
     const dt = Math.min((ahora - previo) / 1000, 0.1);
     previo = ahora;
-    velocidad += (objetivo - velocidad) * 0.15;
+    velocidad += (objetivo - velocidad) * 0.3;
+    if (velocidad < 0.02) velocidad = 0; // detenidos del todo: así se puede hacer clic en cualquier icono
     tiempo += dt * velocidad;
     const a = orbita.clientWidth * 0.44;
     const b = a * RELACION;
@@ -62,8 +63,10 @@ if (orbita && !sinMovimiento) {
       const y = x0 * Math.sin(t) + y0 * Math.cos(t);
       const profundidad = (Math.sin(ang) + 1) / 2; // 1 = adelante, 0 = detrás del núcleo
       e.el.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px) scale(" + (0.86 + 0.14 * profundidad).toFixed(3) + ")";
-      e.el.style.opacity = (0.7 + 0.3 * profundidad).toFixed(2);
-      e.el.style.zIndex = profundidad > 0.5 ? 2 : 0;
+      // Al detenerse, todos pasan al frente y a plena opacidad para poder elegirlos
+      const frente = Math.max(profundidad, 1 - velocidad);
+      e.el.style.opacity = (0.7 + 0.3 * frente).toFixed(2);
+      e.el.style.zIndex = velocidad < 0.5 || profundidad > 0.5 ? 2 : 0;
     }
     requestAnimationFrame(pintar);
   };

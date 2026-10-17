@@ -282,6 +282,7 @@ main > section { padding: 5rem 0; }
     z-index: 0;
     border-radius: 50%;
     background: radial-gradient(circle, rgba($kl-verde, 0.3), transparent 68%);
+    pointer-events: none;
   }
   // Modelo atómico (lo activa main.js): órbitas elípticas inclinadas, las áreas son los electrones
   .orbita-anillo {
@@ -293,6 +294,7 @@ main > section { padding: 5rem 0; }
     height: var(--r);
     border: 1px dashed rgba(#fff, 0.2);
     border-radius: 50%;
+    pointer-events: none;
   }
   &.orbita-atomo {
     &::before { display: none; }
@@ -305,6 +307,7 @@ main > section { padding: 5rem 0; }
     z-index: 1;
     width: 32%;
     height: auto;
+    pointer-events: none;
     transform: translate(-50%, -50%);
   }
   .orbita-i {
