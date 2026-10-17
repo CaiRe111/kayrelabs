@@ -333,6 +333,8 @@ main > section { padding: 5rem 0; }
 
 // Páginas de área: texto + ilustración
 .hero-area {
+  // Mismo tamaño de título en las cinco áreas (también en las de estilo técnico)
+  h1 { font-size: clamp(2.1rem, 4.4vw, 3.5rem); }
   padding: 7rem 0 3rem;
   .hero-arte { display: block; width: 100%; max-width: 520px; height: auto; margin: 2rem auto 0; }
   @include media-breakpoint-up(lg) {
@@ -616,7 +618,6 @@ main > section { padding: 5rem 0; }
 .estilo-tech {
   .hero h1, .hero .etiqueta { font-family: $fuente-tech; }
   .hero h1 {
-    font-size: clamp(1.45rem, 5.2vw, 2.3rem);
     font-weight: 700;
     letter-spacing: -0.04em;
     overflow-wrap: anywhere;
