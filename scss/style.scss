@@ -558,7 +558,6 @@ main > section { padding: 5rem 0; }
     &::before { content: "$ "; color: $kl-verde; }
     &::after { content: "_"; color: $kl-verde; animation: parpadeo 1s steps(2) infinite; }
   }
-  .tecnologias { display: block; max-height: 64px; width: auto; margin-top: 1.5rem; padding: 4px 10px; border-radius: 10px; background: #fff; }
 }
 @keyframes parpadeo { 50% { opacity: 0; } }
 
