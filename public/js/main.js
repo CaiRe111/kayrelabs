@@ -162,6 +162,46 @@ if (contenedor) {
     return nodo;
   };
 
+  // Aviso "Sitio en desarrollo": se muestra sobre la sección desenfocada (proyectos con "mantenimiento": true)
+  let aviso;
+  let origenAviso;
+  const cerrarAviso = () => {
+    if (!aviso || aviso.hidden) return;
+    aviso.hidden = true;
+    document.body.classList.remove("aviso-abierto");
+    if (origenAviso) origenAviso.focus();
+  };
+  const abrirAviso = (desde) => {
+    if (!aviso) {
+      aviso = el("div", "aviso-sitio");
+      aviso.hidden = true;
+      const caja = el("div", "aviso-caja");
+      caja.setAttribute("role", "dialog");
+      caja.setAttribute("aria-modal", "true");
+      caja.setAttribute("aria-labelledby", "aviso-titulo");
+      const icono = el("span", "icono i-desarrollo");
+      icono.setAttribute("aria-hidden", "true");
+      const titulo = el("h2", "", "Sitio en desarrollo");
+      titulo.id = "aviso-titulo";
+      const entendido = el("button", "btn btn-primary", "Entendido");
+      entendido.type = "button";
+      entendido.addEventListener("click", cerrarAviso);
+      caja.append(icono, titulo, el("p", "", "Estamos actualizando esta página. Volverá a estar disponible muy pronto."), entendido);
+      aviso.append(caja);
+      aviso.addEventListener("click", (e) => { if (e.target === aviso) cerrarAviso(); });
+      document.addEventListener("keydown", (e) => {
+        if (aviso.hidden) return;
+        if (e.key === "Escape") cerrarAviso();
+        if (e.key === "Tab") { e.preventDefault(); entendido.focus(); } // único control: el foco se queda dentro
+      });
+      document.body.append(aviso);
+    }
+    origenAviso = desde;
+    aviso.hidden = false;
+    document.body.classList.add("aviso-abierto");
+    aviso.querySelector("button").focus();
+  };
+
   const imagen = (p) => {
     const img = el("img");
     img.src = p.imagen;
@@ -199,12 +239,13 @@ if (contenedor) {
         demo.href = p.enlace;
         demo.target = "_blank";
         demo.rel = "noopener";
+        if (p.mantenimiento) demo.addEventListener("click", (e) => { e.preventDefault(); abrirAviso(demo); });
         acciones.append(demo);
       }
       if (p.galeria) {
         const gal = el("button", "ver-demo", "Ver demo en video");
         gal.type = "button";
-        gal.addEventListener("click", () => abrir(p));
+        gal.addEventListener("click", () => (p.mantenimiento ? abrirAviso(gal) : abrir(p)));
         acciones.append(gal);
       }
       cuerpo.append(acciones);
