@@ -94,10 +94,9 @@
     "area": "desarrollo",
     "categoria": "programacion",
     "titulo": "Plataforma de Garantías y Devoluciones",
-    "descripcion": "Aplicación web multiusuario con 9 roles que lleva cada garantía, devolución y flete desde el ingreso hasta el cierre, validando las políticas en vivo. JavaScript puro, Node.js y SQLite, sin dependencias externas. Demo con datos ficticios.",
+    "descripcion": "Aplicación web multiusuario con 8 roles que lleva cada garantía, devolución y flete desde el ingreso hasta el cierre, validando las políticas en vivo. JavaScript puro, Node.js y SQLite, sin dependencias externas. Demo con datos ficticios.",
     "imagen": "assets/media/garantias/portada.webp",
     "enlace": "https://garantias-demo.kayrelabs.com/",
-    "mantenimiento": true,
     "etiquetas": [
       "JavaScript",
       "Node.js",
@@ -108,13 +107,14 @@
     "galeria": [
       {
         "video": "assets/media/garantias/recorrido-completo.mp4",
-        "titulo": "Recorrido completo de un caso: cambio mano a mano (1 min 32 s)",
+        "poster": "assets/media/garantias/recorrido-completo.jpg",
+        "titulo": "Recorrido completo de un caso: cambio de unidad por cinco roles (2 min 8 s)",
         "controles": true
       },
       {
         "video": "assets/media/garantias/01-seleccion-de-perfil.mp4",
         "poster": "assets/media/garantias/01-seleccion-de-perfil.jpg",
-        "titulo": "Selección de perfil (9 roles)"
+        "titulo": "Selección de perfil"
       },
       {
         "video": "assets/media/garantias/02-bandeja-por-rol.mp4",
@@ -127,9 +127,14 @@
         "titulo": "Nuevo trámite con validaciones de política en vivo"
       },
       {
-        "video": "assets/media/garantias/05-cambio-mano-a-mano-y-relacion-de-envio.mp4",
-        "poster": "assets/media/garantias/05-cambio-mano-a-mano-y-relacion-de-envio.jpg",
-        "titulo": "Cambio mano a mano y relación de envío"
+        "video": "assets/media/garantias/04-comprobante-de-ingreso.mp4",
+        "poster": "assets/media/garantias/04-comprobante-de-ingreso.jpg",
+        "titulo": "Comprobante de ingreso en dos copias"
+      },
+      {
+        "video": "assets/media/garantias/05-cambio-de-unidad-y-relacion-de-envio.mp4",
+        "poster": "assets/media/garantias/05-cambio-de-unidad-y-relacion-de-envio.jpg",
+        "titulo": "Cambio de unidad y relación de envío"
       },
       {
         "video": "assets/media/garantias/06-conciliacion-en-el-centro.mp4",
@@ -142,14 +147,49 @@
         "titulo": "Revisión técnica y relación de entrega"
       },
       {
+        "video": "assets/media/garantias/08-reporte-no-apto.mp4",
+        "poster": "assets/media/garantias/08-reporte-no-apto.jpg",
+        "titulo": "Dictamen no apto y reporte técnico"
+      },
+      {
         "video": "assets/media/garantias/09-recepcion-en-bodega-y-cierre.mp4",
         "poster": "assets/media/garantias/09-recepcion-en-bodega-y-cierre.jpg",
         "titulo": "Recepción en bodega y cierre automático"
       },
       {
-        "video": "assets/media/garantias/12-fletes-recepcion-y-apertura.mp4",
-        "poster": "assets/media/garantias/12-fletes-recepcion-y-apertura.jpg",
+        "video": "assets/media/garantias/10-reembolso-y-nota-credito.mp4",
+        "poster": "assets/media/garantias/10-reembolso-y-nota-credito.jpg",
+        "titulo": "Reembolso y nota crédito"
+      },
+      {
+        "video": "assets/media/garantias/11-devolucion-por-retracto.mp4",
+        "poster": "assets/media/garantias/11-devolucion-por-retracto.jpg",
+        "titulo": "Devolución por retracto"
+      },
+      {
+        "video": "assets/media/garantias/12-reparacion.mp4",
+        "poster": "assets/media/garantias/12-reparacion.jpg",
+        "titulo": "Reparación y entrega al cliente"
+      },
+      {
+        "video": "assets/media/garantias/13-fletes.mp4",
+        "poster": "assets/media/garantias/13-fletes.jpg",
         "titulo": "Fletes: recepción y apertura de paquetes"
+      },
+      {
+        "video": "assets/media/garantias/14-consulta-de-factura.mp4",
+        "poster": "assets/media/garantias/14-consulta-de-factura.jpg",
+        "titulo": "Consulta de factura con vigencia de garantía y retracto"
+      },
+      {
+        "video": "assets/media/garantias/15-administracion.mp4",
+        "poster": "assets/media/garantias/15-administracion.jpg",
+        "titulo": "Administración: aprobaciones, puntos y parámetros"
+      },
+      {
+        "video": "assets/media/garantias/16-movil.mp4",
+        "poster": "assets/media/garantias/16-movil.jpg",
+        "titulo": "Versión móvil"
       }
     ]
   },
