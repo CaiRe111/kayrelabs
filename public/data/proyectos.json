@@ -196,6 +196,79 @@
   {
     "area": "desarrollo",
     "categoria": "programacion",
+    "titulo": "Plataforma Ecommerce",
+    "descripcion": "Tienda en línea y panel de administración para emprendedores en Colombia: catálogo, carrito, promociones, clientes fieles, pagos con Wompi y facturación electrónica. Node.js y SQLite sin dependencias externas. Demo con datos ficticios.",
+    "imagen": "assets/media/ecommerce/portada.webp",
+    "enlace": "https://ecommerce-demo.kayrelabs.com/",
+    "etiquetas": [
+      "JavaScript",
+      "Node.js",
+      "SQLite",
+      "Wompi",
+      "Factura DIAN"
+    ],
+    "galeria": [
+      {
+        "video": "assets/media/ecommerce/recorrido-completo.mp4",
+        "poster": "assets/media/ecommerce/recorrido-completo.jpg",
+        "titulo": "Recorrido completo: compra en la tienda y pedido en el panel (45 s)",
+        "controles": true
+      },
+      {
+        "video": "assets/media/ecommerce/01-portada-y-tiendas.mp4",
+        "poster": "assets/media/ecommerce/01-portada-y-tiendas.jpg",
+        "titulo": "Cinco tiendas de ejemplo y el tema Fantasía"
+      },
+      {
+        "video": "assets/media/ecommerce/02-catalogo-y-filtros.mp4",
+        "poster": "assets/media/ecommerce/02-catalogo-y-filtros.jpg",
+        "titulo": "Catálogo con filtros, orden y búsqueda"
+      },
+      {
+        "video": "assets/media/ecommerce/03-ficha-y-carrito.mp4",
+        "poster": "assets/media/ecommerce/03-ficha-y-carrito.jpg",
+        "titulo": "Ficha de producto, opciones y carrito lateral"
+      },
+      {
+        "video": "assets/media/ecommerce/05-compra-y-pago-aprobado.mp4",
+        "poster": "assets/media/ecommerce/05-compra-y-pago-aprobado.jpg",
+        "titulo": "Pago en tres pasos con pasarela simulada"
+      },
+      {
+        "video": "assets/media/ecommerce/07-cuenta-y-cliente-fiel.mp4",
+        "poster": "assets/media/ecommerce/07-cuenta-y-cliente-fiel.jpg",
+        "titulo": "Cuenta de cliente fiel y precios especiales"
+      },
+      {
+        "video": "assets/media/ecommerce/08-panel-resumen.mp4",
+        "poster": "assets/media/ecommerce/08-panel-resumen.jpg",
+        "titulo": "Panel de administración: resumen de ventas"
+      },
+      {
+        "video": "assets/media/ecommerce/09-crear-producto.mp4",
+        "poster": "assets/media/ecommerce/09-crear-producto.jpg",
+        "titulo": "Creación de un producto"
+      },
+      {
+        "video": "assets/media/ecommerce/11-gestion-de-pedidos.mp4",
+        "poster": "assets/media/ecommerce/11-gestion-de-pedidos.jpg",
+        "titulo": "Gestión de pedidos"
+      },
+      {
+        "video": "assets/media/ecommerce/12-promociones.mp4",
+        "poster": "assets/media/ecommerce/12-promociones.jpg",
+        "titulo": "Promociones y cupones"
+      },
+      {
+        "video": "assets/media/ecommerce/15-cambiar-tema.mp4",
+        "poster": "assets/media/ecommerce/15-cambiar-tema.jpg",
+        "titulo": "Cambio del tema visual de la tienda"
+      }
+    ]
+  },
+  {
+    "area": "desarrollo",
+    "categoria": "programacion",
     "titulo": "Código SVG",
     "descripcion": "Gráficos vectoriales con degradados.",
     "imagen": "assets/img/Proyectos/programacion-1.jfif"
