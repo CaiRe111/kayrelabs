@@ -269,6 +269,74 @@
   {
     "area": "desarrollo",
     "categoria": "programacion",
+    "titulo": "Oferta de productos con novedades",
+    "descripcion": "Módulo web con 4 roles que lleva cada producto que regresa por garantía funcional, pero no apto para venderse como nuevo, desde la catalogación hasta la factura: 6 estados, traslados con documento TP, comisiones configurables y alertas de vencimiento. HTML, CSS y JavaScript sin dependencias. Demo con datos ficticios.",
+    "imagen": "assets/media/oferta-garantias/portada.webp",
+    "enlace": "https://oferta-garantias-demo.kayrelabs.com/",
+    "etiquetas": [
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Multirrol",
+      "Reportes"
+    ],
+    "galeria": [
+      {
+        "video": "assets/media/oferta-garantias/recorrido-completo.mp4",
+        "poster": "assets/media/oferta-garantias/recorrido-completo.jpg",
+        "titulo": "Recorrido completo: un producto con novedad de la catalogación a la factura, por cuatro roles (1 min 34 s)",
+        "controles": true
+      },
+      {
+        "video": "assets/media/oferta-garantias/01-catalogar-producto.mp4",
+        "poster": "assets/media/oferta-garantias/01-catalogar-producto.jpg",
+        "titulo": "El técnico cataloga un producto con novedad"
+      },
+      {
+        "video": "assets/media/oferta-garantias/02-valorar-y-autorizar.mp4",
+        "poster": "assets/media/oferta-garantias/02-valorar-y-autorizar.jpg",
+        "titulo": "Gerencia fija costo, precio, comisión y sedes"
+      },
+      {
+        "video": "assets/media/oferta-garantias/03-solicitar-producto.mp4",
+        "poster": "assets/media/oferta-garantias/03-solicitar-producto.jpg",
+        "titulo": "El comercial solicita el producto para un cliente"
+      },
+      {
+        "video": "assets/media/oferta-garantias/04-despachar-con-tp.mp4",
+        "poster": "assets/media/oferta-garantias/04-despachar-con-tp.jpg",
+        "titulo": "Bodega despacha con documento de traslado TP"
+      },
+      {
+        "video": "assets/media/oferta-garantias/05-confirmar-llegada.mp4",
+        "poster": "assets/media/oferta-garantias/05-confirmar-llegada.jpg",
+        "titulo": "El comercial confirma la llegada a la sede"
+      },
+      {
+        "video": "assets/media/oferta-garantias/06-cerrar-venta-con-factura.mp4",
+        "poster": "assets/media/oferta-garantias/06-cerrar-venta-con-factura.jpg",
+        "titulo": "Cierre con factura, precio real y comisión"
+      },
+      {
+        "video": "assets/media/oferta-garantias/07-resumen-gerencial-y-comisiones.mp4",
+        "poster": "assets/media/oferta-garantias/07-resumen-gerencial-y-comisiones.jpg",
+        "titulo": "Resumen gerencial, alertas y reglas de comisión"
+      },
+      {
+        "video": "assets/media/oferta-garantias/08-historial-y-reportes.mp4",
+        "poster": "assets/media/oferta-garantias/08-historial-y-reportes.jpg",
+        "titulo": "Historial de casos con gráficas"
+      },
+      {
+        "video": "assets/media/oferta-garantias/09-vista-por-rol.mp4",
+        "poster": "assets/media/oferta-garantias/09-vista-por-rol.jpg",
+        "titulo": "Cada rol ve solo su información"
+      }
+    ]
+  },
+  {
+    "area": "desarrollo",
+    "categoria": "programacion",
     "titulo": "Código SVG",
     "descripcion": "Gráficos vectoriales con degradados.",
     "imagen": "assets/img/Proyectos/programacion-1.jfif"
