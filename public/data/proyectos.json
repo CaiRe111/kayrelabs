@@ -270,7 +270,7 @@
     "area": "desarrollo",
     "categoria": "programacion",
     "titulo": "Oferta de productos con novedades",
-    "descripcion": "Módulo web con 4 roles que lleva cada producto que regresa por garantía funcional, pero no apto para venderse como nuevo, desde la catalogación hasta la factura: 6 estados, traslados con documento TP, comisiones configurables y alertas de vencimiento. HTML, CSS y JavaScript sin dependencias. Demo con datos ficticios.",
+    "descripcion": "Módulo web con 4 roles que lleva cada producto con novedad, probado por cualquier área técnica y funcional pero no apto para venderse como nuevo, desde la catalogación hasta la factura: 6 estados, traslados con documento TP, comisiones configurables y alertas de vencimiento. HTML, CSS y JavaScript sin dependencias. Demo con datos ficticios.",
     "imagen": "assets/media/oferta-garantias/portada.webp",
     "enlace": "https://oferta-garantias-demo.kayrelabs.com/",
     "etiquetas": [
@@ -284,7 +284,7 @@
       {
         "video": "assets/media/oferta-garantias/recorrido-completo.mp4",
         "poster": "assets/media/oferta-garantias/recorrido-completo.jpg",
-        "titulo": "Recorrido completo: un producto con novedad de la catalogación a la factura, por cuatro roles (1 min 34 s)",
+        "titulo": "Recorrido completo: un producto con novedad de la catalogación a la factura, por cuatro roles (1 min 33 s)",
         "controles": true
       },
       {
