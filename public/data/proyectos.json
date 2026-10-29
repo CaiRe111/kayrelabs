@@ -337,6 +337,86 @@
   {
     "area": "desarrollo",
     "categoria": "programacion",
+    "titulo": "Enlace NFC: piezas 3D con tarjeta digital y fidelización",
+    "descripcion": "Piezas impresas en 3D con chip NFC que abren la tarjeta digital de un negocio: contacto, redes y pagos con Nequi, Daviplata y Bre-B. En la caja, la misma pieza suma sellos; al completar la tarjeta el cliente recibe un PIN que canjea el empleado de caja. 4 roles, 3 estilos de tarjeta y chips NTAG 424 DNA no clonables. Cloudflare Workers, D1 y R2.",
+    "imagen": "assets/media/enlace-nfc/portada.webp",
+    "enlace": "https://nfc.kayrelabs.com/proyecto/",
+    "textoEnlace": "Ver proyecto",
+    "etiquetas": [
+      "JavaScript",
+      "Cloudflare Workers",
+      "NFC",
+      "Impresión 3D",
+      "Fidelización"
+    ],
+    "galeria": [
+      {
+        "video": "assets/media/enlace-nfc/recorrido-completo.mp4",
+        "poster": "assets/media/enlace-nfc/recorrido-completo.jpg",
+        "titulo": "Recorrido completo: crear la empresa, elegir el estilo, sumar sellos y canjear el premio en caja (1 min 35 s)",
+        "controles": true
+      },
+      {
+        "imagen": "assets/media/enlace-nfc/portada.webp",
+        "titulo": "Piezas impresas en 3D con chip NFC (imagen ilustrativa)"
+      },
+      {
+        "video": "assets/media/enlace-nfc/01-crear-empresa.mp4",
+        "poster": "assets/media/enlace-nfc/01-crear-empresa.jpg",
+        "titulo": "El administrador crea la empresa con nombre, mercado y logo"
+      },
+      {
+        "video": "assets/media/enlace-nfc/02-enlaces-y-pagos.mp4",
+        "poster": "assets/media/enlace-nfc/02-enlaces-y-pagos.jpg",
+        "titulo": "El dueño cambia sus enlaces y medios de pago"
+      },
+      {
+        "video": "assets/media/enlace-nfc/03-estilos-de-tarjeta.mp4",
+        "poster": "assets/media/enlace-nfc/03-estilos-de-tarjeta.jpg",
+        "titulo": "Tres estilos de tarjeta con vista previa en vivo"
+      },
+      {
+        "video": "assets/media/enlace-nfc/04-tarjeta-en-el-celular.mp4",
+        "poster": "assets/media/enlace-nfc/04-tarjeta-en-el-celular.jpg",
+        "titulo": "La tarjeta en el celular al acercarlo a la pieza"
+      },
+      {
+        "video": "assets/media/enlace-nfc/05-sello-nfc-y-pin.mp4",
+        "poster": "assets/media/enlace-nfc/05-sello-nfc-y-pin.jpg",
+        "titulo": "Sellos con un toque y PIN al completar la tarjeta"
+      },
+      {
+        "video": "assets/media/enlace-nfc/06-empleado-de-caja.mp4",
+        "poster": "assets/media/enlace-nfc/06-empleado-de-caja.jpg",
+        "titulo": "El dueño crea el usuario del empleado de caja"
+      },
+      {
+        "video": "assets/media/enlace-nfc/07-canje-en-caja.mp4",
+        "poster": "assets/media/enlace-nfc/07-canje-en-caja.jpg",
+        "titulo": "Canje del premio en caja con el PIN"
+      },
+      {
+        "video": "assets/media/enlace-nfc/08-clientes-y-csv.mp4",
+        "poster": "assets/media/enlace-nfc/08-clientes-y-csv.jpg",
+        "titulo": "Clientes registrados y descarga en CSV"
+      },
+      {
+        "imagen": "assets/media/enlace-nfc/07-tarjeta-nocturna.webp",
+        "titulo": "Estilo Nocturna"
+      },
+      {
+        "imagen": "assets/media/enlace-nfc/07-tarjeta-vitrina.webp",
+        "titulo": "Estilo Vitrina"
+      },
+      {
+        "imagen": "assets/media/enlace-nfc/06-caja-empleado.webp",
+        "titulo": "Vista del empleado de caja"
+      }
+    ]
+  },
+  {
+    "area": "desarrollo",
+    "categoria": "programacion",
     "titulo": "Código SVG",
     "descripcion": "Gráficos vectoriales con degradados.",
     "imagen": "assets/img/Proyectos/programacion-1.jfif"

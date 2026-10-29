@@ -195,7 +195,7 @@ if (contenedor) {
     if (p.enlace || p.galeria) {
       const acciones = el("div", "acciones");
       if (p.enlace) {
-        const demo = el("a", "ver-demo", "Ver demo ↗");
+        const demo = el("a", "ver-demo", (p.textoEnlace || "Ver demo") + " ↗");
         demo.href = p.enlace;
         demo.target = "_blank";
         demo.rel = "noopener";
