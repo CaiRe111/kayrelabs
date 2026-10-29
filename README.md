@@ -32,7 +32,7 @@ El estado de cada despliegue está en Cloudflare → Workers y Pages → kayrela
 
 ## Contenido
 
-- **Proyectos:** `public/data/proyectos.json`. Cada elemento lleva `area` (`diseno`, `electronica`, `desarrollo` o `impresion-3d`), `categoria`, `titulo`, `descripcion` e `imagen`. Las imágenes viven en `public/assets/img/`.
+- **Proyectos:** `public/data/proyectos.json`. Cada elemento lleva `area` (`diseno`, `electronica`, `desarrollo` o `impresion-3d`), `categoria`, `titulo`, `descripcion` e `imagen`. Las imágenes viven en `public/assets/img/`. Opcionales: `enlace` (botón «Ver demo ↗»; su texto se cambia con `textoEnlace`), `etiquetas` y `galeria` (lista de `{video, poster, titulo, controles}` o `{imagen, titulo}`, con los archivos en `public/assets/media/<proyecto>/`).
 - **Galerías:** Diseño, Electrónica, Desarrollo e Impresión 3D ya tienen galería. **Domótica** aún no: para activarla, reemplaza el bloque `.vacio` de `domotica.html` por `<div id="lista-proyectos" class="row g-4" data-area="domotica" data-estilo="terminal"></div>` y agrega los proyectos al JSON con `"area": "domotica"`.
 - **Redes sociales:** reemplaza los `href="#"` por las URL reales en `contacto.html` y en el pie de cada página.
 - **Menú y pie:** están repetidos en cada `.html`; si cambias uno, cámbialo en todas las páginas.
