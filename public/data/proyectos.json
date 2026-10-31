@@ -1,94 +1,103 @@
 [
   {
     "area": "diseno",
-    "categoria": "fotografia",
-    "titulo": "Geometría vertical",
-    "descripcion": "Composición urbana en blanco y negro.",
-    "imagen": "assets/img/Img-portada/img-portada-1.jpg"
+    "categoria": "identidad",
+    "titulo": "Identidad KayreLabs",
+    "descripcion": "Logotipo, isotipo, paleta y tipografías de la marca.",
+    "imagen": "assets/brand/logo-horizontal.svg"
   },
   {
     "area": "diseno",
-    "categoria": "fotografia",
-    "titulo": "Punto de fuga",
-    "descripcion": "Perspectiva entre edificios.",
-    "imagen": "assets/img/Img-portada/img-portada-2.jpg"
+    "categoria": "publicidad",
+    "titulo": "Póster de impresión 3D (gatos)",
+    "descripcion": "Pieza publicitaria de KayreLabs.",
+    "imagen": "assets/img/diseno/publicidad/01.webp"
   },
   {
     "area": "diseno",
-    "categoria": "fotografia",
-    "titulo": "Cruz de luz",
-    "descripcion": "Simetría y contraste.",
-    "imagen": "assets/img/Img-portada/img-portada-3.jpg"
+    "categoria": "publicidad",
+    "titulo": "Póster de impresión 3D (gnomo)",
+    "descripcion": "Pieza publicitaria de KayreLabs.",
+    "imagen": "assets/img/diseno/publicidad/02.webp"
   },
   {
     "area": "diseno",
-    "categoria": "fotografia",
-    "titulo": "Reflejo",
-    "descripcion": "Arquitectura sobre cristal.",
-    "imagen": "assets/img/Img-portada/img-portada-4.webp"
+    "categoria": "publicidad",
+    "titulo": "Publicación para Facebook",
+    "descripcion": "Pieza publicitaria de KayreLabs.",
+    "imagen": "assets/img/diseno/publicidad/03.webp"
   },
   {
     "area": "diseno",
-    "categoria": "fotografia",
-    "titulo": "Volcán y laguna",
-    "descripcion": "Paisaje natural.",
-    "imagen": "assets/img/Img-portada/img-portada-5.jpg"
+    "categoria": "publicidad",
+    "titulo": "Publicación para Instagram",
+    "descripcion": "Pieza publicitaria de KayreLabs.",
+    "imagen": "assets/img/diseno/publicidad/04.webp"
   },
   {
     "area": "diseno",
-    "categoria": "fotografia",
-    "titulo": "Calle al fondo",
-    "descripcion": "Perspectiva urbana.",
-    "imagen": "assets/img/Img-portada/img-portada-6.jpg"
+    "categoria": "publicidad",
+    "titulo": "Historia para WhatsApp",
+    "descripcion": "Pieza publicitaria de KayreLabs.",
+    "imagen": "assets/img/diseno/publicidad/05.webp"
   },
   {
     "area": "diseno",
-    "categoria": "ilustracion",
-    "titulo": "Color en movimiento",
-    "descripcion": "Salpicaduras de color sobre negro.",
-    "imagen": "assets/img/Fondos/color-salpicadura.webp"
+    "categoria": "publicidad",
+    "titulo": "Póster vertical de impresión 3D",
+    "descripcion": "Pieza publicitaria de KayreLabs.",
+    "imagen": "assets/img/diseno/publicidad/06.webp"
   },
   {
     "area": "diseno",
-    "categoria": "ilustracion",
-    "titulo": "Cielo estrellado",
-    "descripcion": "Fondo digital de estrellas.",
-    "imagen": "assets/img/Fondos/fondo1.jpg"
+    "categoria": "publicidad",
+    "titulo": "Diseñar y crear",
+    "descripcion": "Pieza publicitaria de KayreLabs.",
+    "imagen": "assets/img/diseno/publicidad/07.webp"
   },
   {
     "area": "diseno",
-    "categoria": "ilustracion",
-    "titulo": "Textura de muro",
-    "descripcion": "Fondo de ladrillo en escala de grises.",
-    "imagen": "assets/img/Fondos/Fondo3.jpg"
+    "categoria": "publicidad",
+    "titulo": "Crear por lotes",
+    "descripcion": "Pieza publicitaria de KayreLabs.",
+    "imagen": "assets/img/diseno/publicidad/08.webp"
   },
   {
     "area": "diseno",
-    "categoria": "ilustracion",
-    "titulo": "Tormenta",
-    "descripcion": "Rayo en alto contraste.",
-    "imagen": "assets/img/Fondos/Fondo2.jpg"
+    "categoria": "publicidad",
+    "titulo": "Tus ideas en el mundo físico",
+    "descripcion": "Pieza publicitaria de KayreLabs.",
+    "imagen": "assets/img/diseno/publicidad/09.webp"
   },
   {
     "area": "diseno",
-    "categoria": "logotipos",
-    "titulo": "Painting Studio",
-    "descripcion": "Logotipo tipo escudo.",
-    "imagen": "assets/img/Logos/logo.png"
+    "categoria": "audiovisual",
+    "titulo": "Video para Instagram",
+    "descripcion": "Animación vertical 1080 × 1920.",
+    "imagen": "assets/media/publicidad/instagram-video.jpg",
+    "galeria": [
+      {
+        "video": "assets/media/publicidad/instagram-video.mp4",
+        "poster": "assets/media/publicidad/instagram-video.jpg",
+        "titulo": "Video para Instagram",
+        "controles": true
+      }
+    ]
   },
   {
     "area": "diseno",
-    "categoria": "logotipos",
-    "titulo": "Pincel y mano",
-    "descripcion": "Ilustración lineal.",
-    "imagen": "assets/img/Logos/logo1.png"
-  },
-  {
-    "area": "diseno",
-    "categoria": "logotipos",
-    "titulo": "Paint Everyday",
-    "descripcion": "Insignia hexagonal.",
-    "imagen": "assets/img/Logos/logo2.png"
+    "categoria": "audiovisual",
+    "titulo": "Video para estados de WhatsApp",
+    "descripcion": "Animación vertical 1080 × 1920.",
+    "imagen": "assets/media/publicidad/whatsapp-video.jpg",
+    "galeria": [
+      {
+        "video": "assets/media/publicidad/whatsapp-video.mp4",
+        "poster": "assets/media/publicidad/whatsapp-video.jpg",
+        "titulo": "Video para estados de WhatsApp",
+        "controles": true
+      }
+    ]
   },
   {
     "area": "desarrollo",
@@ -415,53 +424,281 @@
     ]
   },
   {
-    "area": "desarrollo",
-    "categoria": "programacion",
-    "titulo": "Código SVG",
-    "descripcion": "Gráficos vectoriales con degradados.",
-    "imagen": "assets/img/Proyectos/programacion-1.jfif"
-  },
-  {
-    "area": "desarrollo",
-    "categoria": "programacion",
-    "titulo": "Entorno de desarrollo",
-    "descripcion": "Código en el editor.",
-    "imagen": "assets/img/Proyectos/programacion-2.jfif"
-  },
-  {
-    "area": "desarrollo",
-    "categoria": "programacion",
-    "titulo": "Función en JavaScript",
-    "descripcion": "Lógica de control de flujo.",
-    "imagen": "assets/img/Proyectos/programacion-2.jpg"
-  },
-  {
-    "area": "electronica",
-    "categoria": "electronica",
-    "titulo": "Placa con microcontrolador",
-    "descripcion": "Circuito impreso y componentes SMD.",
-    "imagen": "assets/img/Proyectos/electronica-1.jpg"
-  },
-  {
-    "area": "electronica",
-    "categoria": "electronica",
-    "titulo": "Montaje de componentes",
-    "descripcion": "Placa con condensadores y cristal.",
-    "imagen": "assets/img/Proyectos/electronica-1.jfif"
-  },
-  {
-    "area": "electronica",
-    "categoria": "electronica",
-    "titulo": "Pistas del circuito",
-    "descripcion": "Diseño de PCB en azul.",
-    "imagen": "assets/img/Proyectos/electronica-2.jpg"
+    "area": "impresion-3d",
+    "categoria": "figuras",
+    "titulo": "Gatos de la sabiduría",
+    "descripcion": "Trío de gatos «no ver, no oír, no hablar» impreso en PLA negro: capa de 0,2 mm y relleno del 20 %. Incluye guía de impresión con parámetros y post-procesado.",
+    "imagen": "assets/img/impresion-3d/gatos-sabiduria/01.webp",
+    "etiquetas": [
+      "PLA",
+      "Figuras",
+      "Guía de impresión"
+    ],
+    "galeria": [
+      {
+        "imagen": "assets/img/impresion-3d/gatos-sabiduria/01.webp",
+        "titulo": "Foto de producto"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gatos-sabiduria/02.webp",
+        "titulo": "En estudio"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gatos-sabiduria/03.webp",
+        "titulo": "Guía del modelo 3D"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gatos-sabiduria/04.webp",
+        "titulo": "Detalle en estudio"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gatos-sabiduria/05.webp",
+        "titulo": "Recién impresos"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gatos-sabiduria/06.webp",
+        "titulo": "Producción en lote"
+      }
+    ]
   },
   {
     "area": "impresion-3d",
     "categoria": "figuras",
-    "titulo": "Gatos Makis de la sabiduría",
-    "descripcion": "Guía del modelo 3D: capa de 0,2 mm, relleno 20 % grid, PLA negro a 210 °C y 50 mm/s, con consejos de nivelación, adherencia y post-procesado.",
-    "imagen": "assets/img/Proyectos/impresion-3d-gatos-makis.webp",
-    "ajuste": "completo"
+    "titulo": "Gatos enamorados",
+    "descripcion": "Pareja de gatos cuyas colas forman un corazón al unirse. Dos piezas que encajan entre sí.",
+    "imagen": "assets/img/impresion-3d/gatos-enamorados/01.webp",
+    "etiquetas": [
+      "PLA",
+      "Figuras",
+      "Regalo"
+    ],
+    "galeria": [
+      {
+        "imagen": "assets/img/impresion-3d/gatos-enamorados/01.webp",
+        "titulo": "Foto de producto"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gatos-enamorados/02.webp",
+        "titulo": "En estudio"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gatos-enamorados/03.webp",
+        "titulo": "Vista de frente"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gatos-enamorados/04.webp",
+        "titulo": "Detalle"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gatos-enamorados/05.webp",
+        "titulo": "En el escritorio"
+      }
+    ]
+  },
+  {
+    "area": "impresion-3d",
+    "categoria": "figuras",
+    "titulo": "Gato lector",
+    "descripcion": "Figura de un gato sentado leyendo un libro, con detalle fino en el pelaje y las páginas.",
+    "imagen": "assets/img/impresion-3d/gato-lector/01.webp",
+    "etiquetas": [
+      "PLA",
+      "Figuras"
+    ],
+    "galeria": [
+      {
+        "imagen": "assets/img/impresion-3d/gato-lector/01.webp",
+        "titulo": "Luz de ventana"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gato-lector/02.webp",
+        "titulo": "En estudio"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gato-lector/03.webp",
+        "titulo": "Vista lateral"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gato-lector/04.webp",
+        "titulo": "Detalle"
+      }
+    ]
+  },
+  {
+    "area": "impresion-3d",
+    "categoria": "figuras",
+    "titulo": "Gnomos",
+    "descripcion": "Gnomos de jardín en dos tamaños, con barba, gorro y accesorios. El mismo modelo escalado sin perder detalle.",
+    "imagen": "assets/img/impresion-3d/gnomos/01.webp",
+    "etiquetas": [
+      "PLA",
+      "Figuras",
+      "Escalado"
+    ],
+    "galeria": [
+      {
+        "imagen": "assets/img/impresion-3d/gnomos/01.webp",
+        "titulo": "Foto de producto"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gnomos/02.webp",
+        "titulo": "Gnomo con herramienta"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gnomos/03.webp",
+        "titulo": "Dos tamaños"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gnomos/04.webp",
+        "titulo": "Comparación de escala"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gnomos/05.webp",
+        "titulo": "Con iluminación"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/gnomos/06.webp",
+        "titulo": "Vista lateral"
+      }
+    ]
+  },
+  {
+    "area": "impresion-3d",
+    "categoria": "accesorios",
+    "titulo": "Llaveros de calavera",
+    "descripcion": "Llaveros de calavera con casco y argolla integrada, impresos en serie.",
+    "imagen": "assets/img/impresion-3d/llaveros-calavera/01.webp",
+    "etiquetas": [
+      "PLA",
+      "Llaveros",
+      "Producción en serie"
+    ],
+    "galeria": [
+      {
+        "imagen": "assets/img/impresion-3d/llaveros-calavera/01.webp",
+        "titulo": "Lote de llaveros"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/llaveros-calavera/02.webp",
+        "titulo": "Llavero terminado"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/llaveros-calavera/03.webp",
+        "titulo": "Vista posterior"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/llaveros-calavera/04.webp",
+        "titulo": "Con llaves"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/llaveros-calavera/05.webp",
+        "titulo": "Lote recién impreso"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/llaveros-calavera/06.webp",
+        "titulo": "En la cama de impresión"
+      }
+    ]
+  },
+  {
+    "area": "impresion-3d",
+    "categoria": "accesorios",
+    "titulo": "Llaveros espada y dragón",
+    "descripcion": "Llaveros planos con siluetas de espada y dragón, livianos y resistentes.",
+    "imagen": "assets/img/impresion-3d/llaveros-espada-dragon/01.webp",
+    "etiquetas": [
+      "PLA",
+      "Llaveros"
+    ],
+    "galeria": [
+      {
+        "imagen": "assets/img/impresion-3d/llaveros-espada-dragon/01.webp",
+        "titulo": "Foto de producto"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/llaveros-espada-dragon/02.webp",
+        "titulo": "Dragón"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/llaveros-espada-dragon/03.webp",
+        "titulo": "Espada"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/llaveros-espada-dragon/04.webp",
+        "titulo": "Espada con acabado metálico"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/llaveros-espada-dragon/05.webp",
+        "titulo": "Dragón con acabado metálico"
+      }
+    ]
+  },
+  {
+    "area": "impresion-3d",
+    "categoria": "funcional",
+    "titulo": "Soporte para carrete de estaño",
+    "descripcion": "Soporte para el taller de electrónica: sostiene el carrete de soldadura y deja salir el hilo sin enredos.",
+    "imagen": "assets/img/impresion-3d/soporte-estano/01.webp",
+    "etiquetas": [
+      "PLA",
+      "Pieza funcional",
+      "Taller"
+    ],
+    "galeria": [
+      {
+        "imagen": "assets/img/impresion-3d/soporte-estano/01.webp",
+        "titulo": "Foto de producto"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/soporte-estano/02.webp",
+        "titulo": "En uso"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/soporte-estano/03.webp",
+        "titulo": "Vista lateral"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/soporte-estano/04.webp",
+        "titulo": "Piezas del soporte"
+      }
+    ]
+  },
+  {
+    "area": "impresion-3d",
+    "categoria": "funcional",
+    "titulo": "Producción por lotes",
+    "descripcion": "Impresión de varias piezas en una sola tanda para eventos, recordatorios y pedidos al por mayor.",
+    "imagen": "assets/img/impresion-3d/produccion-lotes/01.webp",
+    "etiquetas": [
+      "PLA",
+      "Lotes",
+      "Eventos"
+    ],
+    "galeria": [
+      {
+        "imagen": "assets/img/impresion-3d/produccion-lotes/01.webp",
+        "titulo": "Colección"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/produccion-lotes/02.webp",
+        "titulo": "Lote de gatos"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/produccion-lotes/03.webp",
+        "titulo": "Pedido completo"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/produccion-lotes/04.webp",
+        "titulo": "Lote terminado"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/produccion-lotes/05.webp",
+        "titulo": "Piezas en la cama"
+      },
+      {
+        "imagen": "assets/img/impresion-3d/produccion-lotes/06.webp",
+        "titulo": "Saliendo de la impresora"
+      }
+    ]
   }
 ]
