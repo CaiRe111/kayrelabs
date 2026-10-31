@@ -12,6 +12,8 @@ Sitio comercial de KayreLabs, con dos ramas: **Desarrollo** (paquetes para pymes
 | `wrangler.jsonc` | Configuración de Cloudflare: publica la carpeta `public/` |
 | `server.js` | Servidor local mínimo, solo para previsualizar (`npm start`) |
 | `docs/oferta-comercial.md` | Paquetes, precios, tarifa por hora y pendientes de la oferta. No se publica |
+| `docs/redes/` | Piezas para redes (posts 1080 × 1350 e historia 1080 × 1920) con paquetes, tienda y las dos ramas. No se publica |
+| `scripts/graficos.js` | Genera mockups, imágenes para compartir (OG) y piezas para redes desde plantillas HTML. Requiere Playwright: `node scripts/graficos.js salida/` |
 | `docs/marca/` | Kit de marca: guía en Markdown y PDF, y copia de logotipos, iconos, ilustraciones, fondos y tipografías. No se publica en el sitio |
 
 ## Desarrollo
@@ -35,7 +37,7 @@ El estado de cada despliegue está en Cloudflare → Workers y Pages → kayrela
 
 - **Páginas:** `index.html` (inicio), `desarrollo.html` (paquetes, plataformas y empresas), `productos.html` (piezas a medida, domótica, IoT), `tienda.html`, `diseno.html` (portafolio de marca), `contacto.html` (cotizar). `kayre-labs.html`, `impresion-3d.html`, `electronica.html` y `domotica.html` solo redirigen a `productos.html`.
 - **WhatsApp:** escribe el número en `WHATSAPP` al inicio de `public/js/main.js` (con indicativo, sin `+`: `573001234567`). Mientras esté vacío, los botones «Cotizar» y «Pedir» llevan a `contacto.html`; con número, abren WhatsApp con el mensaje de su atributo `data-whatsapp`.
-- **Precios:** los paquetes están en `index.html` y `desarrollo.html` (cambia ambos); las plataformas también. Referencia y cálculo en `docs/oferta-comercial.md`.
+- **Precios:** los paquetes están en `index.html` y `desarrollo.html` (cambia ambos); las plataformas también. Las piezas de `docs/redes/` y `og-desarrollo.png` también muestran precios: regenéralas con `scripts/graficos.js` (los precios están al inicio de las plantillas). Referencia y cálculo en `docs/oferta-comercial.md`.
 - **Tienda:** `public/data/tienda.json`. Cada artículo lleva `nombre`, `categoria` (los filtros se crean solos), `descripcion`, `imagen`, `fotos` y `precio` (número en pesos, o `null` para «Precio a consultar»).
 
 - **Proyectos:** `public/data/proyectos.json`. Cada elemento lleva `area` (`diseno`, `electronica`, `desarrollo` o `impresion-3d`), `categoria`, `titulo`, `descripcion` e `imagen`. Las imágenes viven en `public/assets/img/`. Opcionales: `enlace` (botón «Ver demo ↗»; su texto se cambia con `textoEnlace`), `etiquetas` y `galeria` (lista de `{video, poster, titulo, controles}` o `{imagen, titulo}`, con los archivos en `public/assets/media/<proyecto>/`).
