@@ -63,6 +63,9 @@ const MOCKUPS = {
 // ---------------------------------------------------------------- imágenes para compartir (1200 × 630)
 const LOGO_NEG = a("assets/brand/logo-horizontal-negativo.svg");
 const LOGO = a("assets/brand/logo-horizontal.svg");
+// Logo monocromo negro para fondos verdes (la palabra "Labs" en verde se perdería)
+const LOGO_MONO = "data:image/svg+xml;base64," +
+  Buffer.from(fs.readFileSync(PUB + "/assets/brand/logo-horizontal.svg", "utf8").replace(/#00C853/gi, "#111111")).toString("base64");
 const og = ({ etiqueta, titulo, texto, chips, arte }) => `<!doctype html><html><head><style>${BASE}
 body { width: 1200px; height: 630px; }
 .lienzo { width: 1200px; height: 630px; padding: 56px 64px; display: flex; flex-direction: column; }
@@ -212,6 +215,101 @@ body { width: 1080px; height: 1920px; } .pieza { height: 1920px; padding: 110px 
 ${pieRed(true)}
 </div></body></html>`;
 
+// ---------------------------------------------------------------- variaciones de los paquetes (para rotar en redes)
+// v2: un diseño alternativo por paquete · v3: carrusel de 3 láminas por paquete
+const celular = (src, ancho, giro = 0) => `<div style="width:${ancho}px;aspect-ratio:9/19;padding:${ancho * 0.035}px;border-radius:${ancho * 0.15}px;background:#0c0d0c;
+  box-shadow:0 0 0 2px #2b2e2c,0 40px 80px rgba(0,0,0,.45);transform:rotate(${giro}deg);position:relative">
+  <img src="${src}" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:${ancho * 0.12}px">
+  <span style="position:absolute;left:50%;top:${ancho * 0.07}px;width:${ancho * 0.28}px;height:${ancho * 0.075}px;margin-left:-${ancho * 0.14}px;border-radius:99px;background:#0c0d0c"></span></div>`;
+
+const V2_CSS = `body { width: 1080px; height: 1350px; } .pieza { height: 1350px; }
+.verde-fondo { background: #00c853; color: #111; position: relative; overflow: hidden; isolation: isolate; }
+.verde-fondo::before { content: ""; position: absolute; right: -180px; bottom: -120px; width: 900px; height: 840px; z-index: -1;
+  background: url("${a("assets/fondos/marca-agua-k-negra.svg")}") center / contain no-repeat; }
+.precio-chip { display: inline-flex; align-items: baseline; gap: 14px; padding: 18px 30px; border-radius: 22px; background: #111; color: #fff; margin-top: 34px; }
+.precio-chip small { font-size: 22px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
+.precio-chip strong { font-size: 60px; font-weight: 800; letter-spacing: -.04em; color: #00c853; }
+.claro .precio-chip { background: #111; }
+.verde-fondo .pie-red { background: #111; color: #fff; }`;
+
+const v2 = {
+  arranca: `<!doctype html><html><head><style>${BASE}${RED_CSS}${V2_CSS}</style></head><body><div class="pieza verde-fondo">
+<img class="logo" src="${LOGO_MONO}">
+<div style="margin-top:110px">
+<p class="etq" style="color:#111">Paquete Arranca</p>
+<h1 style="font-size:112px">¿Tu negocio aún no tiene página web?</h1>
+<p class="sub" style="color:rgba(17,17,17,.8);max-width:820px">Marca + página web con WhatsApp, listas en 2 a 3 semanas.</p>
+<div class="precio-chip"><small>Desde</small><strong>$2.500.000</strong></div>
+</div>
+${pieRed(false)}
+</div></body></html>`,
+  vende: `<!doctype html><html><head><style>${BASE}${RED_CSS}${V2_CSS}
+.fono { position: absolute; right: 70px; top: 150px; }</style></head><body><div class="pieza claro" style="position:relative">
+<img class="logo" src="${LOGO}">
+<div class="fono">${celular(a("assets/media/ecommerce/movil-tienda.webp"), 400, 4)}</div>
+<div style="margin-top:130px;width:560px">
+<p class="etq">Paquete Vende</p>
+<h1 style="font-size:96px">Vende 24/7 desde tu propia tienda</h1>
+<p class="sub">Sin depender de un marketplace. Con pagos Wompi y factura electrónica.</p>
+<div class="precio-chip"><small>Desde</small><strong>$3,6 M</strong></div>
+</div>
+${pieRed(false)}
+</div></body></html>`,
+  fideliza: `<!doctype html><html><head><style>${BASE}${RED_CSS}${V2_CSS}
+.fono { position: absolute; right: 80px; top: 170px; }
+.ondas { position: absolute; right: 250px; top: 90px; }</style></head><body><div class="pieza oscuro" style="position:relative">
+<img class="logo" src="${LOGO_NEG}">
+<svg class="ondas" width="200" height="120" viewBox="0 0 200 120" fill="none" stroke="#00c853" stroke-width="7" stroke-linecap="round">
+<path d="M70 100a40 40 0 0 1 60 0" opacity=".95"/><path d="M45 70a75 75 0 0 1 110 0" opacity=".6"/><path d="M20 40a110 110 0 0 1 160 0" opacity=".3"/></svg>
+<div class="fono">${celular(a("assets/media/enlace-nfc/07-tarjeta-vitrina.webp"), 390, -4)}</div>
+<div style="margin-top:130px;width:560px">
+<p class="etq">Paquete Fideliza</p>
+<h1 style="font-size:96px">Un toque y tu cliente <span class="verde">suma un sello</span></h1>
+<p class="sub">Piezas NFC impresas en 3D con tu tarjeta digital y fidelización.</p>
+<div class="precio-chip" style="background:#00c853;color:#111"><small>Desde</small><strong style="color:#111">$4,1 M</strong></div>
+</div>
+${pieRed(true)}
+</div></body></html>`,
+};
+
+const CAR = {
+  arranca: { nombre: "Arranca", gancho: 'Tu negocio merece <span class="verde">verse profesional</span>', icono: "bombillo",
+    incluye: [["diseno", "Logo, paleta y tipografía"], ["capas", "Manual básico de marca"], ["desarrollo", "Página web de 1 a 5 secciones"], ["whatsapp", "Botón de WhatsApp y redes"]],
+    precio: "$2.500.000", nota: "Pago único · entrega en 2 a 3 semanas" },
+  vende: { nombre: "Vende", gancho: 'Tu tienda en línea <span class="verde">en 4 a 6 semanas</span>', icono: "tienda",
+    incluye: [["diseno", "Marca + 10 piezas para redes"], ["tienda", "Tienda con panel de administración"], ["check", "Pagos Wompi y factura electrónica"], ["capas", "Carga de hasta 50 productos"]],
+    precio: "$3.600.000", nota: "+ mensualidad desde $150.000" },
+  fideliza: { nombre: "Fideliza", gancho: 'Clientes que vuelven, <span class="verde">con un toque NFC</span>', icono: "nfc",
+    incluye: [["tienda", "Todo lo del paquete Vende"], ["impresion-3d", "10 piezas NFC impresas en 3D"], ["celular", "Pagos Nequi, Daviplata y Bre-B"], ["nfc", "Sellos canjeables en caja"]],
+    precio: "$4.100.000", nota: "+ piezas NFC y mensualidad" },
+};
+const CAR_CSS = `body { width: 1080px; height: 1350px; } .pieza { height: 1350px; }
+.contador { position: absolute; right: 80px; top: 82px; font-family: "JBM", monospace; font-size: 26px; color: rgba(255,255,255,.6); }
+.desliza { display: inline-flex; align-items: center; gap: 14px; margin-top: auto; font-size: 32px; font-weight: 700; color: #00c853; }
+.items { display: grid; gap: 22px; margin-top: 50px; }
+.item { display: flex; align-items: center; gap: 28px; padding: 30px 34px; border-radius: 30px; background: rgba(255,255,255,.06); border: 1.5px solid rgba(255,255,255,.14); font-size: 38px; font-weight: 700; }
+.item .caja { display: grid; place-items: center; width: 92px; height: 92px; border-radius: 24px; background: rgba(0,200,83,.16); flex: none; }`;
+const carrusel = (c) => [
+  `<!doctype html><html><head><style>${BASE}${RED_CSS}${CAR_CSS}</style></head><body><div class="pieza oscuro" style="position:relative">
+<img class="logo" src="${LOGO_NEG}"><span class="contador">1/3</span>
+<div style="margin-top:150px"><div style="display:grid;place-items:center;width:150px;height:150px;border-radius:40px;background:rgba(0,200,83,.16);margin-bottom:50px">${ico(c.icono, 86)}</div>
+<p class="etq">Paquete ${c.nombre}</p><h1 style="font-size:116px">${c.gancho}</h1></div>
+<span class="desliza">Desliza ${ico("flecha", 40)}</span></div></body></html>`,
+  `<!doctype html><html><head><style>${BASE}${RED_CSS}${CAR_CSS}</style></head><body><div class="pieza oscuro" style="position:relative">
+<img class="logo" src="${LOGO_NEG}"><span class="contador">2/3</span>
+<div style="margin-top:80px"><p class="etq">Qué incluye</p><h2>Paquete ${c.nombre}</h2>
+<div class="items">${c.incluye.map(([i, t]) => `<div class="item"><span class="caja">${ico(i, 52)}</span>${t}</div>`).join("")}</div></div>
+<span class="desliza">Desliza ${ico("flecha", 40)}</span></div></body></html>`,
+  `<!doctype html><html><head><style>${BASE}${RED_CSS}${CAR_CSS}${V2_CSS}</style></head><body><div class="pieza verde-fondo" style="position:relative">
+<img class="logo" src="${LOGO_MONO}"><span class="contador" style="color:rgba(17,17,17,.6)">3/3</span>
+<div style="margin-top:170px"><p class="etq" style="color:#111">Paquete ${c.nombre}</p>
+<p style="font-size:34px;font-weight:700;letter-spacing:.14em;text-transform:uppercase">Desde</p>
+<h1 style="font-size:150px">${c.precio}</h1>
+<p class="sub" style="color:rgba(17,17,17,.8)">${c.nota}</p>
+<p style="font-size:46px;font-weight:800;margin-top:60px;letter-spacing:-.02em">Escríbenos y empieza esta semana.</p></div>
+${pieRed(false)}</div></body></html>`,
+];
+
 (async () => {
   const b = await chromium.launch();
   const tmp = path.join(SAL, "_html");
@@ -239,5 +337,9 @@ ${pieRed(true)}
   await render("tienda", postTienda, 1080, 1350, path.join(SAL, "redes", "post-tienda.png"));
   await render("ramas", postRamas, 1080, 1350, path.join(SAL, "redes", "post-dos-ramas.png"));
   await render("historia", historia, 1080, 1920, path.join(SAL, "redes", "historia-paquetes.png"));
+  for (const [n, html] of Object.entries(v2)) await render("v2-" + n, html, 1080, 1350, path.join(SAL, "redes", "post-paquete-" + n + "-v2.png"));
+  for (const [n, c] of Object.entries(CAR))
+    for (const [i, html] of carrusel(c).entries())
+      await render("car-" + n + i, html, 1080, 1350, path.join(SAL, "redes", "carrusel-" + n + "-" + (i + 1) + ".png"));
   await b.close();
 })();
