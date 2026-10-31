@@ -1,7 +1,7 @@
 // ---------- WhatsApp ----------
 // Número con indicativo de país, sin "+" ni espacios (ej.: "573001234567").
 // Vacío: los botones "Cotizar" y "Pedir" llevan a contacto.html.
-const WHATSAPP = "";
+const WHATSAPP = "573012217575";
 
 const enlaceWhatsapp = (mensaje) => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(mensaje);
 const activarWhatsapp = (raiz) => {

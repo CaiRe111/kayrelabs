@@ -100,4 +100,4 @@ Llamado a la acción en el sitio: **"Agenda un diagnóstico"**.
 - [ ] Costo de piezas NFC (chip NTAG 424 DNA + impresión + margen) y mensualidad definitiva.
 - [ ] Costo de impresión 3D (por gramo o por hora de máquina) para piezas a medida y tienda.
 - [ ] Precios de los kits de domótica.
-- [ ] Número de WhatsApp para los botones de cotizar y pedir.
+- [x] Número de WhatsApp: +57 301 221 7575 (configurado en `public/js/main.js`).
