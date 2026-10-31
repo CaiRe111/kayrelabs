@@ -101,7 +101,8 @@ document.querySelectorAll(".hero-vivo").forEach((portada) => {
 const contenedor = document.getElementById("lista-proyectos");
 
 if (contenedor) {
-  const area = contenedor.dataset.area;
+  // Una galería puede reunir varias áreas separadas por espacios (Kayre Labs: impresión 3D, electrónica y domótica)
+  const areas = contenedor.dataset.area.split(" ");
   // "marco": fotos enmarcadas (Diseño) · "terminal": tarjetas tipo ventana (Electrónica, Desarrollo)
   const estilo = contenedor.dataset.estilo;
 
@@ -202,7 +203,8 @@ if (contenedor) {
         acciones.append(demo);
       }
       if (p.galeria) {
-        const gal = el("button", "ver-demo", "Ver demo en video");
+        const conVideo = p.galeria.some((g) => g.video);
+        const gal = el("button", "ver-demo", conVideo ? "Ver demo en video" : "Ver galería (" + p.galeria.length + " fotos)");
         gal.type = "button";
         gal.addEventListener("click", () => abrir(p));
         acciones.append(gal);
@@ -220,10 +222,11 @@ if (contenedor) {
   fetch("data/proyectos.json")
     .then((r) => r.json())
     .then((todos) => {
-      const proyectos = todos.filter((p) => p.area === area);
+      const proyectos = todos.filter((p) => areas.includes(p.area));
       const nodos = proyectos.map((p) => {
         const nodo = estilo === "terminal" ? tarjetaTerminal(p) : piezaDiseno(p);
         nodo.dataset.categoria = p.categoria;
+        nodo.dataset.area = p.area;
 
         // Accesible con teclado: Enter o espacio abren el visor.
         // Si la tarjeta ya trae enlaces o botones propios, el clic abre el visor pero
@@ -249,6 +252,11 @@ if (contenedor) {
         return nodo;
       });
 
+      // Aviso cuando un filtro (o el área entera) aún no tiene proyectos
+      const vacio = el("p", "galeria-vacia", "Estoy preparando esta galería. Pronto verás proyectos aquí.");
+      vacio.hidden = nodos.length > 0;
+      contenedor.after(vacio);
+
       const filtros = document.getElementById("filtros");
       if (filtros) {
         filtros.addEventListener("click", (e) => {
@@ -256,8 +264,16 @@ if (contenedor) {
           if (!boton) return;
           filtros.querySelectorAll("button").forEach((b) => b.classList.toggle("active", b === boton));
           const f = boton.dataset.filtro;
-          nodos.forEach((n) => (n.hidden = f !== "todos" && n.dataset.categoria !== f));
+          nodos.forEach((n) => (n.hidden = f !== "todos" && n.dataset.categoria !== f && n.dataset.area !== f));
+          vacio.hidden = nodos.some((n) => !n.hidden);
         });
+        // Kayre Labs: "Ver proyectos de…" aplica el filtro de esa área y baja a la galería
+        document.querySelectorAll("[data-ver-filtro]").forEach((b) =>
+          b.addEventListener("click", () => {
+            filtros.querySelector('[data-filtro="' + b.dataset.verFiltro + '"]').click();
+            document.getElementById("proyectos").scrollIntoView({ behavior: sinMovimiento ? "auto" : "smooth" });
+          })
+        );
       }
     })
     .catch(() => {

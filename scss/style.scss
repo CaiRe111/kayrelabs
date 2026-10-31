@@ -567,6 +567,136 @@ main > section { padding: 5rem 0; }
   p { max-width: 30rem; margin: 0 0 0.75rem; color: $kl-gris-600; }
 }
 
+.galeria-vacia {
+  margin: 0;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  color: $kl-gris-600;
+  border: 2px dashed rgba($kl-negro, 0.16);
+  border-radius: $kl-radio-grande;
+  background: $kl-blanco;
+}
+
+// =====================================================
+// KAYRE LABS — impresión 3D, electrónica y domótica en una página
+// =====================================================
+.lab-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid rgba(#fff, 0.22);
+    border-radius: 2rem;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    .icono { color: $kl-verde; }
+    &:hover { background: $kl-verde; border-color: $kl-verde; color: $kl-negro; .icono { color: $kl-negro; } }
+  }
+}
+
+// Cada área: ilustración con la textura de su tarjeta de Inicio + texto y servicios; alternan de lado
+.lab-area {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  padding: 2.5rem 0;
+  scroll-margin-top: 5rem;
+  & + & { border-top: 1px solid $kl-gris-200; }
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: 5fr 7fr;
+    gap: 4rem;
+    &:nth-of-type(even) .lab-area-arte { order: 2; }
+  }
+  h3 { margin: 0.25rem 0 0.6rem; font-size: clamp(1.5rem, 2.6vw, 2rem); }
+  .btn .icono { margin-left: 0.35rem; width: 1em; height: 1em; }
+}
+.lab-area-arte {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 1.5rem;
+  border-radius: $kl-radio-grande;
+  background: $kl-negro;
+  --tinta: #{rgba($kl-verde, 0.22)};
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    -webkit-mask-image: linear-gradient(135deg, transparent 10%, #000 90%);
+    mask-image: linear-gradient(135deg, transparent 10%, #000 90%);
+    transition: transform 0.7s ease;
+  }
+  &.arte-impresion-3d::before { background-image: repeating-linear-gradient(0deg, var(--tinta) 0 1.5px, transparent 1.5px 7px); }
+  &.arte-electronica::before {
+    background-image:
+      radial-gradient(circle, var(--tinta) 2.2px, transparent 2.8px),
+      linear-gradient(var(--tinta) 1px, transparent 1px),
+      linear-gradient(90deg, var(--tinta) 1px, transparent 1px);
+    background-size: 36px 36px;
+    background-position: 0 0, 18px 18px, 18px 18px;
+  }
+  &.arte-domotica::before { background-image: repeating-radial-gradient(circle at 88% 92%, transparent 0 14px, var(--tinta) 14px 15.5px); }
+  img { display: block; width: 100%; max-width: 380px; height: auto; margin: 0 auto; }
+  .lab-area:hover &::before { transform: scale(1.12); }
+}
+.lab-area-lead { color: $kl-gris-600; font-size: 1.08rem; }
+.lab-servicios {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+  li { display: flex; gap: 1rem; align-items: flex-start; }
+  .icono-caja { flex: none; width: 2.75rem; height: 2.75rem; }
+  strong { display: block; }
+  span:not(.icono-caja):not(.icono) { color: $kl-gris-600; font-size: 0.95rem; }
+}
+
+.lab-proceso {
+  background: $kl-negro;
+  color: #fff;
+  .titulo-seccion { color: #fff; }
+  .pasos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: paso;
+  }
+  li {
+    counter-increment: paso;
+    padding: 1.5rem;
+    border: 1px solid rgba(#fff, 0.12);
+    border-radius: $kl-radio-grande;
+    background: rgba(#fff, 0.03);
+    transition: border-color 0.2s, transform 0.2s;
+    &::before {
+      content: counter(paso, decimal-leading-zero);
+      display: block;
+      margin-bottom: 0.75rem;
+      font-family: $fuente-tech;
+      font-size: 0.9rem;
+      color: $kl-verde;
+    }
+    &:hover { border-color: $kl-verde; transform: translateY(-3px); }
+  }
+  strong { display: block; margin-bottom: 0.35rem; font-size: 1.15rem; }
+  span { color: $kl-gris-300-oscuro; }
+}
+
 // ---------- Filtros ----------
 .filtros .btn {
   --bs-btn-color: #{$kl-negro};
