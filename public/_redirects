@@ -1,7 +1,9 @@
-# Impresión 3D, Electrónica y Domótica se unieron en una sola página: Kayre Labs
-/impresion-3d       /kayre-labs#impresion-3d  301
-/impresion-3d.html  /kayre-labs#impresion-3d  301
-/electronica        /kayre-labs#electronica   301
-/electronica.html   /kayre-labs#electronica   301
-/domotica           /kayre-labs#domotica      301
-/domotica.html      /kayre-labs#domotica      301
+# Impresión 3D, Electrónica y Domótica viven en Productos (antes "Kayre Labs")
+/kayre-labs         /productos              301
+/kayre-labs.html    /productos              301
+/impresion-3d       /productos#piezas       301
+/impresion-3d.html  /productos#piezas       301
+/electronica        /productos#iot          301
+/electronica.html   /productos#iot          301
+/domotica           /productos#domotica     301
+/domotica.html      /productos#domotica     301

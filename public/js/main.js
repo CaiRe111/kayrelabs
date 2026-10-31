@@ -1,3 +1,20 @@
+// ---------- WhatsApp ----------
+// Número con indicativo de país, sin "+" ni espacios (ej.: "573001234567").
+// Vacío: los botones "Cotizar" y "Pedir" llevan a contacto.html.
+const WHATSAPP = "";
+
+const enlaceWhatsapp = (mensaje) => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(mensaje);
+const activarWhatsapp = (raiz) => {
+  if (!WHATSAPP) return;
+  raiz.querySelectorAll("[data-whatsapp]").forEach((a) => {
+    a.href = enlaceWhatsapp(a.dataset.whatsapp);
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
+};
+activarWhatsapp(document);
+if (WHATSAPP) document.querySelectorAll("[data-solo-whatsapp]").forEach((n) => (n.hidden = false));
+
 const anio = document.getElementById("anio");
 if (anio) anio.textContent = new Date().getFullYear();
 
@@ -17,61 +34,6 @@ if (giro) {
 }
 
 const sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-// Inicio: las áreas orbitan el logo como electrones (modelo atómico)
-const orbita = document.querySelector(".orbita");
-if (orbita && !sinMovimiento) {
-  const RELACION = 0.5; // alto / ancho de las elipses (igual que en el CSS)
-  const PERIODOS = [2.5, 3.2, 4]; // segundos por vuelta de cada órbita
-  const anillos = [...orbita.querySelectorAll(".orbita-anillo")].map((a) => {
-    const grados = parseFloat(a.dataset.t);
-    a.style.transform = "rotate(" + grados + "deg)";
-    return (grados * Math.PI) / 180;
-  });
-  const electrones = [...orbita.querySelectorAll(".orbita-i")].map((el) => ({
-    el,
-    anillo: Number(el.dataset.anillo),
-    fase: Number(el.dataset.fase) * 2 * Math.PI,
-  }));
-  orbita.classList.add("orbita-atomo");
-
-  let tiempo = 0; // se detiene suavemente mientras el puntero está sobre un icono
-  let velocidad = 1;
-  let objetivo = 1;
-  let previo = performance.now();
-  // Se detienen en cuanto el puntero se acerca al átomo (toda la columna), no solo sobre un icono
-  const zona = orbita.parentElement;
-  zona.addEventListener("pointerenter", () => { objetivo = 0; });
-  zona.addEventListener("pointerleave", () => { objetivo = 1; });
-  orbita.addEventListener("focusin", () => { objetivo = 0; });
-  orbita.addEventListener("focusout", () => { objetivo = 1; });
-
-  const pintar = (ahora) => {
-    const dt = Math.min((ahora - previo) / 1000, 0.1);
-    previo = ahora;
-    velocidad += (objetivo - velocidad) * 0.3;
-    if (velocidad < 0.02) velocidad = 0; // detenidos del todo: así se puede hacer clic en cualquier icono
-    tiempo += dt * velocidad;
-    const a = orbita.clientWidth * 0.44;
-    const b = a * RELACION;
-    for (const e of electrones) {
-      const ang = e.fase + (tiempo * 2 * Math.PI) / PERIODOS[e.anillo];
-      const x0 = a * Math.cos(ang);
-      const y0 = b * Math.sin(ang);
-      const t = anillos[e.anillo];
-      const x = x0 * Math.cos(t) - y0 * Math.sin(t);
-      const y = x0 * Math.sin(t) + y0 * Math.cos(t);
-      const profundidad = (Math.sin(ang) + 1) / 2; // 1 = adelante, 0 = detrás del núcleo
-      e.el.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px) scale(" + (0.86 + 0.14 * profundidad).toFixed(3) + ")";
-      // Al detenerse, todos pasan al frente y a plena opacidad para poder elegirlos
-      const frente = Math.max(profundidad, 1 - velocidad);
-      e.el.style.opacity = (0.7 + 0.3 * frente).toFixed(2);
-      e.el.style.zIndex = velocidad < 0.5 || profundidad > 0.5 ? 2 : 0;
-    }
-    requestAnimationFrame(pintar);
-  };
-  requestAnimationFrame(pintar);
-}
 
 // Inicio y áreas: el brillo verde y la retícula de puntos del encabezado siguen al ratón
 document.querySelectorAll(".hero-vivo").forEach((portada) => {
@@ -98,16 +60,10 @@ document.querySelectorAll(".hero-vivo").forEach((portada) => {
   window.addEventListener("resize", () => { if (!activo) { meta = reposo(); actual = { ...meta }; arrancar(); } });
 });
 
-const contenedor = document.getElementById("lista-proyectos");
-
-if (contenedor) {
-  // Una galería puede reunir varias áreas separadas por espacios (Kayre Labs: impresión 3D, electrónica y domótica)
-  const areas = contenedor.dataset.area.split(" ");
-  // "marco": fotos enmarcadas (Diseño) · "terminal": tarjetas tipo ventana (Electrónica, Desarrollo)
-  const estilo = contenedor.dataset.estilo;
-
-  // Visor de imagen (modal de Bootstrap)
-  const visorEl = document.createElement("div");
+// ---------- Visor de imagen (modal de Bootstrap, se crea al primer uso) ----------
+let visorEl, visor, cuerpoVisor;
+const crearVisor = () => {
+  visorEl = document.createElement("div");
   visorEl.className = "modal fade visor";
   visorEl.tabIndex = -1;
   visorEl.setAttribute("data-bs-theme", "dark");
@@ -117,51 +73,61 @@ if (contenedor) {
     '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>' +
     '<div class="modal-body pt-0"><img alt=""></div></div></div>';
   document.body.append(visorEl);
-  const visor = new bootstrap.Modal(visorEl);
-
-  // Un proyecto con "galeria" muestra todas sus imágenes y videos; si no, solo su imagen
-  const cuerpoVisor = visorEl.querySelector(".modal-body");
-  const abrir = (p) => {
-    visorEl.querySelector(".modal-title").textContent = p.titulo;
-    cuerpoVisor.replaceChildren();
-    (p.galeria || [p]).forEach((g) => {
-      let medio;
-      if (g.video) {
-        medio = document.createElement("video");
-        medio.src = g.video;
-        medio.poster = g.poster;
-        medio.preload = "none";
-        medio.muted = true;
-        medio.playsInline = true;
-        if (g.controles) medio.controls = true;
-        else {
-          medio.loop = true;
-          medio.autoplay = true;
-        }
-        medio.setAttribute("aria-label", g.titulo);
-      } else {
-        medio = document.createElement("img");
-        medio.src = g.imagen;
-        medio.alt = g.titulo;
-      }
-      cuerpoVisor.append(medio);
-      if (p.galeria) {
-        const pie = document.createElement("p");
-        pie.className = "pie-visor";
-        pie.textContent = g.titulo;
-        cuerpoVisor.append(pie);
-      }
-    });
-    visor.show();
-  };
+  visor = new bootstrap.Modal(visorEl);
+  cuerpoVisor = visorEl.querySelector(".modal-body");
   visorEl.addEventListener("hidden.bs.modal", () => cuerpoVisor.replaceChildren());
+};
 
-  const el = (tag, clase, texto) => {
-    const nodo = document.createElement(tag);
-    if (clase) nodo.className = clase;
-    if (texto) nodo.textContent = texto;
-    return nodo;
-  };
+// Un proyecto con "galeria" muestra todas sus imágenes y videos; si no, solo su imagen
+const abrir = (p) => {
+  if (!visorEl) crearVisor();
+  visorEl.querySelector(".modal-title").textContent = p.titulo;
+  cuerpoVisor.replaceChildren();
+  (p.galeria || [p]).forEach((g) => {
+    let medio;
+    if (g.video) {
+      medio = document.createElement("video");
+      medio.src = g.video;
+      medio.poster = g.poster;
+      medio.preload = "none";
+      medio.muted = true;
+      medio.playsInline = true;
+      if (g.controles) medio.controls = true;
+      else {
+        medio.loop = true;
+        medio.autoplay = true;
+      }
+      medio.setAttribute("aria-label", g.titulo);
+    } else {
+      medio = document.createElement("img");
+      medio.src = g.imagen;
+      medio.alt = g.titulo;
+    }
+    cuerpoVisor.append(medio);
+    if (p.galeria) {
+      const pie = document.createElement("p");
+      pie.className = "pie-visor";
+      pie.textContent = g.titulo;
+      cuerpoVisor.append(pie);
+    }
+  });
+  visor.show();
+};
+
+const el = (tag, clase, texto) => {
+  const nodo = document.createElement(tag);
+  if (clase) nodo.className = clase;
+  if (texto) nodo.textContent = texto;
+  return nodo;
+};
+
+const contenedor = document.getElementById("lista-proyectos");
+
+if (contenedor) {
+  // Una galería puede reunir varias áreas separadas por espacios (Kayre Labs: impresión 3D, electrónica y domótica)
+  const areas = contenedor.dataset.area.split(" ");
+  // "marco": fotos enmarcadas (Diseño) · "terminal": tarjetas tipo ventana (Electrónica, Desarrollo)
+  const estilo = contenedor.dataset.estilo;
 
   const imagen = (p) => {
     const img = el("img");
@@ -278,5 +244,73 @@ if (contenedor) {
     })
     .catch(() => {
       contenedor.textContent = "No se pudieron cargar los proyectos.";
+    });
+}
+
+// ---------- Tienda: catálogo desde data/tienda.json, pedido por WhatsApp ----------
+const tienda = document.getElementById("lista-tienda");
+if (tienda) {
+  const pesos = new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 });
+
+  const articulo = (a) => {
+    const col = el("div", "col-sm-6 col-lg-4 col-xl-3");
+    col.dataset.categoria = a.categoria;
+    const tarjeta = el("article", "articulo");
+
+    const foto = el("button", "articulo-foto border-0 p-0");
+    foto.type = "button";
+    foto.setAttribute("aria-label", "Ver fotos: " + a.nombre);
+    const img = el("img");
+    img.src = a.imagen;
+    img.alt = a.nombre;
+    img.loading = "lazy";
+    img.width = 600;
+    img.height = 600;
+    foto.append(img, el("span", "articulo-cat", a.categoria));
+    foto.addEventListener("click", () =>
+      abrir({ titulo: a.nombre, galeria: (a.fotos || [a.imagen]).map((f, i) => ({ imagen: f, titulo: a.nombre + " · foto " + (i + 1) })) })
+    );
+
+    const cuerpo = el("div", "articulo-cuerpo");
+    cuerpo.append(el("h3", "", a.nombre), el("p", "", a.descripcion));
+    const pie = el("div", "articulo-pie");
+    const precio = a.precio ? el("span", "articulo-precio", pesos.format(a.precio)) : el("span", "articulo-precio consultar", "Precio a consultar");
+    const pedir = el("a", "btn btn-primary btn-sm", "Pedir ");
+    pedir.href = "contacto.html";
+    pedir.dataset.whatsapp = "Hola KayreLabs, quiero pedir: " + a.nombre;
+    const icono = el("span", "icono i-whatsapp");
+    icono.setAttribute("aria-hidden", "true");
+    pedir.append(icono);
+    pie.append(precio, pedir);
+    cuerpo.append(pie);
+
+    tarjeta.append(foto, cuerpo);
+    col.append(tarjeta);
+    return col;
+  };
+
+  fetch("data/tienda.json")
+    .then((r) => r.json())
+    .then((articulos) => {
+      const nodos = articulos.map(articulo);
+      tienda.append(...nodos);
+      activarWhatsapp(tienda);
+
+      // Filtros por categoría (se crean a partir de los datos)
+      const filtros = document.getElementById("filtros-tienda");
+      [...new Set(articulos.map((a) => a.categoria))].forEach((c) => {
+        const b = el("button", "btn btn-outline-dark btn-sm rounded-pill", c);
+        b.dataset.filtro = c;
+        filtros.append(b);
+      });
+      filtros.addEventListener("click", (e) => {
+        const boton = e.target.closest("button[data-filtro]");
+        if (!boton) return;
+        filtros.querySelectorAll("button").forEach((b) => b.classList.toggle("active", b === boton));
+        nodos.forEach((n) => (n.hidden = boton.dataset.filtro !== "todos" && n.dataset.categoria !== boton.dataset.filtro));
+      });
+    })
+    .catch(() => {
+      tienda.textContent = "No se pudo cargar el catálogo.";
     });
 }

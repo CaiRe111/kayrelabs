@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contacto — KayreLabs</title>
-  <meta name="description" content="Contacto y redes sociales de KayreLabs.">
+  <title>Cotizar — KayreLabs</title>
+  <meta name="description" content="Cotiza tu proyecto con KayreLabs: software para tu negocio, piezas a medida, domótica y automatización IoT.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
@@ -12,8 +12,8 @@
   <link rel="manifest" href="site.webmanifest">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="KayreLabs">
-  <meta property="og:title" content="Contacto — KayreLabs">
-  <meta property="og:description" content="Contacto y redes sociales de KayreLabs.">
+  <meta property="og:title" content="Cotizar — KayreLabs">
+  <meta property="og:description" content="Cotiza tu proyecto con KayreLabs: software para tu negocio, piezas a medida, domótica y automatización IoT.">
   <meta property="og:image" content="https://www.kayrelabs.com/assets/brand/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -31,10 +31,11 @@
       </button>
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="kayre-labs.html">Kayre Labs</a></li>
-          <li class="nav-item"><a class="nav-link" href="desarrollo.html">Desarrollo web</a></li>
-          <li class="nav-item"><a class="nav-link" href="diseno.html">Diseño de marca</a></li>
-          <li class="nav-item"><a class="btn btn-primary btn-sm" href="contacto.html" aria-current="page">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="desarrollo.html">Desarrollo</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="tienda.html">Tienda</a></li>
+          <li class="nav-item"><a class="nav-link" href="diseno.html">Diseño</a></li>
+          <li class="nav-item"><a class="btn btn-primary btn-sm" href="contacto.html" aria-current="page">Cotizar</a></li>
         </ul>
       </div>
     </div>
@@ -42,9 +43,9 @@
 
   <header class="hero hero-compacto" data-bs-theme="dark">
     <div class="container">
-      <p class="etiqueta">Contacto</p>
-      <h1>Hablemos</h1>
-      <p class="lead mb-0">¿Tienes un proyecto en mente? Escríbeme o sígueme en mis redes.</p>
+      <p class="etiqueta">Cotizar</p>
+      <h1>Hablemos de tu proyecto</h1>
+      <p class="lead mb-0">Cuéntanos qué necesitas y te respondemos con una propuesta: alcance, tiempos y precio.</p>
     </div>
   </header>
 
@@ -52,19 +53,27 @@
     <section>
       <div class="container">
         <div class="row g-4 justify-content-center">
-          <div class="col-lg-6">
+          <div class="col-lg-4" data-solo-whatsapp hidden>
             <div class="contacto-card">
-              <span class="icono-caja mb-3"><span class="icono i-correo" aria-hidden="true"></span></span>
-              <h2>Escríbeme</h2>
-              <p>Cuéntame qué necesitas: te respondo con una propuesta y los siguientes pasos.</p>
-              <a class="btn btn-primary btn-lg" href="mailto:kayrelabs.contacto@gmail.com">kayrelabs.contacto<wbr>@gmail.com</a>
+              <span class="icono-caja mb-3"><span class="icono i-whatsapp" aria-hidden="true"></span></span>
+              <h2>WhatsApp</h2>
+              <p>La forma más rápida: escríbenos y te respondemos el mismo día hábil.</p>
+              <a class="btn btn-primary btn-lg btn-whatsapp" href="#" data-whatsapp="Hola KayreLabs, quiero cotizar un proyecto">Escribir por WhatsApp</a>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-4">
+            <div class="contacto-card">
+              <span class="icono-caja mb-3"><span class="icono i-correo" aria-hidden="true"></span></span>
+              <h2>Correo</h2>
+              <p>Ideal para enviar fotos, medidas o documentos de tu proceso.</p>
+              <a class="btn btn-primary btn-lg" href="mailto:kayrelabs.contacto@gmail.com?subject=Cotizaci%C3%B3n">kayrelabs.contacto<wbr>@gmail.com</a>
+            </div>
+          </div>
+          <div class="col-lg-4">
             <div class="contacto-card">
               <span class="icono-caja mb-3"><span class="icono i-celular" aria-hidden="true"></span></span>
-              <h2>Sígueme</h2>
-              <p>Mira avances, procesos y proyectos terminados en mis redes.</p>
+              <h2>Redes</h2>
+              <p>Mira proyectos terminados, procesos y novedades.</p>
               <div class="d-flex flex-wrap gap-2" aria-label="Redes sociales">
                 <!-- Sustituye cada href="#" por la URL real de tu perfil -->
                 <a class="red correo" href="mailto:kayrelabs.contacto@gmail.com" aria-label="Correo"></a>
@@ -81,36 +90,46 @@
 
     <section class="alt">
       <div class="container text-center">
-        <p class="etiqueta">Áreas</p>
-        <h2 class="titulo-seccion mb-4">¿En qué te puedo ayudar?</h2>
+        <p class="etiqueta">Soluciones</p>
+        <h2 class="titulo-seccion mb-4">¿Qué quieres cotizar?</h2>
         <div class="chips-areas">
-          <a href="desarrollo.html"><span class="icono i-desarrollo" aria-hidden="true"></span> Desarrollo web</a>
-          <a href="kayre-labs.html#electronica"><span class="icono i-electronica" aria-hidden="true"></span> Electrónica</a>
-          <a href="kayre-labs.html#domotica"><span class="icono i-domotica" aria-hidden="true"></span> Domótica</a>
-          <a href="diseno.html"><span class="icono i-diseno" aria-hidden="true"></span> Diseño de marca</a>
-          <a href="kayre-labs.html#impresion-3d"><span class="icono i-impresion-3d" aria-hidden="true"></span> Impresión 3D</a>
+          <a href="desarrollo.html#pymes"><span class="icono i-tienda" aria-hidden="true"></span> Paquetes para pymes</a>
+          <a href="desarrollo.html#plataformas"><span class="icono i-desarrollo" aria-hidden="true"></span> Plataformas de software</a>
+          <a href="desarrollo.html#empresas"><span class="icono i-empresa" aria-hidden="true"></span> Aplicativos para empresas</a>
+          <a href="productos.html#piezas"><span class="icono i-impresion-3d" aria-hidden="true"></span> Piezas a medida</a>
+          <a href="productos.html#domotica"><span class="icono i-domotica" aria-hidden="true"></span> Domótica</a>
+          <a href="productos.html#iot"><span class="icono i-electronica" aria-hidden="true"></span> Automatización IoT</a>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer class="pie" data-bs-theme="dark">
     <div class="container">
       <div class="row g-4">
-        <div class="col-lg-5">
+        <div class="col-lg-4">
           <img class="pie-logo" src="assets/brand/logo-horizontal-negativo.svg" alt="KayreLabs" width="141" height="40">
-          <p>Laboratorio creativo de desarrollo, electrónica, domótica, diseño e impresión 3D.</p>
+          <p>Software para negocios y productos con impresión 3D y electrónica. Hecho en Colombia.</p>
         </div>
-        <div class="col-sm-6 col-lg-3">
-          <h2>Áreas</h2>
+        <div class="col-sm-6 col-lg-2">
+          <h2>Desarrollo</h2>
           <ul>
-            <li><a href="kayre-labs.html">Kayre Labs</a></li>
-            <li><a href="desarrollo.html">Desarrollo web</a></li>
+            <li><a href="desarrollo.html#pymes">Paquetes para pymes</a></li>
+            <li><a href="desarrollo.html#plataformas">Plataformas listas</a></li>
+            <li><a href="desarrollo.html#empresas">Para empresas</a></li>
             <li><a href="diseno.html">Diseño de marca</a></li>
           </ul>
         </div>
-        <div class="col-sm-6 col-lg-4">
+        <div class="col-sm-6 col-lg-2">
+          <h2>Productos</h2>
+          <ul>
+            <li><a href="productos.html#piezas">Piezas a medida</a></li>
+            <li><a href="productos.html#domotica">Domótica</a></li>
+            <li><a href="productos.html#iot">Automatización IoT</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
           <h2>Contacto</h2>
           <p class="mb-3"><a href="mailto:kayrelabs.contacto@gmail.com">kayrelabs.contacto@gmail.com</a></p>
           <div class="d-flex flex-wrap gap-2">
@@ -125,7 +144,7 @@
       </div>
       <div class="pie-base">
         <span>© <span id="anio"></span> KayreLabs · <a href="marca.html">Identidad de marca</a></span>
-        <span>Minimalista · Adaptable · Futura</span>
+        <span>Precios en pesos colombianos, sin IVA</span>
       </div>
     </div>
   </footer>

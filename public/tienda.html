@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tienda — Piezas impresas en 3D | KayreLabs</title>
+  <meta name="description" content="Figuras, llaveros y accesorios impresos en 3D. Pide por WhatsApp y coordinamos el pago y la entrega.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KayreLabs">
+  <meta property="og:title" content="Tienda — Piezas impresas en 3D | KayreLabs">
+  <meta property="og:description" content="Figuras, llaveros y accesorios impresos en 3D. Pide por WhatsApp y coordinamos el pago y la entrega.">
+  <meta property="og:image" content="https://www.kayrelabs.com/assets/brand/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="pagina-tienda">
+  <a class="visually-hidden-focusable" href="#contenido">Saltar al contenido</a>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="./" aria-label="KayreLabs, inicio">
+        <img src="assets/brand/logo-horizontal.svg" alt="KayreLabs" width="120" height="34">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="desarrollo.html">Desarrollo</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link active" href="tienda.html" aria-current="page">Tienda</a></li>
+          <li class="nav-item"><a class="nav-link" href="diseno.html">Diseño</a></li>
+          <li class="nav-item"><a class="btn btn-primary btn-sm" href="contacto.html">Cotizar</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="hero hero-compacto" data-bs-theme="dark">
+    <div class="container">
+      <p class="etiqueta"><span class="icono i-tienda" aria-hidden="true"></span> Tienda</p>
+      <h1>Piezas listas para llevar</h1>
+      <p class="lead mb-0">Figuras, llaveros y accesorios impresos en 3D en Colombia. Elige, escríbenos y coordinamos el pago y la entrega.</p>
+      <ol class="pasos-pedido">
+        <li>Elige tu pieza</li>
+        <li>Pídela por WhatsApp</li>
+        <li>Paga y recíbela</li>
+      </ol>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section>
+      <div class="container">
+        <div id="filtros-tienda" class="filtros d-flex flex-wrap gap-2 mb-4" aria-label="Categorías">
+          <button class="btn btn-outline-dark btn-sm rounded-pill active" data-filtro="todos">Todo</button>
+        </div>
+        <div id="lista-tienda" class="row g-4"></div>
+      </div>
+    </section>
+
+    <section class="banda-cta">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <h2>¿Lo quieres con tu nombre o tu diseño?</h2>
+            <p>Hacemos piezas personalizadas, regalos y producción por lotes para eventos.</p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <a class="btn btn-dark btn-lg" href="contacto.html" data-whatsapp="Hola KayreLabs, quiero una pieza personalizada">Pedir pieza a medida <span class="icono i-flecha" aria-hidden="true"></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="pie" data-bs-theme="dark">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <img class="pie-logo" src="assets/brand/logo-horizontal-negativo.svg" alt="KayreLabs" width="141" height="40">
+          <p>Software para negocios y productos con impresión 3D y electrónica. Hecho en Colombia.</p>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <h2>Desarrollo</h2>
+          <ul>
+            <li><a href="desarrollo.html#pymes">Paquetes para pymes</a></li>
+            <li><a href="desarrollo.html#plataformas">Plataformas listas</a></li>
+            <li><a href="desarrollo.html#empresas">Para empresas</a></li>
+            <li><a href="diseno.html">Diseño de marca</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <h2>Productos</h2>
+          <ul>
+            <li><a href="productos.html#piezas">Piezas a medida</a></li>
+            <li><a href="productos.html#domotica">Domótica</a></li>
+            <li><a href="productos.html#iot">Automatización IoT</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h2>Contacto</h2>
+          <p class="mb-3"><a href="mailto:kayrelabs.contacto@gmail.com">kayrelabs.contacto@gmail.com</a></p>
+          <div class="d-flex flex-wrap gap-2">
+            <!-- Sustituye cada href="#" por la URL real de tu perfil -->
+            <a class="red correo" href="mailto:kayrelabs.contacto@gmail.com" aria-label="Correo"></a>
+            <a class="red instagram" href="https://www.instagram.com/kayrelabs/" target="_blank" rel="noopener" aria-label="Instagram"></a>
+            <a class="red facebook" href="https://www.facebook.com/kayrelabs" target="_blank" rel="noopener" aria-label="Facebook"></a>
+            <a class="red twitter" href="#" aria-label="X / Twitter"></a>
+            <a class="red youtube" href="#" aria-label="YouTube"></a>
+          </div>
+        </div>
+      </div>
+      <div class="pie-base">
+        <span>© <span id="anio"></span> KayreLabs · <a href="marca.html">Identidad de marca</a></span>
+        <span>Precios en pesos colombianos, sin IVA</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

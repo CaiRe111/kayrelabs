@@ -1,0 +1,101 @@
+[
+  {
+    "nombre": "Gatos de la sabiduría",
+    "categoria": "Figuras",
+    "descripcion": "Trío de gatos «no ver, no oír, no hablar» en PLA negro, con acabado post-procesado.",
+    "precio": null,
+    "imagen": "assets/img/impresion-3d/gatos-sabiduria/01.webp",
+    "fotos": [
+      "assets/img/impresion-3d/gatos-sabiduria/01.webp",
+      "assets/img/impresion-3d/gatos-sabiduria/02.webp",
+      "assets/img/impresion-3d/gatos-sabiduria/03.webp",
+      "assets/img/impresion-3d/gatos-sabiduria/04.webp",
+      "assets/img/impresion-3d/gatos-sabiduria/05.webp",
+      "assets/img/impresion-3d/gatos-sabiduria/06.webp"
+    ]
+  },
+  {
+    "nombre": "Gatos enamorados",
+    "categoria": "Figuras",
+    "descripcion": "Pareja de gatos cuyas colas forman un corazón al unirse. Un regalo para parejas.",
+    "precio": null,
+    "imagen": "assets/img/impresion-3d/gatos-enamorados/01.webp",
+    "fotos": [
+      "assets/img/impresion-3d/gatos-enamorados/01.webp",
+      "assets/img/impresion-3d/gatos-enamorados/02.webp",
+      "assets/img/impresion-3d/gatos-enamorados/03.webp",
+      "assets/img/impresion-3d/gatos-enamorados/04.webp",
+      "assets/img/impresion-3d/gatos-enamorados/05.webp"
+    ]
+  },
+  {
+    "nombre": "Gato lector",
+    "categoria": "Figuras",
+    "descripcion": "Gato sentado leyendo un libro, con detalle fino en el pelaje y las páginas.",
+    "precio": null,
+    "imagen": "assets/img/impresion-3d/gato-lector/01.webp",
+    "fotos": [
+      "assets/img/impresion-3d/gato-lector/01.webp",
+      "assets/img/impresion-3d/gato-lector/02.webp",
+      "assets/img/impresion-3d/gato-lector/03.webp",
+      "assets/img/impresion-3d/gato-lector/04.webp"
+    ]
+  },
+  {
+    "nombre": "Gnomos",
+    "categoria": "Figuras",
+    "descripcion": "Gnomos de jardín con barba, gorro y accesorios, en dos tamaños.",
+    "precio": null,
+    "imagen": "assets/img/impresion-3d/gnomos/01.webp",
+    "fotos": [
+      "assets/img/impresion-3d/gnomos/01.webp",
+      "assets/img/impresion-3d/gnomos/02.webp",
+      "assets/img/impresion-3d/gnomos/03.webp",
+      "assets/img/impresion-3d/gnomos/04.webp",
+      "assets/img/impresion-3d/gnomos/05.webp",
+      "assets/img/impresion-3d/gnomos/06.webp"
+    ]
+  },
+  {
+    "nombre": "Llaveros de calavera",
+    "categoria": "Llaveros",
+    "descripcion": "Calavera con casco y argolla integrada. Ideal para pedidos por cantidad.",
+    "precio": null,
+    "imagen": "assets/img/impresion-3d/llaveros-calavera/01.webp",
+    "fotos": [
+      "assets/img/impresion-3d/llaveros-calavera/01.webp",
+      "assets/img/impresion-3d/llaveros-calavera/02.webp",
+      "assets/img/impresion-3d/llaveros-calavera/03.webp",
+      "assets/img/impresion-3d/llaveros-calavera/04.webp",
+      "assets/img/impresion-3d/llaveros-calavera/05.webp",
+      "assets/img/impresion-3d/llaveros-calavera/06.webp"
+    ]
+  },
+  {
+    "nombre": "Llaveros espada y dragón",
+    "categoria": "Llaveros",
+    "descripcion": "Llaveros planos con siluetas de espada y dragón, livianos y resistentes.",
+    "precio": null,
+    "imagen": "assets/img/impresion-3d/llaveros-espada-dragon/01.webp",
+    "fotos": [
+      "assets/img/impresion-3d/llaveros-espada-dragon/01.webp",
+      "assets/img/impresion-3d/llaveros-espada-dragon/02.webp",
+      "assets/img/impresion-3d/llaveros-espada-dragon/03.webp",
+      "assets/img/impresion-3d/llaveros-espada-dragon/04.webp",
+      "assets/img/impresion-3d/llaveros-espada-dragon/05.webp"
+    ]
+  },
+  {
+    "nombre": "Soporte para carrete de estaño",
+    "categoria": "Taller y escritorio",
+    "descripcion": "Sostiene el carrete de soldadura y deja salir el hilo sin enredos.",
+    "precio": null,
+    "imagen": "assets/img/impresion-3d/soporte-estano/01.webp",
+    "fotos": [
+      "assets/img/impresion-3d/soporte-estano/01.webp",
+      "assets/img/impresion-3d/soporte-estano/02.webp",
+      "assets/img/impresion-3d/soporte-estano/03.webp",
+      "assets/img/impresion-3d/soporte-estano/04.webp"
+    ]
+  }
+]

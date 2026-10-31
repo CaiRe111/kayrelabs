@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 440" width="520" height="440" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<!-- Inicio: las dos ramas de KayreLabs conectadas — software (panel y tarjeta NFC en el celular) y producto físico (pieza impresa en 3D con chip NFC) -->
+<style>
+@media (prefers-reduced-motion: no-preference) {
+.barra { transform-box: fill-box; transform-origin: center bottom; animation: crecer 6s ease-out infinite backwards; animation-delay: var(--d); }
+@keyframes crecer { 0% { transform: scaleY(0); } 12% { transform: scaleY(1); } 90% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
+.flujo { stroke-dasharray: 6 10; animation: flujo 1.6s linear infinite; }
+@keyframes flujo { to { stroke-dashoffset: -32; } }
+.onda { animation: onda 2.4s ease-in-out infinite; animation-delay: var(--d); }
+@keyframes onda { 0%, 100% { stroke-opacity: .15; } 40% { stroke-opacity: .95; } }
+.flota { animation: flota 4s ease-in-out infinite alternate; }
+@keyframes flota { to { transform: translateY(-8px); } }
+.sello { animation: sello 6s ease-out infinite; animation-delay: var(--d); }
+@keyframes sello { 0%, 30% { fill-opacity: 0; } 36%, 92% { fill-opacity: 1; } 100% { fill-opacity: 0; } }
+}
+</style>
+
+<!-- Panel web -->
+<rect x="30" y="50" width="330" height="230" rx="14" fill="#111111" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="2.2"/>
+<path d="M30 80h330" stroke="#FFFFFF" stroke-opacity=".2" stroke-width="1.4"/>
+<circle cx="50" cy="65" r="4" fill="#00C853"/><circle cx="64" cy="65" r="4" fill="#FFFFFF" fill-opacity=".35"/><circle cx="78" cy="65" r="4" fill="#FFFFFF" fill-opacity=".35"/>
+<rect x="104" y="58" width="170" height="14" rx="7" stroke="#FFFFFF" stroke-opacity=".22" stroke-width="1.4"/>
+<rect x="46" y="96" width="60" height="168" rx="8" stroke="#FFFFFF" stroke-opacity=".15" stroke-width="1.4"/>
+<path d="M58 114h36" stroke="#00C853" stroke-width="3"/>
+<path d="M58 132h30M58 150h34M58 168h26M58 186h32" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="3"/>
+<rect x="120" y="96" width="106" height="48" rx="8" stroke="#FFFFFF" stroke-opacity=".25" stroke-width="1.4"/>
+<path d="M132 112h34" stroke="#00C853" stroke-width="3"/><path d="M132 129h64" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="5"/>
+<rect x="238" y="96" width="106" height="48" rx="8" stroke="#FFFFFF" stroke-opacity=".25" stroke-width="1.4"/>
+<path d="M250 112h28" stroke="#00C853" stroke-width="3"/><path d="M250 129h50" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="5"/>
+<rect x="120" y="156" width="224" height="108" rx="8" stroke="#FFFFFF" stroke-opacity=".25" stroke-width="1.4"/>
+<path d="M132 250h200" stroke="#FFFFFF" stroke-opacity=".2" stroke-width="1.2"/>
+<g fill="#00C853">
+<rect class="barra" style="--d:.0s" x="140" y="218" width="16" height="30" rx="3" fill-opacity=".35"/>
+<rect class="barra" style="--d:.1s" x="168" y="202" width="16" height="46" rx="3" fill-opacity=".45"/>
+<rect class="barra" style="--d:.2s" x="196" y="210" width="16" height="38" rx="3" fill-opacity=".55"/>
+<rect class="barra" style="--d:.3s" x="224" y="186" width="16" height="62" rx="3" fill-opacity=".65"/>
+<rect class="barra" style="--d:.4s" x="252" y="194" width="16" height="54" rx="3" fill-opacity=".75"/>
+<rect class="barra" style="--d:.5s" x="280" y="172" width="16" height="76" rx="3" fill-opacity=".9"/>
+<rect class="barra" style="--d:.6s" x="308" y="178" width="16" height="70" rx="3"/>
+</g>
+
+<!-- Aviso flotante: pedido confirmado -->
+<g class="flota">
+<rect x="292" y="18" width="164" height="44" rx="12" fill="#111111" stroke="#00C853" stroke-opacity=".75" stroke-width="1.8"/>
+<circle cx="316" cy="40" r="11" fill="#00C853"/>
+<path d="m310.5 40 3.8 3.8 7.2-7.4" stroke="#111111" stroke-width="2.4"/>
+<path d="M336 34h80" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="4"/><path d="M336 47h52" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="3"/>
+</g>
+
+<!-- Pista de circuito: del software al objeto -->
+<path class="flujo" d="M300 280v46h62" stroke="#00C853" stroke-width="2.2"/>
+<circle cx="300" cy="280" r="4.5" fill="#00C853"/>
+
+<!-- Pieza impresa en 3D con chip NFC -->
+<path d="M420 250l56 32-56 32-56-32z" fill="#111111" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="2.2"/>
+<path d="M364 282v56l56 32v-56z" fill="#111111" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="2.2"/>
+<path d="M476 282v56l-56 32v-56z" fill="#111111" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="2.2"/>
+<path d="M364 290l56 32M364 298l56 32M364 306l56 32M364 314l56 32M364 322l56 32M364 330l56 32M420 322l56-32M420 330l56-32M420 338l56-32M420 346l56-32M420 354l56-32M420 362l56-32" stroke="#00C853" stroke-opacity=".3" stroke-width="1.2"/>
+<ellipse cx="420" cy="282" rx="24" ry="13.8" stroke="#00C853" stroke-width="2"/>
+<ellipse cx="420" cy="282" rx="11" ry="6.3" fill="#00C853"/>
+<circle cx="362" cy="326" r="4.5" fill="#00C853"/>
+<path class="onda" style="--d:0s" d="M404 236a22 22 0 0 1 32 0" stroke="#00C853" stroke-width="2.2"/>
+<path class="onda" style="--d:.3s" d="M394 224a36 36 0 0 1 52 0" stroke="#00C853" stroke-width="2.2"/>
+<path class="onda" style="--d:.6s" d="M384 212a50 50 0 0 1 72 0" stroke="#00C853" stroke-width="2.2"/>
+
+<!-- Celular con la tarjeta digital y los sellos de fidelización -->
+<rect x="62" y="222" width="96" height="182" rx="16" fill="#111111" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="2.2"/>
+<path d="M98 234h24" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="3"/>
+<circle cx="110" cy="268" r="15" fill="#00C853" fill-opacity=".18" stroke="#00C853" stroke-width="2"/>
+<path d="M105 261v14M105 268l7-7M107.5 266l5 9" stroke="#00C853" stroke-width="2.4"/>
+<path d="M86 296h48" stroke="#FFFFFF" stroke-opacity=".85" stroke-width="4"/><path d="M92 308h36" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="3"/>
+<rect x="80" y="320" width="60" height="18" rx="9" fill="#00C853"/>
+<g stroke="#00C853" stroke-width="1.6" fill="#00C853">
+<circle cx="82" cy="362" r="6" fill-opacity="1"/>
+<circle cx="98" cy="362" r="6" fill-opacity="1"/>
+<circle class="sello" style="--d:0s" cx="114" cy="362" r="6"/>
+<circle class="sello" style="--d:.5s" cx="130" cy="362" r="6"/>
+<circle cx="146" cy="362" r="6" fill-opacity="0" stroke-opacity=".5"/>
+</g>
+<path d="M90 386h40" stroke="#FFFFFF" stroke-opacity=".2" stroke-width="3"/>
+</svg>

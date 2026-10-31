@@ -131,7 +131,7 @@ main > section { padding: 5rem 0; }
   mask: var(--i) center / contain no-repeat;
   vertical-align: -0.25em;
 }
-@each $n in impresion-3d, electronica, domotica, desarrollo, diseno, regla, capas, engranaje, bombillo, sensor, celular, correo, flecha, check, descargar {
+@each $n in impresion-3d, electronica, domotica, desarrollo, diseno, regla, capas, engranaje, bombillo, sensor, celular, correo, flecha, check, descargar, tienda, whatsapp, empresa, nfc, escudo, etiqueta {
   .i-#{$n} { --i: url("#{$iconos}/#{$n}.svg"); }
 }
 .icono-caja {
@@ -222,7 +222,7 @@ main > section { padding: 5rem 0; }
   @include media-breakpoint-up(lg) { padding: 9rem 0 5rem; }
 }
 
-// Inicio: el isotipo rodeado por las 5 áreas
+// Inicio: encabezado alto
 .hero-inicio {
   @include media-breakpoint-up(lg) { min-height: 44rem; display: flex; align-items: center; > .container { width: 100%; } }
 }
@@ -258,79 +258,6 @@ main > section { padding: 5rem 0; }
     pointer-events: none;
   }
 }
-.orbita {
-  --size: 320px;
-  --r: calc(var(--size) * 0.44);
-  position: relative;
-  width: var(--size);
-  height: var(--size);
-  margin: 2.5rem auto 0;
-  @include media-breakpoint-up(md) { --size: 380px; }
-  @include media-breakpoint-up(lg) { --size: 440px; margin-top: 0; }
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: calc(50% - var(--r));
-    border: 1px dashed rgba(#fff, 0.22);
-    border-radius: 50%;
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 16%;
-    z-index: 0;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba($kl-verde, 0.3), transparent 68%);
-    pointer-events: none;
-  }
-  // Modelo atómico (lo activa main.js): órbitas elípticas inclinadas, las áreas son los electrones
-  .orbita-anillo {
-    display: none;
-    position: absolute;
-    left: calc(50% - var(--r));
-    top: calc(50% - var(--r) * 0.5);
-    width: calc(var(--r) * 2);
-    height: var(--r);
-    border: 1px dashed rgba(#fff, 0.2);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  &.orbita-atomo {
-    &::before { display: none; }
-    .orbita-anillo { display: block; }
-  }
-  .orbita-k {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    width: 32%;
-    height: auto;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-  }
-  .orbita-i {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 2;
-    display: grid;
-    place-items: center;
-    width: 3.4rem;
-    height: 3.4rem;
-    margin: -1.7rem 0 0 -1.7rem;
-    border-radius: 50%;
-    border: 1px solid rgba($kl-verde, 0.6);
-    background: $kl-negro;
-    color: $kl-verde;
-    transform: rotate(var(--a)) translateX(var(--r)) rotate(calc(-1 * var(--a)));
-    transition: background 0.2s, color 0.2s;
-    .icono { width: 1.55rem; height: 1.55rem; }
-    &:hover { background: $kl-verde; color: $kl-negro; }
-  }
-}
-
 // Páginas de área: texto + ilustración
 .hero-area {
   // Mismo tamaño de título en las cinco áreas (también en las de estilo técnico)
@@ -667,6 +594,8 @@ main > section { padding: 5rem 0; }
   background: $kl-negro;
   color: #fff;
   .titulo-seccion { color: #fff; }
+  .etiqueta { color: $kl-verde; }
+  .subtitulo-seccion { color: $kl-gris-300-oscuro; }
   .pasos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -676,7 +605,7 @@ main > section { padding: 5rem 0; }
     list-style: none;
     counter-reset: paso;
   }
-  li {
+  .pasos > li {
     counter-increment: paso;
     padding: 1.5rem;
     border: 1px solid rgba(#fff, 0.12);
@@ -693,8 +622,8 @@ main > section { padding: 5rem 0; }
     }
     &:hover { border-color: $kl-verde; transform: translateY(-3px); }
   }
-  strong { display: block; margin-bottom: 0.35rem; font-size: 1.15rem; }
-  span { color: $kl-gris-300-oscuro; }
+  .pasos strong { display: block; margin-bottom: 0.35rem; font-size: 1.15rem; }
+  .pasos span { color: $kl-gris-300-oscuro; }
 }
 
 // ---------- Filtros ----------
@@ -741,21 +670,6 @@ main > section { padding: 5rem 0; }
     &.logotipos img { padding: 1rem; background: #fff; }
   }
 }
-
-// =====================================================
-// ELECTRÓNICA y DESARROLLO — técnico: títulos monoespaciados
-// =====================================================
-.estilo-tech {
-  .hero h1, .hero .etiqueta { font-family: $fuente-tech; }
-  .hero h1 {
-    font-weight: 700;
-    letter-spacing: -0.04em;
-    overflow-wrap: anywhere;
-    &::before { content: "$ "; color: $kl-verde; }
-    &::after { content: "_"; color: $kl-verde; animation: parpadeo 1s steps(2) infinite; }
-  }
-}
-@keyframes parpadeo { 50% { opacity: 0; } }
 
 // =====================================================
 // TARJETAS DE TERMINAL — galerías con data-estilo="terminal" (Electrónica, Desarrollo…)
@@ -956,6 +870,8 @@ main > section { padding: 5rem 0; }
   .no { color: #b3261e; }
   code { padding: 0.1rem 0.4rem; border-radius: 0.35rem; background: $kl-verde-tinte; color: $kl-verde-texto; font-size: 0.85em; }
 }
+
+@import "comercial";
 
 // ---------- Accesibilidad: sin animaciones si el usuario lo pide ----------
 @media (prefers-reduced-motion: reduce) {
