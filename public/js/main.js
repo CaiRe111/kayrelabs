@@ -111,6 +111,10 @@ if (contenedor) {
     .then((r) => r.json())
     .then((todos) => {
       const proyectos = todos.filter((p) => p.rama === rama);
+      if (!proyectos.length) {
+        contenedor.append(el("p", "text-secondary", "Próximamente: nuevos proyectos en camino."));
+        return;
+      }
       const nodos = proyectos.map((p, i) => {
         const nodo = tema === "dev" ? tarjetaDev(p, i) : piezaDiseno(p);
         nodo.dataset.categoria = p.categoria;

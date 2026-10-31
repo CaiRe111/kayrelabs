@@ -11860,7 +11860,8 @@ textarea.form-control-lg {
   }
 }
 :root {
-  --fondo: url("../assets/img/Fondos/fondo5.jpg");
+  --fondo: radial-gradient(60% 50% at 15% 10%, rgba(255, 77, 141, 0.18), transparent 70%),
+           radial-gradient(50% 45% at 90% 30%, rgba(47, 214, 196, 0.14), transparent 70%);
   --acento: #ff4d8d;
 }
 
@@ -11874,25 +11875,20 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background: var(--fondo) center/cover no-repeat;
+  background: var(--fondo);
 }
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg, rgba(11, 13, 18, 0.55), rgba(11, 13, 18, 0.9));
+  background: linear-gradient(180deg, transparent, rgba(11, 13, 18, 0.6));
 }
 
 body.pagina-dev {
-  --fondo: url("../assets/img/Fondos/Fondo2.jpg");
+  --fondo: radial-gradient(60% 50% at 85% 10%, rgba(47, 214, 196, 0.2), transparent 70%),
+           radial-gradient(40% 40% at 10% 60%, rgba(47, 214, 196, 0.08), transparent 70%);
   --acento: #2fd6c4;
-}
-body.pagina-dev::before {
-  background-position: center 30%;
-}
-body.pagina-dev::after {
-  background: linear-gradient(180deg, rgba(4, 20, 26, 0.78), rgba(11, 13, 18, 0.94));
 }
 
 .navbar {
@@ -11915,14 +11911,13 @@ body.pagina-dev::after {
   align-items: flex-end;
   min-height: 60vh;
   padding: 8rem 0 3rem;
-  background: url("../assets/img/Img-portada/img-portada-4.webp") center/cover no-repeat;
 }
 .encabezado::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg, rgba(11, 13, 18, 0.7), rgba(11, 13, 18, 0.96));
+  background: linear-gradient(180deg, transparent 40%, rgba(11, 13, 18, 0.85));
 }
 .encabezado.grande {
   min-height: 88vh;
@@ -11947,7 +11942,7 @@ body.pagina-dev::after {
   color: #fff;
   text-decoration: none;
   isolation: isolate;
-  background: var(--img) center/cover no-repeat;
+  background: var(--img);
   transition: transform 0.25s, border-color 0.25s;
 }
 .rama::before {
@@ -11955,14 +11950,14 @@ body.pagina-dev::after {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.85));
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.6));
 }
 .rama:hover {
   transform: translateY(-5px);
   color: #fff;
 }
 .rama.diseno {
-  --img: url("../assets/img/Fondos/color-salpicadura.webp");
+  --img: radial-gradient(80% 70% at 20% 20%, rgba(255, 77, 141, 0.55), transparent 70%), radial-gradient(60% 60% at 85% 40%, rgba(255, 184, 107, 0.35), transparent 70%), #141822;
 }
 .rama.diseno:hover {
   border-color: #ff4d8d;
@@ -11972,7 +11967,7 @@ body.pagina-dev::after {
   font-style: italic;
 }
 .rama.dev {
-  --img: url("../assets/img/Proyectos/electronica-2.jpg");
+  --img: radial-gradient(80% 70% at 80% 20%, rgba(47, 214, 196, 0.5), transparent 70%), repeating-linear-gradient(90deg, rgba(47, 214, 196, 0.08) 0 1px, transparent 1px 28px), repeating-linear-gradient(0deg, rgba(47, 214, 196, 0.08) 0 1px, transparent 1px 28px), #141822;
 }
 .rama.dev:hover {
   border-color: #2fd6c4;
