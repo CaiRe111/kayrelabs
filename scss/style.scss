@@ -849,7 +849,13 @@ main > section { padding: 5rem 0; }
   background: $kl-blanco;
   h2 { margin-bottom: 0.5rem; font-size: 1.5rem; }
   p { color: $kl-gris-600; }
-  .btn { overflow-wrap: anywhere; }
+  // El correo se parte antes de la @ (con <wbr> en el HTML), no a mitad de palabra
+  .btn { overflow-wrap: break-word; }
+  // Celulares: menos relleno para que las cinco redes quepan en una sola fila
+  @include media-breakpoint-down(sm) {
+    padding: 1.5rem;
+    .red { width: 2.65rem; height: 2.65rem; }
+  }
 }
 .chips-areas {
   display: flex;
