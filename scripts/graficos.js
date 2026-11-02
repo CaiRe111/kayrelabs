@@ -92,11 +92,11 @@ const fotosTienda = (tam) => ["gatos-sabiduria", "llaveros-calavera", "gatos-ena
 const OGS = {
   "og-image": og({ etiqueta: "Software · Impresión 3D · Electrónica", titulo: 'Software y productos <span class="verde">a la medida</span> de tu negocio',
     texto: "Marca, web y software para pymes y empresas. Piezas, domótica e IoT con impresión 3D.",
-    chips: [["tienda", "Paquetes desde $2.500.000"], ["check", "Demos en vivo"]],
+    chips: [["tienda", "Paquetes para pymes"], ["check", "Demos en vivo"]],
     arte: `<img src="${a("assets/ilustraciones/inicio.svg")}" style="width:540px">` }),
   "og-desarrollo": og({ etiqueta: "Desarrollo", titulo: 'Marca, web y software para tu <span class="verde">negocio</span>',
     texto: "Paquetes para pymes y aplicativos robustos para empresas.",
-    chips: [["tienda", "Desde $2.500.000"], ["empresa", "Para empresas"]],
+    chips: [["tienda", "Para pymes"], ["empresa", "Para empresas"]],
     arte: `<img src="${f(SAL + "/web/ecommerce-mockup.png")}" style="width:540px;margin-right:-30px">` }),
   "og-productos": og({ etiqueta: "Productos", titulo: 'Impresión 3D, domótica e <span class="verde">IoT</span>',
     texto: "Piezas a medida, kits para conectar tu casa y automatización para tu negocio.",
@@ -138,13 +138,13 @@ li { display: flex; gap: 16px; align-items: center; }
 `;
 
 const PAQ = {
-  arranca: { nombre: "Arranca", para: "Para el negocio que empieza", precio: "$2.500.000", nota: "Pago único · entrega en 2 a 3 semanas", oscuro: false,
+  arranca: { nombre: "Arranca", para: "Para el negocio que empieza", precio: "2 a 3 semanas", nota: "Pago único · cotiza sin compromiso", oscuro: false,
     incluye: ["Logo, paleta y tipografía", "Manual básico de marca", "Página web de 1 a 5 secciones", "Botón de WhatsApp y redes"],
     arte: `<div style="display:flex;align-items:center;justify-content:center;width:300px;height:300px;border-radius:70px;background:#e8faf0">${ico("bombillo", 170, "#00c853")}</div>` },
-  vende: { nombre: "Vende", para: "Para vender en línea", precio: "$3.600.000", nota: "+ mensualidad desde $150.000 · 4 a 6 semanas", oscuro: true, sello: "Recomendado",
+  vende: { nombre: "Vende", para: "Para vender en línea", precio: "4 a 6 semanas", nota: "Implementación + mensualidad · cotiza sin compromiso", oscuro: true, sello: "Recomendado",
     incluye: ["Marca + kit de 10 piezas para redes", "Tienda en línea con panel", "Pagos con Wompi y factura electrónica", "Carga de hasta 50 productos"],
     arte: `<img src="${f(SAL + "/web/ecommerce-mockup.png")}" style="width:700px;margin-right:-100px">` },
-  fideliza: { nombre: "Fideliza", para: "Para que tus clientes vuelvan", precio: "$4.100.000", nota: "+ piezas NFC y mensualidad · 4 a 6 semanas", oscuro: true,
+  fideliza: { nombre: "Fideliza", para: "Para que tus clientes vuelvan", precio: "4 a 6 semanas", nota: "Implementación + piezas NFC + mensualidad", oscuro: true,
     incluye: ["Todo lo del paquete Vende", "Enlace NFC con 10 piezas en 3D", "Pagos por Nequi, Daviplata y Bre-B", "Sellos de fidelización en caja"],
     arte: `<img src="${f(SAL + "/web/enlace-nfc-mockup.png")}" style="width:700px;margin-right:-100px">` },
 };
@@ -159,7 +159,7 @@ body { width: 1080px; height: 1350px; } .pieza { height: 1350px; }
 <p class="etq">Paquete para pymes</p>
 <h1>${p.nombre}</h1>
 <p class="sub">${p.para}</p>
-<div class="precio"><small>Desde</small><strong>${p.precio}</strong></div>
+<div class="precio"><small>Entrega</small><strong>${p.precio}</strong></div>
 <p class="nota">${p.nota}</p>
 <ul>${p.incluye.map((x) => `<li>${ico("check", 34, p.oscuro ? "#00c853" : "#007a33")} ${x}</li>`).join("")}</ul>
 </div>
@@ -190,7 +190,7 @@ body { width: 1080px; height: 1350px; } .pieza { height: 1350px; }
 <img class="logo" src="${LOGO_NEG}">
 <div style="margin-top:46px"><h2>Lo digital y lo físico <span class="verde">en un solo lugar</span></h2></div>
 <div class="ramas">
-<div class="rama"><img src="${a("assets/ilustraciones/desarrollo.svg")}"><div><p class="etq">Desarrollo</p><h3>Marca, web y software para tu negocio</h3><p>Paquetes para pymes desde $2.500.000 y aplicativos para empresas.</p></div></div>
+<div class="rama"><img src="${a("assets/ilustraciones/desarrollo.svg")}"><div><p class="etq">Desarrollo</p><h3>Marca, web y software para tu negocio</h3><p>Paquetes para pymes y aplicativos para empresas.</p></div></div>
 <div class="rama"><img src="${a("assets/ilustraciones/impresion-3d.svg")}"><div><p class="etq">Productos</p><h3>Impresión 3D, domótica e IoT</h3><p>Piezas a medida, kits para tu casa y automatización para tu negocio.</p></div></div>
 </div>
 ${pieRed(true)}
@@ -208,9 +208,9 @@ body { width: 1080px; height: 1920px; } .pieza { height: 1920px; padding: 110px 
 <h1 style="font-size:96px">Software y productos <span class="verde">a la medida</span></h1>
 <p class="sub">Marca, página y tienda en línea para tu negocio.</p>
 <div class="lista">
-<div class="fila"><strong>Arranca</strong><span>desde <b>$2,5 M</b></span></div>
-<div class="fila dest"><strong>Vende</strong><span>desde <b>$3,6 M</b></span></div>
-<div class="fila"><strong>Fideliza</strong><span>desde <b>$4,1 M</b></span></div>
+<div class="fila"><strong>Arranca</strong><span><b>Marca + web</b></span></div>
+<div class="fila dest"><strong>Vende</strong><span><b>Tienda en línea</b></span></div>
+<div class="fila"><strong>Fideliza</strong><span><b>Tienda + NFC</b></span></div>
 </div>
 ${pieRed(true)}
 </div></body></html>`;
@@ -239,7 +239,7 @@ const v2 = {
 <p class="etq" style="color:#111">Paquete Arranca</p>
 <h1 style="font-size:112px">¿Tu negocio aún no tiene página web?</h1>
 <p class="sub" style="color:rgba(17,17,17,.8);max-width:820px">Marca + página web con WhatsApp, listas en 2 a 3 semanas.</p>
-<div class="precio-chip"><small>Desde</small><strong>$2.500.000</strong></div>
+<div class="precio-chip"><small>Cotiza</small><strong>sin compromiso</strong></div>
 </div>
 ${pieRed(false)}
 </div></body></html>`,
@@ -251,7 +251,7 @@ ${pieRed(false)}
 <p class="etq">Paquete Vende</p>
 <h1 style="font-size:96px">Vende 24/7 desde tu propia tienda</h1>
 <p class="sub">Sin depender de un marketplace. Con pagos Wompi y factura electrónica.</p>
-<div class="precio-chip"><small>Desde</small><strong>$3,6 M</strong></div>
+<div class="precio-chip"><small>Cotiza</small><strong>gratis</strong></div>
 </div>
 ${pieRed(false)}
 </div></body></html>`,
@@ -266,7 +266,7 @@ ${pieRed(false)}
 <p class="etq">Paquete Fideliza</p>
 <h1 style="font-size:96px">Un toque y tu cliente <span class="verde">suma un sello</span></h1>
 <p class="sub">Piezas NFC impresas en 3D con tu tarjeta digital y fidelización.</p>
-<div class="precio-chip" style="background:#00c853;color:#111"><small>Desde</small><strong style="color:#111">$4,1 M</strong></div>
+<div class="precio-chip" style="background:#00c853;color:#111"><small>Cotiza</small><strong style="color:#111">gratis</strong></div>
 </div>
 ${pieRed(true)}
 </div></body></html>`,
@@ -275,13 +275,13 @@ ${pieRed(true)}
 const CAR = {
   arranca: { nombre: "Arranca", gancho: 'Tu negocio merece <span class="verde">verse profesional</span>', icono: "bombillo",
     incluye: [["diseno", "Logo, paleta y tipografía"], ["capas", "Manual básico de marca"], ["desarrollo", "Página web de 1 a 5 secciones"], ["whatsapp", "Botón de WhatsApp y redes"]],
-    precio: "$2.500.000", nota: "Pago único · entrega en 2 a 3 semanas" },
+    precio: "2 a 3 semanas", nota: "Pago único · marca y web listas" },
   vende: { nombre: "Vende", gancho: 'Tu tienda en línea <span class="verde">en 4 a 6 semanas</span>', icono: "tienda",
     incluye: [["diseno", "Marca + 10 piezas para redes"], ["tienda", "Tienda con panel de administración"], ["check", "Pagos Wompi y factura electrónica"], ["capas", "Carga de hasta 50 productos"]],
-    precio: "$3.600.000", nota: "+ mensualidad desde $150.000" },
+    precio: "4 a 6 semanas", nota: "Implementación + mensualidad de hosting y soporte" },
   fideliza: { nombre: "Fideliza", gancho: 'Clientes que vuelven, <span class="verde">con un toque NFC</span>', icono: "nfc",
     incluye: [["tienda", "Todo lo del paquete Vende"], ["impresion-3d", "10 piezas NFC impresas en 3D"], ["celular", "Pagos Nequi, Daviplata y Bre-B"], ["nfc", "Sellos canjeables en caja"]],
-    precio: "$4.100.000", nota: "+ piezas NFC y mensualidad" },
+    precio: "4 a 6 semanas", nota: "Implementación + piezas NFC + mensualidad" },
 };
 const CAR_CSS = `body { width: 1080px; height: 1350px; } .pieza { height: 1350px; }
 .contador { position: absolute; right: 80px; top: 82px; font-family: "JBM", monospace; font-size: 26px; color: rgba(255,255,255,.6); }
@@ -303,10 +303,10 @@ const carrusel = (c) => [
   `<!doctype html><html><head><style>${BASE}${RED_CSS}${CAR_CSS}${V2_CSS}</style></head><body><div class="pieza verde-fondo" style="position:relative">
 <img class="logo" src="${LOGO_MONO}"><span class="contador" style="color:rgba(17,17,17,.6)">3/3</span>
 <div style="margin-top:170px"><p class="etq" style="color:#111">Paquete ${c.nombre}</p>
-<p style="font-size:34px;font-weight:700;letter-spacing:.14em;text-transform:uppercase">Desde</p>
-<h1 style="font-size:150px">${c.precio}</h1>
+<p style="font-size:34px;font-weight:700;letter-spacing:.14em;text-transform:uppercase">Listo en</p>
+<h1 style="font-size:140px">${c.precio}</h1>
 <p class="sub" style="color:rgba(17,17,17,.8)">${c.nota}</p>
-<p style="font-size:46px;font-weight:800;margin-top:60px;letter-spacing:-.02em">Escríbenos y empieza esta semana.</p></div>
+<p style="font-size:46px;font-weight:800;margin-top:60px;letter-spacing:-.02em">Escríbenos y recibe tu cotización sin compromiso.</p></div>
 ${pieRed(false)}</div></body></html>`,
 ];
 
