@@ -109,7 +109,7 @@ const OGS = {
 };
 
 // ---------------------------------------------------------------- redes sociales
-const WA = "+57 301 221 7575";
+const WA = "+57 301 221 7574";
 const pieRed = (oscuro) => `<div class="pie-red ${oscuro ? "" : "claro"}">
   <span>${ico("whatsapp", 36, oscuro ? "#111111" : "#00c853")} ${WA}</span><span>kayrelabs.com</span></div>`;
 const RED_CSS = `
