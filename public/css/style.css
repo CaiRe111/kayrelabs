@@ -12039,6 +12039,9 @@ section {
 .red.correo {
   --icono: url("../assets/img/Icon/envelope-solid.svg");
 }
+.red.whatsapp {
+  --icono: url("../assets/img/Icon/whatsapp.svg");
+}
 .red.instagram {
   --icono: url("../assets/img/Icon/instagram.svg");
 }
