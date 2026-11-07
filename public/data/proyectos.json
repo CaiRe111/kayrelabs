@@ -347,7 +347,7 @@
     "area": "desarrollo",
     "categoria": "programacion",
     "titulo": "Enlace NFC: tarjeta digital, fidelización y pedidos desde la mesa",
-    "descripcion": "Piezas con chip NFC y QR (PVC, acrílico o impresas en 3D) que abren la tarjeta digital de un negocio con contacto, redes y pagos por Nequi, Daviplata y Bre-B. Incluye tarjeta de sellos con PIN y canje en caja, menú digital por mesa y pedidos desde la mesa con tablero para el empleado. Registro en línea con planes, pagos con comprobante y catálogo de piezas; 4 roles. Cloudflare Workers, D1 y R2.",
+    "descripcion": "Piezas con chip NFC y QR (PVC, acrílico o impresas en 3D) que abren la tarjeta digital de un negocio con contacto, redes y pagos por Nequi, Daviplata y Bre-B. Incluye tarjeta de sellos con PIN y canje en caja, menú digital por mesa y pedidos desde la mesa con tablero para el empleado. Registro en línea con 7 días de prueba gratis, planes con pago por comprobante y catálogo de piezas. Cloudflare Workers, D1 y R2.",
     "imagen": "assets/media/enlace-nfc/portada.webp",
     "enlace": "https://nfc.kayrelabs.com/proyecto/",
     "textoEnlace": "Ver proyecto",
@@ -363,17 +363,12 @@
       {
         "video": "assets/media/enlace-nfc/recorrido-completo.mp4",
         "poster": "assets/media/enlace-nfc/recorrido-completo.jpg",
-        "titulo": "Recorrido completo: registro y aprobación, sellos y canje, y un pedido desde la mesa cobrado en caja (2 min 10 s)",
+        "titulo": "Recorrido completo: registro con prueba gratis, sellos y canje, y un pedido desde la mesa cobrado en caja (2 min 9 s)",
         "controles": true
       },
       {
         "imagen": "assets/media/enlace-nfc/portada.webp",
         "titulo": "Piezas con chip NFC (imagen ilustrativa)"
-      },
-      {
-        "video": "assets/media/enlace-nfc/01-crear-empresa.mp4",
-        "poster": "assets/media/enlace-nfc/01-crear-empresa.jpg",
-        "titulo": "El administrador crea la empresa con nombre, mercado y logo"
       },
       {
         "video": "assets/media/enlace-nfc/02-enlaces-y-pagos.mp4",
@@ -411,19 +406,19 @@
         "titulo": "Clientes registrados y descarga en CSV"
       },
       {
-        "video": "assets/media/enlace-nfc/09-registro-y-aprobacion.mp4",
-        "poster": "assets/media/enlace-nfc/09-registro-y-aprobacion.jpg",
-        "titulo": "Una empresa se registra, elige su plan y el administrador la aprueba"
+        "video": "assets/media/enlace-nfc/09-registro-y-prueba-gratis.mp4",
+        "poster": "assets/media/enlace-nfc/09-registro-y-prueba-gratis.jpg",
+        "titulo": "Una empresa se registra y su página queda publicada con 7 días de prueba gratis"
       },
       {
         "video": "assets/media/enlace-nfc/10-pago-del-plan.mp4",
         "poster": "assets/media/enlace-nfc/10-pago-del-plan.jpg",
-        "titulo": "Pago del plan con comprobante y aprobación"
+        "titulo": "El dueño elige su plan y reporta el pago con el comprobante"
       },
       {
         "video": "assets/media/enlace-nfc/11-catalogo-y-pedido.mp4",
         "poster": "assets/media/enlace-nfc/11-catalogo-y-pedido.jpg",
-        "titulo": "Catálogo de piezas: ventana de la pieza, colores de marca y cotización"
+        "titulo": "Catálogo de piezas: ventana de la pieza, colores de marca y pedido"
       },
       {
         "video": "assets/media/enlace-nfc/12-menu-por-mesa.mp4",
